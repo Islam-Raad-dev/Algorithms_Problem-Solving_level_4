@@ -34,8 +34,8 @@ Advanced problems grouped to simulate real programming growth:
 
 ### 2. Realistic System Projects
 Large-scale projects designed to simulate real-world systems:
-* **Project 1:** [BANK System ]
-* **Project 2:** [ATM System ]
+* **Project 1:** [ BANK System ]
+* **Project 2:** [ ATM System ]
 
 ## 🛠️ Technologies Used
 * **Language:** C++
