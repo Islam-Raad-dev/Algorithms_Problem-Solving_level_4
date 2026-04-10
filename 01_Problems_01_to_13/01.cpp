@@ -55,24 +55,32 @@ string ConvertNumberToText(int Number)
         return ConvertNumberToText(Number / 1000) + "Thousand " + ConvertNumberToText(Number % 1000);
     }
 
-    if (Number >= 200 && Number <= 999)
+    if (Number >= 2000 && Number <= 999999)
     {
-        return ConvertNumberToText(Number / 100) + "Hundred " + ConvertNumberToText(Number % 100);
-    }
-    if (Number >= 200 && Number <= 999)
-    {
-        return ConvertNumberToText(Number / 100) + "Hundred " + ConvertNumberToText(Number % 100);
+        return ConvertNumberToText(Number / 1000) + "Thousand " + ConvertNumberToText(Number % 1000);
     }
 
-    if (Number >= 200 && Number <= 999)
+    if (Number >= 1000000 && Number <= 1999999)
     {
-        return ConvertNumberToText(Number / 100) + "Hundred " + ConvertNumberToText(Number % 100);
+        return ConvertNumberToText(Number / 1000000) + "Million " + ConvertNumberToText(Number % 1000000);
     }
 
-    if (Number >= 200 && Number <= 999)
+    if (Number >= 2000000 && Number <= 999999999)
     {
-        return ConvertNumberToText(Number / 100) + "Hundred " + ConvertNumberToText(Number % 100);
+        return ConvertNumberToText(Number / 1000000) + "Million " + ConvertNumberToText(Number % 1000000);
     }
+
+    if (Number >= 1000000000 && Number <= 1999999999)
+    {
+        return ConvertNumberToText(Number / 1000000000) + "Billion " + ConvertNumberToText(Number % 1000000000);
+    }
+
+    if (Number >= 2000000000 && Number <= 2147483647)
+    {
+        return ConvertNumberToText(Number / 1000000000) + "Billion " + ConvertNumberToText(Number % 1000000000);
+    }
+
+    return "";
 }
 int main()
 {
