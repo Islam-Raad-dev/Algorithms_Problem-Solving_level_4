@@ -28,7 +28,7 @@ The repository is organized to manage the increased volume of challenges:
 Advanced problems grouped to simulate real programming growth:
 * **01_Problems_01_to_13**
 * **02_Problems_14_to_26**
-* **03_Problems_21_to_39**
+* **03_Problems_27_to_39**
 * **04_Problems_40_to_52**
 * **05_Problems_53_to_65**
 
