@@ -36,7 +36,7 @@ bool IsLeapYear(short Year)
         return false;
     }
 }
-short NumberOfDaysinMonth(short Year, short Month)
+short NumberOfDaysInMonth(short Year, short Month)
 {
     switch (Month)
     {
@@ -52,22 +52,6 @@ short NumberOfDaysinMonth(short Year, short Month)
         return 0;
     }
 }
-
-short NumberOfHoursinMonth(short Year, short Month)
-{
-    return NumberOfDaysinMonth(Year, Month) * 24;
-}
-
-int NumberOfMinutesinMonth(short Year, short Month)
-{
-    return NumberOfHoursinMonth(Year, Month) * 60;
-}
-
-int NumberOfSecondsinMonth(short Year, short Month)
-{
-    return NumberOfMinutesinMonth(Year, Month) * 60;
-}
-
 int main()
 {
     short Year = ReadYear();
