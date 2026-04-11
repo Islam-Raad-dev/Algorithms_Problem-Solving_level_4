@@ -79,11 +79,15 @@ short NumberOfSeconds(short Year)
 int main()
 {
     short Year = ReadYear();
+
     cout << "Number Of Days In " << Year << " Is: " << NumberOfDays(Year) << endl;
+
     cout << "Number Of Hours In " << Year << " Is: " << NumberOfHours(Year) << endl;
+
     cout << "Number Of Minutes In " << Year << " Is: " << NumberOfMinutes(Year) << endl;
-    cout << "Number Of Seconds In " << Year << " Is: " << NumberOfSeconds(Year) << endl;
     
+    cout << "Number Of Seconds In " << Year << " Is: " << NumberOfSeconds(Year) << endl;
+
 
     return 0;
 }
