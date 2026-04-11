@@ -36,6 +36,7 @@ bool IsLeapYear(short Year)
         return false;
     }
 }
+
 short NumberOfDaysInMonth(short Year, short Month)
 {
     if (Month < 1 || Month > 12)
