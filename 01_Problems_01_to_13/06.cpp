@@ -1,10 +1,10 @@
 /*
 
-Number Of Days-Hours-Minutes-Seconds in Months (Short Version)
+Number Of Days in Months (Short Version)
 
 */
-#include <iostream> 
-using namespace std;  
+#include <iostream>
+using namespace std;
 
 short ReadYear()
 {
@@ -38,12 +38,12 @@ bool IsLeapYear(short Year)
 }
 short NumberOfDaysInMonth(short Year, short Month)
 {
-    if(Month < 1 || Month > 12)
-    return 0;
+    if (Month < 1 || Month > 12)
+        return 0;
 
-    int NumberOfDays[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int NumberOfDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-    return (Month == 2) ? (IsLeapYear(Year))
+    return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
 }
 int main()
 {
@@ -52,14 +52,7 @@ int main()
 
     cout << "\n\n";
 
-    cout << "Number Of Days In " << Month << " Is: " << NumberOfDaysinMonth(Year, Month) << endl;
-
-    cout << "Number Of Hours In " << Month << " Is: " << NumberOfHoursinMonth(Year, Month) << endl;
-
-    cout << "Number Of Minutes In " << Month << " Is: " << NumberOfMinutesinMonth(Year, Month) << endl;
-
-    cout << "Number Of Seconds In " << Month << " Is: " << NumberOfSecondsinMonth(Year, Month) << endl;
-
+    cout << "Number of Day In Month [ " << Month << " ] Is [ " << NumberOfDaysInMonth(Year, Month) << " ]" << endl;
 
     return 0;
 }
