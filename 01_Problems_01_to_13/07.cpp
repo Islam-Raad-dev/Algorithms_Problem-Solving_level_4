@@ -52,7 +52,7 @@ string GetMonthName(short Month)
 {
     string MonthNames[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
                              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-                             
+
     if (Month < 1 || Month > 12)
         return "Invalid Month";
 
@@ -70,6 +70,7 @@ int main()
     cout << "\n\n";
 
     PrintCalendar(Year, Month);
+    
     return 0;
 
 }
