@@ -3,7 +3,7 @@
 Number Of Days-Hours-Minutes-Seconds in Years
 
 */
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 short ReadYear()
@@ -26,5 +26,11 @@ bool IsLeapYear(short Year)
     {
         return false;
     }
-    
+}
+
+int main()
+{
+    short Year = ReadYear();
+
+    return 0;
 }
