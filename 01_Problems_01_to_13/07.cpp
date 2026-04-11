@@ -26,6 +26,17 @@ short ReadMonth()
 
     return Month;
 }
+
+short ReadDay()
+{
+    short Day;
+
+    cout << "\n\nPlease Enter A Day Number: ";
+    cin >> Day;
+
+    return Day;
+
+}
 bool IsLeapYear(short Year)
 {
     if (Year % 4 == 0 && Year % 100 != 0 || Year % 400 == 0)
@@ -43,11 +54,9 @@ int main()
 {
     short Year = ReadYear();
     short Month = ReadMonth();
-
+    short Day = ReadDay();
 
     cout << "\n\n";
-
-    PrintMonthCalendar(Year, Month);
 
     return 0;
 }
