@@ -76,14 +76,27 @@ void PrintMonthCalendar(short Year, short Month)
 
     int Current = DayOfWeekOrder(1, Month, Year);
 
-    printf("\n----------------%s ----------------\n\n",
+    printf("\n----------------%s----------------\n\n",
            GetMonthName(Month).c_str());
 
     printf(" Sun  Mon  Tue  Wed  Thu  Fri  Sat\n");
-
     int i;
+
     for (i = 0; i < Current; i++)
         printf("     ");
+
+    for (int j = 1; j <= NumberOfDays; j++)
+    {
+        printf("%3d  ", j);
+
+        if (++i == 7)
+        {
+            i = 0;
+            printf("\n");
+        }
+    }
+
+    printf("\n----------------------------------------\n");
 }
 
 int main()
