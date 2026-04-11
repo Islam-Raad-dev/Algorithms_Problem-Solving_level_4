@@ -27,6 +27,10 @@ bool IsLeapYear(short Year)
         return false;
     }
 }
+int NumberOfDays(short Year)
+{
+    
+}
 
 int main()
 {
