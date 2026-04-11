@@ -58,7 +58,7 @@ string GetMonthName(short Month)
 
     return MonthNames[Month - 1];
 }
-void PrintCalendar(short Year, short Month)
+void PrintMonthCalendar(short Year, short Month)
 {
 
 }
@@ -69,8 +69,8 @@ int main()
 
     cout << "\n\n";
 
-    PrintCalendar(Year, Month);
-    
+    PrintMonthCalendar(Year, Month);
+
     return 0;
 
 }
