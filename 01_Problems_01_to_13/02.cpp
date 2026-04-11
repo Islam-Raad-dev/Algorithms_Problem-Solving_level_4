@@ -4,7 +4,7 @@ Leap Year
 
 
 */
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 short ReadYear()
@@ -15,4 +15,32 @@ short ReadYear()
     cin >> Year;
 
     return Year;
+}
+
+bool IsLeapYear(short Year)
+{
+    if (Year % 4 == 0 && Year % 100 != 0 || Year % 400 == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+int main()
+{
+    short Year = ReadYear();
+
+    if (IsLeapYear(Year))
+    {
+        cout << Year << " Is A Leap Year.";
+    }
+    else
+    {
+        cout << Year << " Is Not A Leap Year.";
+    }
+
+    return 0;
 }
