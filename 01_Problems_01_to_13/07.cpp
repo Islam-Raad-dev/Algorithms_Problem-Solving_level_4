@@ -48,9 +48,19 @@ short NumberOfDaysInMonth(short Year, short Month)
     return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
 }
 
+string GetMonthName(short Month)
+{
+    string MonthNames[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                             "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+                             
+    if (Month < 1 || Month > 12)
+        return "Invalid Month";
+
+    return MonthNames[Month - 1];
+}
 void PrintCalendar(short Year, short Month)
 {
-    
+
 }
 int main()
 {
