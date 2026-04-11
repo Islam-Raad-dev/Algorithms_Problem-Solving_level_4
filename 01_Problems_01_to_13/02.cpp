@@ -7,9 +7,9 @@ Leap Year
 #include<iostream>
 using namespace std;
 
-int ReadYear()
+short ReadYear()
 {
-    int Year;
+    short Year;
 
     cout << "Please Enter A Year: ";
     cin >> Year;
