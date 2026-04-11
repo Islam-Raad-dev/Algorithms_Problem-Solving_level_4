@@ -26,6 +26,19 @@ short ReadMonth()
 
     return Month;
 }
+short DayOfWeekOrder(short Year, short Month, short Day)
+{
+    if (Month < 3)
+    {
+        Month += 12;
+        Year -= 1;
+    }
+
+    int K = Year % 100;
+    int J = Year / 100;
+
+    return (Day + (13 * (Month + 1)) / 5 + K + (K / 4) + (J / 4) - (2 * J)) % 7;
+}
 bool IsLeapYear(short Year)
 {
     if (Year % 4 == 0 && Year % 100 != 0 || Year % 400 == 0)
@@ -58,9 +71,22 @@ string GetMonthName(short Month)
 
     return MonthNames[Month - 1];
 }
+
+
 void PrintMonthCalendar(short Year, short Month)
 {
+    int NumberOfDays = NumberOfDaysInMonth(Year, Month);
 
+    int Current = DayOfWeekOrder(Year, Month, 1);
+
+    printf("\n----------------%s ----------------\n\n",
+         GetMonthName(Month).c_str());
+
+    printf(" Sun  Mon  Tue  Wed  Thu  Fri  Sat\n");
+
+    int i;
+    for (i = 0; i < Current; i++)
+        printf("     ");
 }
 int main()
 {
