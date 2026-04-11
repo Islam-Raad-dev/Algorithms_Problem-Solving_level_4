@@ -4,6 +4,7 @@ Mount Calendar
 
 */
 #include <iostream> 
+#include <iomanip>
 using namespace std;  
 
 short ReadYear()
@@ -47,10 +48,18 @@ short NumberOfDaysInMonth(short Year, short Month)
     return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
 }
 
+void PrintCalendar(short Year, short Month)
+{
+    
+}
 int main()
 {
     short Year = ReadYear();
     short Month = ReadMonth();
 
     cout << "\n\n";
+
+    PrintCalendar(Year, Month);
+    return 0;
+
 }
