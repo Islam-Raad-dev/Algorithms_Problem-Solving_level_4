@@ -1,11 +1,11 @@
 /*
 
-Mount Calendar 
+Mount Calendar
 
 */
-#include <iostream> 
+#include <iostream>
 #include <iomanip>
-using namespace std;  
+using namespace std;
 
 short ReadYear()
 {
@@ -28,7 +28,7 @@ short ReadMonth()
 }
 short DayOfWeekOrder(short Year, short Month, short Day)
 {
-    short a , y, m;
+    short a, y, m;
 
     a = (14 - Month) / 12;
     y = Year - a;
@@ -70,7 +70,6 @@ string GetMonthName(short Month)
     return MonthNames[Month - 1];
 }
 
-
 void PrintMonthCalendar(short Year, short Month)
 {
     int NumberOfDays = NumberOfDaysInMonth(Year, Month);
@@ -78,7 +77,7 @@ void PrintMonthCalendar(short Year, short Month)
     int Current = DayOfWeekOrder(1, Month, Year);
 
     printf("\n----------------%s ----------------\n\n",
-         GetMonthName(Month).c_str());
+           GetMonthName(Month).c_str());
 
     printf(" Sun  Mon  Tue  Wed  Thu  Fri  Sat\n");
 
@@ -86,6 +85,7 @@ void PrintMonthCalendar(short Year, short Month)
     for (i = 0; i < Current; i++)
         printf("     ");
 }
+
 int main()
 {
     short Year = ReadYear();
@@ -96,5 +96,4 @@ int main()
     PrintMonthCalendar(Year, Month);
 
     return 0;
-
 }
