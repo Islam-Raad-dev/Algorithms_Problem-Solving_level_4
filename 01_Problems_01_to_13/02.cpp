@@ -35,11 +35,11 @@ int main()
 
     if (IsLeapYear(Year))
     {
-        cout << Year << " Is A Leap Year.";
+        cout << Year << " Is A Leap Year.\n";
     }
     else
     {
-        cout << Year << " Is Not A Leap Year.";
+        cout << Year << " Is Not A Leap Year.\n";
     }
 
     return 0;
