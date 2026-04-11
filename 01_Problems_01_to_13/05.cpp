@@ -4,7 +4,7 @@ Number Of Days-Hours-Minutes-Seconds in Months
 
 */
 #include <iostream>
-using namespace std;
+using namespace std; 
 
 short ReadYear()
 {
@@ -45,7 +45,7 @@ short NumberOfDaysinMonth(short Year, short Month)
 
     case 4: case 6: case 9: case 11:
         return 30;
-        
+
     case 2:
         return IsLeapYear(Year) ? 29 : 28;
     default:
