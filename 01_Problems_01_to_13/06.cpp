@@ -41,7 +41,9 @@ short NumberOfDaysInMonth(short Year, short Month)
     if(Month < 1 || Month > 12)
     return 0;
 
-    int NumberOfDays[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, };
+    int NumberOfDays[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    return (Month == 2) ? (IsLeapYear(Year))
 }
 int main()
 {
