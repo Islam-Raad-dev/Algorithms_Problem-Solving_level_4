@@ -38,19 +38,10 @@ bool IsLeapYear(short Year)
 }
 short NumberOfDaysInMonth(short Year, short Month)
 {
-    switch (Month)
-    {
-    case 1: case 3: case 5: case 7: case 8: case 10: case 12:
-        return 31;
+    if(Month < 1 || Month > 12)
+    return 0;
 
-    case 4: case 6: case 9: case 11:
-        return 30;
-
-    case 2:
-        return IsLeapYear(Year) ? 29 : 28;
-    default:
-        return 0;
-    }
+    int NumberOfDays[12] = { 31, 28, 31, 30, 31, }
 }
 int main()
 {
