@@ -44,7 +44,7 @@ short ReadDay()
     return Day;
 }
 
-short ReadDays()
+short ReadAddingDays()
 {
     short Days;
 
@@ -124,8 +124,8 @@ int main()
     short Year = ReadYear();
     short Month = ReadMonth();
     short Day = ReadDay();
+    short Days = ReadAddingDays();
     short DaysOrderInYear = DaysFromBeginningOfYear(Year, Month, Day);
-    short Days = ReadDays();
 
 
     cout << "\nNumber Of Days From The Beginning Of The Year is " << DaysOrderInYear << endl;
