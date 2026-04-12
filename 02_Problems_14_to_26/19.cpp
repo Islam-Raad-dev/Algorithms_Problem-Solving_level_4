@@ -128,6 +128,7 @@ int GetDiffrenceInDays(sDate Date1, sDate Date2, bool IncludeEndDate = false)
 
     if(!IsDate1LessThanDate2(Date1, Date2))
     {
+        //Swap Dates
         SwapDates(Date1, Date2);
         SwaoFlagValue = -1;
     }
