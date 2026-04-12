@@ -86,9 +86,11 @@ bool IsLastMonthInYear(short Month)
     return (Month == 12);
 }
 
-bool IsDate1LessThanDate2(sDate Date1, sDate Date2)
+bool IsDate2LessThanDate1(sDate Date1, sDate Date2)
 {
-    return (Date1.Year < Date2.Year) ? true : (Date1.Year == Date2.Year &&    Date1.Month < Date2.Month) ? true : (Date1.Year == Date2.Year && Date1.Month == Date2.Month && Date1.Day < Date2.Day) ? true : false;
+
+    return (Date2.Year < Date1.Year) ? true : (Date2.Year == Date1.Year &&    Date2.Month < Date1.Month) ? true : (Date2.Year == Date1.Year && Date2.Month == Date1.Month && Date2.Day < Date1.Day) ? true : false;
+    
 }
 sDate IncreaseDateByOneDay(sDate Date)
 {
@@ -113,25 +115,11 @@ sDate IncreaseDateByOneDay(sDate Date)
     return Date;
 }
 
-sDate GetSystemDate()
-{
-    sDate Date;
-
-    time_t t = time(0);
-    tm *Now = localtime(&t);
-
-    Date.Year = Now->tm_year + 1900;
-    Date.Month = Now->tm_mon + 1;
-    Date.Day = Now->tm_mday;
-
-    return Date;
-}
-
 int GetDiffrenceInDays(sDate Date1, sDate Date2, bool IncludeEndDate = false)
 {
     int Days = 0;
 
-    while (IsDate1LessThanDate2(Date1, Date2))
+    while (IsDate2LessThanDate1(Date1, Date2))
     {
         Date1 = IncreaseDateByOneDay(Date1);
         Days++;
