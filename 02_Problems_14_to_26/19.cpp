@@ -17,7 +17,7 @@ short ReadYear()
 {
     short Year;
 
-    cout << "Please Enter A Year: ";
+    cout << "\nPlease Enter A Year: ";
     cin >> Year;
 
     return Year;
@@ -137,8 +137,6 @@ int GetDiffrenceInDays(sDate Date1, sDate Date2, bool IncludeEndDate = false)
     {
         Days++;
         Date1 = IncreaseDateByOneDay(Date1);
-
-        if(SwaoFlagValue == -1)
     }
 
     return (IncludeEndDate) ? ++Days : Days;
@@ -146,8 +144,6 @@ int GetDiffrenceInDays(sDate Date1, sDate Date2, bool IncludeEndDate = false)
 
 int main()
 {
-    cout <<"\n Please Enter Your Birth Date: \n\n";
-
     sDate Date1 = ReadFullDate();
     sDate Date2 = ReadFullDate();
 
