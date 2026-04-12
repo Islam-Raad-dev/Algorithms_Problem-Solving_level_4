@@ -67,13 +67,9 @@ sDate ReadFullDate()
 bool IsLeapYear(short Year)
 {
     if (Year % 4 == 0 && Year % 100 != 0 || Year % 400 == 0)
-    {
         return true;
-    }
     else
-    {
         return false;
-    }
 }
 
 short NumberOfDaysInMonth(short Year, short Month)
@@ -88,16 +84,12 @@ short NumberOfDaysInMonth(short Year, short Month)
 
 bool IsLastDayInMonth(sDate Date1)
 {
-    
     return (Date1.Day == NumberOfDaysInMonth(Date1.Year, Date1.Month)) ? true : false;
-
 }
 
 bool IsLastMonthInYear(sDate Date1)
 {
-
     return (Date1.Month == 12) ? true : false;
-
 }
 
 int main()
@@ -105,24 +97,18 @@ int main()
     sDate Date1 = ReadFullDate();
 
     if (IsLastDayInMonth(Date1))
-    {
         cout << "\nYes, The Day Is Last Day In The Month.";
-    }
 
     else
-    {
         cout << "\nNo, The Day Is Not Last Day In The Month.";
-    }
+
+
 
     if (IsLastMonthInYear(Date1))
-    {
         cout << "\nYes, The Month Is Last Month In The Year.\n";
-    }
-
+        
     else
-    {
         cout << "\nNo, The Month Is Not Last Month In The Year.\n";
-    }
 
     return 0;
 }
