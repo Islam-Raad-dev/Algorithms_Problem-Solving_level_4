@@ -93,3 +93,62 @@ bool IsLastMonthInYear(sDate Date1)
     return (Date1.Month == 12);
 }
 
+bool IsDate1LessThanDate2(sDate Date1, sDate Date2)
+{
+
+    return (Date1.Year < Date2.Year) ? true : false;
+}
+
+sDate IncreaseDateByOneDay(sDate Date)
+{
+    if (IsLastDayInMonth(Date))
+    {
+        if (IsLastMonthInYear(Date.Month))
+        {
+            Date.Month = 1;
+            Date.Day = 1;
+            Date.Year++;
+        }
+        else
+        {
+            Date.Month++;
+            Date.Day = 1;
+        }
+    }
+    else
+    {
+        Date.Day++;
+    }
+    return Date;
+}
+
+short GetDiffInDays(sDate Date1, sDate Date2)
+{
+    short Diff = 0;
+
+    while (!IsDate1EqualDate2(Date1, Date2))
+    {
+        Date1 = IncreaseDateByOneDay(Date1);
+        Diff++;
+    }
+
+    return Diff;
+}
+int main()
+{
+
+    sDate Date1 = ReadFullDate();
+    sDate Date2 = ReadFullDate();
+
+    if (IsDate1LessThanDate2(Date1, Date2))
+    {
+        cout << "\n\nThe Diffrence is: " << GetDiffInDays(Date1, Date2) << " Days.";
+
+        cout << "\n\nDiffrence (Including End Day) is: " << GetDiffInDays(Date1, Date2) + 1 << " Days.";
+    }
+
+    else
+        cout << "\n\nDate1 Is Not Less Than Date2.";
+
+    return 0;
+}
