@@ -139,7 +139,7 @@ int GetDiffrenceInDays(sDate Date1, sDate Date2, bool IncludeEndDate = false)
         Date1 = IncreaseDateByOneDay(Date1);
     }
 
-    return (IncludeEndDate) ? ++Days : Days;
+    return (IncludeEndDate) ? ++Days * SwaoFlagValue : Days * SwaoFlagValue;
 }
 
 int main()
