@@ -52,7 +52,7 @@ short ReadDayToAdd()
 
     return Days;
 }
-
+ 
 sDate ReadFullDate()
 {
     sDate Date;
