@@ -124,7 +124,7 @@ int main()
     short Year = ReadYear();
     short Month = ReadMonth();
     short Day = ReadDay();
-    short Days = ReadAddingDays();
+    short DaysAdding = ReadAddingDays();
     short DaysOrderInYear = DaysFromBeginningOfYear(Year, Month, Day);
 
 
@@ -135,7 +135,7 @@ int main()
     sDate Date;
 
     Date = GetDateFromDayOrderInYear(Year, DaysOrderInYear);
-    cout << "Date For [" << DaysOrderInYear << "] Is: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"
+    cout << "Date After Adding [" << DaysAdding << "] Days Is: "<< Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"
          << endl;
 
     return 0;
