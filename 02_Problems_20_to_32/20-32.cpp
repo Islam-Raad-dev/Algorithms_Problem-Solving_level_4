@@ -110,7 +110,7 @@ sDate IncreaseDateByOneDay(sDate Date)
     return Date;
 }
 
-sDate IncreaseDateByNDays(sDate Date, short Days)
+sDate IncreaseDateByXDays(sDate Date, short Days)
 {
     for (short i = 0; i < Days; i++)
     {
@@ -121,10 +121,14 @@ sDate IncreaseDateByNDays(sDate Date, short Days)
 
 sDate IncreaseDateByOneWeek(sDate Date)
 {
-    return IncreaseDateByNDays(Date, 7);
+    return IncreaseDateByXDays(Date, 7);
 }
 
-sDate IncreaseDateByNMonths(sDate Date, short Months)
+sDate IncreaseDateByXWeeks(sDate Date, short Weeks)
+{
+    return IncreaseDateByXDays(Date, Weeks * 7);
+}
+sDate IncreaseDateByXMonths(sDate Date, short Months)
 {
     for (short i = 0; i < Months; i++)
     {
@@ -143,10 +147,10 @@ sDate IncreaseDateByNMonths(sDate Date, short Months)
 
 sDate IncreaseDateByOneMonth(sDate Date)
 {
-    return IncreaseDateByNMonths(Date, 1);
+    return IncreaseDateByXMonths(Date, 1);
 }
 
-sDate IncreaseDateByNYears(sDate Date, short Years)
+sDate IncreaseDateByXYears(sDate Date, short Years)
 {
     Date.Year += Years;
     return Date;
@@ -154,14 +158,14 @@ sDate IncreaseDateByNYears(sDate Date, short Years)
 
 sDate IncreaseDateByOneYear(sDate Date)
 {
-    return IncreaseDateByNYears(Date, 1);
+    return IncreaseDateByXYears(Date, 1);
 }
 
 sDate IncreaseDateByXYYearFaster(sDate Date, short Years, short Months, short Days)
 {
-    Date = IncreaseDateByNYears(Date, Years);
-    Date = IncreaseDateByNMonths(Date, Months);
-    Date = IncreaseDateByNDays(Date, Days);
+    Date = IncreaseDateByXYears(Date, Years);
+    Date = IncreaseDateByXMonths(Date, Months);
+    Date = IncreaseDateByXDays(Date, Days);
     return Date;
 }
 
