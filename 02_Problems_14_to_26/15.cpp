@@ -90,7 +90,7 @@ bool IsLastDayInMonth(sDate Date1)
 {
     
     return (Date1.Day == NumberOfDaysInMonth(Date1.Year, Date1.Month)) ? true : false;
-    
+
 }
 
 bool IsLastMonthInYear(sDate Date1)
@@ -116,12 +116,12 @@ int main()
 
     if (IsLastMonthInYear(Date1))
     {
-        cout << "\nYes, The Month Is Last Month In The Year.";
+        cout << "\nYes, The Month Is Last Month In The Year.\n";
     }
 
     else
     {
-        cout << "\nNo, The Month Is Not Last Month In The Year.";
+        cout << "\nNo, The Month Is Not Last Month In The Year.\n";
     }
 
     return 0;
