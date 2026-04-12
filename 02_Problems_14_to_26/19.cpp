@@ -124,22 +124,22 @@ void SwapDates(sDate &Date1, sDate &Date2)
 int GetDiffrenceInDays(sDate Date1, sDate Date2, bool IncludeEndDate = false)
 {
     int Days = 0;
-    short SwaoFlagValue = 0;
+    short SwapFlagValue = 1;
 
-    if(!IsDate1LessThanDate2(Date1, Date2))
+    if (!IsDate1LessThanDate2(Date1, Date2))
     {
         //Swap Dates
         SwapDates(Date1, Date2);
-        SwaoFlagValue = -1;
+        SwapFlagValue = -1;
     }
 
-    while (!IsDate1LessThanDate2(Date2, Date1))
+    while (IsDate1LessThanDate2(Date1, Date2))
     {
         Days++;
         Date1 = IncreaseDateByOneDay(Date1);
     }
 
-    return (IncludeEndDate) ? ++Days * SwaoFlagValue : Days * SwaoFlagValue;
+    return (IncludeEndDate) ? (++Days * SwapFlagValue) : (Days * SwapFlagValue);
 }
 
 int main()
