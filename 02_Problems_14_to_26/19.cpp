@@ -86,11 +86,9 @@ bool IsLastMonthInYear(short Month)
     return (Month == 12);
 }
 
-bool IsDate2LessThanDate1(sDate Date1, sDate Date2)
+bool IsDate1LessThanDate2(sDate Date1, sDate Date2)
 {
-
-    return (Date2.Year < Date1.Year) ? true : (Date2.Year == Date1.Year &&    Date2.Month < Date1.Month) ? true : (Date2.Year == Date1.Year && Date2.Month == Date1.Month && Date2.Day < Date1.Day) ? true : false;
-    
+    return (Date1.Year < Date2.Year) ? true : (Date1.Year == Date2.Year &&    Date1.Month < Date2.Month) ? true : (Date1.Year == Date2.Year && Date1.Month == Date2.Month && Date1.Day < Date2.Day) ? true : false;
 }
 sDate IncreaseDateByOneDay(sDate Date)
 {
@@ -119,7 +117,7 @@ int GetDiffrenceInDays(sDate Date1, sDate Date2, bool IncludeEndDate = false)
 {
     int Days = 0;
 
-    while (IsDate2LessThanDate1(Date1, Date2))
+    while (IsDate1LessThanDate2(Date1, Date2))
     {
         Date1 = IncreaseDateByOneDay(Date1);
         Days++;
@@ -132,7 +130,7 @@ int main()
 {
     cout <<"\n Please Enter Your Birth Date: \n\n";
 
-    sDate Date1 = ReadFullDate();
+    sDate Date = ReadFullDate();
     sDate Date2 = ReadFullDate();
 
     cout << "\n\nThe Diffrence is: " << GetDiffrenceInDays(Date1, Date2) << " Days." << endl;
