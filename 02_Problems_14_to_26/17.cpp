@@ -1,6 +1,6 @@
 /*
 
-Diff In Days
+Difference In Days
 
 */
 
@@ -95,14 +95,15 @@ bool IsLastMonthInYear(short Month)
 
 bool IsDate1LessThanDate2(sDate Date1, sDate Date2)
 {
-    return (Date1.Year < Date2.Year) ? true : (Date1.Year == Date2.Year && Date1.Month < Date2.Month) ? true : (Date1.Year == Date2.Year && Date1.Month == Date2.Month && Date1.Day < Date2.Day) ? true : false;
+    return (Date1.Year < Date2.Year) ? true : (Date1.Year == Date2.Year && Date1.Month < Date2.Month)                         ? true
+                                          : (Date1.Year == Date2.Year && Date1.Month == Date2.Month && Date1.Day < Date2.Day) ? true
+                                                                                                                              : false;
 }
 
 bool IsDate1EqualDate2(sDate Date1, sDate Date2)
 {
-    
-    return (Date1.Year == Date2.Year && Date1.Month == Date2.Month && Date1.Day == Date2.Day) ? true : false;
 
+    return (Date1.Year == Date2.Year && Date1.Month == Date2.Month && Date1.Day == Date2.Day) ? true : false;
 }
 
 sDate IncreaseDateByOneDay(sDate Date)
@@ -128,33 +129,29 @@ sDate IncreaseDateByOneDay(sDate Date)
     return Date;
 }
 
-short GetDiffrenceInDays(sDate Date1, sDate Date2)
+int GetDiffrenceInDays(sDate Date1, sDate Date2, bool IncludeEndDate = false)
 {
-    short Diff = 0;
+    int Days = 0;
 
-    while (!IsDate1EqualDate2(Date1, Date2))
+    while (IsDate1LessThanDate2(Date1, Date2))
     {
         Date1 = IncreaseDateByOneDay(Date1);
-        Diff++;
+        Days++;
     }
 
-    return Diff;
+    return (IncludeEndDate) ? ++Days : Days;
 }
+
 int main()
 {
 
     sDate Date1 = ReadFullDate();
     sDate Date2 = ReadFullDate();
 
-    if (IsDate1LessThanDate2(Date1, Date2))
-    {
-        cout << "\n\nThe Diffrence is: " << GetDiffrenceInDays(Date1, Date2) << " Days." << endl;
+    cout << "\n\nThe Diffrence is: " << GetDiffrenceInDays(Date1, Date2) << " Days." << endl;
 
-        cout << "\nDiffrence (Including End Day) is: " << GetDiffrenceInDays(Date1, Date2) + 1 << " Days.\n" << endl;
-    }
-
-    else
-        cout << "\n\nDate 1 Is Not Less Than Date 2.";
+    cout << "\nDiffrence (Including End Day) is: " << GetDiffrenceInDays(Date1, Date2, true) << " Days.\n"
+         << endl;
 
     return 0;
 }
