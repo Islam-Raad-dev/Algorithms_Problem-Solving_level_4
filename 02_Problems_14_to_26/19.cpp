@@ -144,7 +144,7 @@ int main()
 {
     cout <<"\n Please Enter Your Birth Date: \n\n";
 
-    sDate Date = ReadFullDate();
+    sDate Date1 = ReadFullDate();
     sDate Date2 = ReadFullDate();
 
     cout << "\n\nThe Diffrence is: " << GetDiffrenceInDays(Date1, Date2) << " Days." << endl;
