@@ -52,7 +52,7 @@ short ReadDayToAdd()
 
     return Days;
 }
- 
+
 sDate ReadFullDate()
 {
     sDate Date;
@@ -64,26 +64,36 @@ sDate ReadFullDate()
     return Date;
 }
 
-bool IsDate1BeforDate2(sDate Date1, sDate Date2)
+bool IsLastDayInMonth(sDate Date1)
 {
-    
-    return (Date1.Year < Date2.Year) ? true : (Date1.Year == Date2.Year && Date1.Month < Date2.Month) ? true : (Date1.Year == Date2.Year && Date1.Month == Date2.Month && Date1.Day < Date2.Day) ? true : false;
+}
 
+bool IsLastMonthInYear(sDate Date1)
+{
 }
 
 int main()
 {
     sDate Date1 = ReadFullDate();
-    sDate Date2 = ReadFullDate();
 
-    if (IsDate1BeforDate2(Date1, Date2))
+    if (IsLastDayInMonth(Date1))
     {
-        cout << "\nYes, Date1 Is Less Than Date2.";
+        cout << "\nYes, The Day Is Last Day In The Month.";
     }
 
     else
     {
-        cout << "\nNo, Date1 Is Not Less Than Date2.";
+        cout << "\nNo, The Day Is Not Last Day In The Month.";
+    }
+
+    if (IsLastMonthInYear(Date1))
+    {
+        cout << "\nYes, The Month Is Last Month In The Year.";
+    }
+
+    else
+    {
+        cout << "\nNo, The Month Is Not Last Month In The Year.";
     }
 
     return 0;
