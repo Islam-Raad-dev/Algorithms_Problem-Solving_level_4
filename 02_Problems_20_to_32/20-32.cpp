@@ -198,5 +198,29 @@ int main()
 {
     sDate Date = ReadFullDate();
 
+    
+    cout << "\n\nIncreasing Date By One Day: " << IncreaseDateByOneDay(Date).Day << "/" << IncreaseDateByOneDay(Date).Month << "/" << IncreaseDateByOneDay(Date).Year;
+
+
+    cout << "\n\nIncreasing Date By One Week: " << IncreaseDateByOneWeek(Date).Day << "/" << IncreaseDateByOneWeek(Date).Month << "/" << IncreaseDateByOneWeek(Date).Year;
+
+
+    cout << "\n\nIncreasing Date By One Month: " << IncreaseDateByOneMonth(Date).Day << "/" << IncreaseDateByOneMonth(Date).Month << "/" << IncreaseDateByOneMonth(Date).Year;
+
+
+    cout << "\n\nIncreasing Date By One Year: " << IncreaseDateByOneYear(Date).Day << "/" << IncreaseDateByOneYear(Date).Month << "/" << IncreaseDateByOneYear(Date).Year;
+
+
+    cout << "\n\nIncreasing Date By One Decade: " << IncreaseDateByOneDecade(Date, 10, 10, 1).Day << "/" << IncreaseDateByOneDecade(Date, 10, 10, 1).Month << "/" << IncreaseDateByOneDecade(Date, 10, 10, 1).Year;
+
+
+    cout << "\n\nIncreasing Date By One Century: " << IncreaseDateByOneCentury(Date, 100, 10, 1).Day << "/" << IncreaseDateByOneCentury(Date, 100, 10, 1).Month << "/" << IncreaseDateByOneCentury(Date, 100, 10, 1).Year;
+
+
+    cout << "\n\nIncreasing Date By One Millennium: " << IncreaseDateByOneMillennium(Date, 10, 10, 1).Day << "/" << IncreaseDateByOneMillennium(Date, 10, 10, 1).Month << "/" << IncreaseDateByOneMillennium(Date, 10, 10, 1).Year;
+
+
+    cout << "\n\n";
+
     return 0;
 }
