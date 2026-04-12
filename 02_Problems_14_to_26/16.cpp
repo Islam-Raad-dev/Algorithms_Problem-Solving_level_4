@@ -87,6 +87,17 @@ short NumberOfDaysInMonth(short Year, short Month)
     return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
 }
 
+bool IsLastDayInMonth(sDate Date1)
+{
+    return (Date1.Day == NumberOfDaysInMonth(Date1.Year, Date1.Month));
+}
+
+bool IsLastMonthInYear(sDate Date1)
+{
+    return (Date1.Month == 12);
+}
+
+
 sDate IncreaseDateByOneDay(sDate Date)
 {
     if (Date.Day == NumberOfDaysInMonth(Date.Year, Date.Month))
