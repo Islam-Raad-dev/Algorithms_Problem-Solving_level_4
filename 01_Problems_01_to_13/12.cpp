@@ -132,7 +132,7 @@ sDate GetDateFromDayOrderInYear(short Year, short DateOrderInYear)
 
 sDate AddingDaysToDate(sDate Date, short Days)
 {
-    short RemainingDays = Days + NumberOfDaysInMonth(Date, Date.Month, Date.Year);
+    short RemainingDays = Days + NumberOfDaysInMonth(Date.Month, Date.Year);
     short MonthDays = 0;
 
     Date.Month = 1;
@@ -159,6 +159,8 @@ sDate AddingDaysToDate(sDate Date, short Days)
             break;
         }
     }
+
+    return Date;
 }
 
 int main()
