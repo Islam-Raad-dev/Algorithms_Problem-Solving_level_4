@@ -54,7 +54,8 @@ short ReadDayToAdd()
     return Days;
 }
 
-sDate ReadFullDate(){
+sDate ReadFullDate()
+{
     sDate Date;
 
     Date.Year = ReadYear();
@@ -136,7 +137,28 @@ sDate AddingDaysToDate(sDate Date, short Days)
 
     Date.Month = 1;
 
-    
+    while (true)
+    {
+        MonthDays = NumberOfDaysInMonth(Date.Month, Date.Year);
+
+        if (RemainingDays > MonthDays)
+        {
+            RemainingDays -= MonthDays;
+            Date.Month++;
+        }
+
+        if (Date.Month > 12)
+        {
+            Date.Month = 1;
+            Date.Year++;
+        }
+
+        else
+        {
+            Date.Day = RemainingDays;
+            break;
+        }
+    }
 }
 
 int main()
@@ -144,11 +166,9 @@ int main()
     sDate Date = ReadFullDate();
     short Days = ReadDayToAdd();
 
-
-
     Date = AddingDaysToDate(Date, Days);
 
-    cout << "Date After Adding [" <<Days << "] Days Is: "<< Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"
+    cout << "Date After Adding [ " << Days << " ] Days Is: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"
          << endl;
 
     return 0;
