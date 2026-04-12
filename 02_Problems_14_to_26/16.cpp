@@ -116,8 +116,7 @@ int main()
 
     Date = IncreaseDateByOneDay(Date);
 
-    cout << "Date After Adding One Day Is: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"
-         << endl;
+    cout << "Date After Adding One Day Is: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"<< endl;
 
     return 0;
 }
