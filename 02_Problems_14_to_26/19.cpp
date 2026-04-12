@@ -113,29 +113,32 @@ sDate IncreaseDateByOneDay(sDate Date)
     return Date;
 }
 
-sDate ResultInMinutes()
+void SwapDates(sDate &Date1, sDate &Date2)
 {
 
-}
+    sDate Temp = Date1;
+    Date1 = Date2;
+    Date2 = Temp;
 
+}
 int GetDiffrenceInDays(sDate Date1, sDate Date2, bool IncludeEndDate = false)
 {
     int Days = 0;
+    short SwaoFlagValue = 0;
 
-    if(IsDate1LessThanDate2(Date1, Date2))
+    if(!IsDate1LessThanDate2(Date1, Date2))
     {
-        while (IsDate1LessThanDate2(Date1, Date2))
-        {
-            Date1 = IncreaseDateByOneDay(Date1);
-            Days++;
-        }
+        SwapDates(Date1, Date2);
+        SwaoFlagValue = -1;
     }
-    else
+
+    while (!IsDate1LessThanDate2(Date2, Date1))
     {
-         while (!IsDate1LessThanDate2(Date2, Date1))
-        {
-            ResultInMinutes();
-        }
+        Days++;
+        Date1 = IncreaseDateByOneDay(Date1);
+
+        if(SwaoFlagValue == -1)
+            Days *= -1;
     }
 
     return (IncludeEndDate) ? ++Days : Days;
