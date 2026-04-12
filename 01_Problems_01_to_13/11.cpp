@@ -7,6 +7,13 @@ Date From Day Order In A Year
 #include <iostream>
 using namespace std;
 
+struct sDate
+{
+    short Day;
+    short Month;
+    short Year;
+};
+
 short ReadYear()
 {
     short Year;
@@ -73,13 +80,28 @@ short DaysFromBeginningOfYear(short Year, short Month, short Day)
     return TotalDays;
 }
 
+sDate GetDateFromDayOrderInYear(short Year, short DayOrder)
+{
+    sDate Date;
+
+    return Date;
+}
+
 int main()
 {
     short Year = ReadYear();
     short Month = ReadMonth();
     short Day = ReadDay();
+    short DaysOrderInYear = DaysFromBeginningOfYear(Year, Month, Day);
 
-    cout << "\n\nNumber of days from the beginning of the year: " << DaysFromBeginningOfYear(Year, Month, Day) << endl;
+    cout << "\nNumber Of Days From The Beginning Of The Year is " << DaysOrderInYear << endl;
+
+    cout << "\n\n";
+
+    sDate Date;
+
+    Date = GetDateFromDayOrderInYear(Year, DaysOrderInYear);
+    cout << "Date For [" << DaysOrderInYear << "] Is: " << Date.Day << "/" << Date.Month << "/" << Date.Year << endl;
 
     return 0;
 }
