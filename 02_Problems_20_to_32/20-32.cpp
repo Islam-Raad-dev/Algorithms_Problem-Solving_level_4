@@ -165,6 +165,31 @@ sDate IncreaseDateByXYYearFaster(sDate Date, short Years, short Months, short Da
     return Date;
 }
 
+sDate IncreaseDateByOneDecade(sDate Date, short Years, short Months, short Days)
+{
+    return IncreaseDateByXYYearFaster(Date, 10, Months, Days);
+}
+
+sDate IncreaseDateByXDecade(sDate Date, short Decades, short Months, short Days)
+{
+    return IncreaseDateByXYYearFaster(Date, Decades * 10, Months, Days);
+}
+
+sDate IncreaseDateByXDecadeFaster(sDate Date, short Decades, short Months, short Days)
+{
+    return IncreaseDateByXYYearFaster(Date, Decades * 10, Months, Days);
+}
+
+sDate IncreaseDateByOneCentury(sDate Date, short Years, short Months, short Days)
+{
+    return IncreaseDateByXYYearFaster(Date, 100, Months, Days);
+}
+
+sDate IncreaseDateByOneMillennium(sDate Date, short Centuries, short Months, short Days)
+{
+    return IncreaseDateByXYYearFaster(Date, Centuries * 100, Months, Days);
+}
+
 int main()
 {
     sDate Date = ReadFullDate();
