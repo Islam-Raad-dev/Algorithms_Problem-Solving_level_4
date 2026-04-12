@@ -1,7 +1,7 @@
 /*
 
 Date1 Equals To  Date2
-
+ 
 */
 #include <iostream>
 using namespace std;
