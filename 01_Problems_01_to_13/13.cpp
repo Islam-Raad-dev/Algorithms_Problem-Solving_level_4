@@ -63,3 +63,25 @@ sDate ReadFullDate()
 
     return Date;
 }
+
+bool IsDate1BeforDate2(sDate Date1, sDate Date2)
+{
+}
+
+int main()
+{
+    sDate Date1 = ReadFullDate();
+    sDate Date2 = ReadFullDate();
+
+    if (IsDate1BeforDate2(Date1, Date2))
+    {
+        cout << "\nYes, Date1 Is Less Than Date2.";
+    }
+
+    else
+    {
+        cout << "\nNo, Date1 Is Not Less Than Date2.";
+    }
+
+    return 0;
+}
