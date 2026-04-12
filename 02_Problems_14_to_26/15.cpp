@@ -88,20 +88,16 @@ short NumberOfDaysInMonth(short Year, short Month)
 
 bool IsLastDayInMonth(sDate Date1)
 {
-    if (Date1.Day == NumberOfDaysInMonth(Date1.Month, Date1.Year))
-    {
-        return true;
-    }
-
-    else
-    {
-        return false;
-    }
-
+    
+    return (Date1.Day == NumberOfDaysInMonth(Date1.Year, Date1.Month)) ? true : false;
+    
 }
 
 bool IsLastMonthInYear(sDate Date1)
 {
+
+    return (Date1.Month == 12) ? true : false;
+
 }
 
 int main()
