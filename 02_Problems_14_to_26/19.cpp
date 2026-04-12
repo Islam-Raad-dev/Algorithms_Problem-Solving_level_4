@@ -113,14 +113,29 @@ sDate IncreaseDateByOneDay(sDate Date)
     return Date;
 }
 
+sDate ResultInMinutes()
+{
+    
+}
+
 int GetDiffrenceInDays(sDate Date1, sDate Date2, bool IncludeEndDate = false)
 {
     int Days = 0;
 
-    while (IsDate1LessThanDate2(Date1, Date2))
+    if(IsDate1LessThanDate2(Date1, Date2))
     {
-        Date1 = IncreaseDateByOneDay(Date1);
-        Days++;
+        while (IsDate1LessThanDate2(Date1, Date2))
+        {
+            Date1 = IncreaseDateByOneDay(Date1);
+            Days++;
+        }
+    }
+    else
+    {
+         while (!IsDate1LessThanDate2(Date2, Date1))
+        {
+            ResultInMinutes();
+        }
     }
 
     return (IncludeEndDate) ? ++Days : Days;
