@@ -1,7 +1,7 @@
 /*
 
 Increase a Date by One Day
- 
+
 */
 
 #include <iostream>
@@ -92,17 +92,16 @@ bool IsLastDayInMonth(sDate Date1)
     return (Date1.Day == NumberOfDaysInMonth(Date1.Year, Date1.Month));
 }
 
-bool IsLastMonthInYear(sDate Date1)
+bool IsLastMonthInYear(short Month)
 {
-    return (Date1.Month == 12);
+    return (Month == 12);
 }
-
 
 sDate IncreaseDateByOneDay(sDate Date)
 {
-    if (Date.Day == NumberOfDaysInMonth(Date.Year, Date.Month))
+    if (IsLastDayInMonth(Date))
     {
-        if (Date.Month == 12)
+        if (IsLastMonthInYear(Date.Month))
         {
             Date.Month = 1;
             Date.Day = 1;
@@ -127,7 +126,8 @@ int main()
 
     Date = IncreaseDateByOneDay(Date);
 
-    cout << "Date After Adding One Day Is: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"<< endl;
+    cout << "Date After Adding One Day Is: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"
+         << endl;
 
     return 0;
 }
