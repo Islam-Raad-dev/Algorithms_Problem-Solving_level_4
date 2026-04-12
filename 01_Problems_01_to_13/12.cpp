@@ -63,6 +63,7 @@ sDate ReadFullDate(){
 
     return Date;
 }
+
 bool IsLeapYear(short Year)
 {
     if (Year % 4 == 0 && Year % 100 != 0 || Year % 400 == 0)
@@ -85,7 +86,7 @@ short NumberOfDaysInMonth(short Year, short Month)
     return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
 }
 
-short DaysFromBeginningOfYear(short Year, short Month, short Day)
+short NumbrOfDaysFromBeginningOfYear(short Year, short Month, short Day)
 {
     short TotalDays = 0;
 
@@ -128,10 +129,16 @@ sDate GetDateFromDayOrderInYear(short Year, short DateOrderInYear)
     return Date;
 }
 
-sDate AddingDaysToDate(sDate Date, short AddingDays)
+sDate AddingDaysToDate(sDate Date, short Days)
 {
+    short RemainingDays = Days + NumberOfDaysInMonth(Date, Date.Month, Date.Year);
+    short MonthDays = 0;
 
+    Date.Month = 1;
+
+    
 }
+
 int main()
 {
     sDate Date = ReadFullDate();
@@ -141,7 +148,7 @@ int main()
 
     Date = AddingDaysToDate(Date, Days);
 
-    cout << "Date After Adding [" <<AddingDaysToDate(Year, Month, Day, DaysAdding) << "] Days Is: "<< Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"
+    cout << "Date After Adding [" <<Days << "] Days Is: "<< Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"
          << endl;
 
     return 0;
