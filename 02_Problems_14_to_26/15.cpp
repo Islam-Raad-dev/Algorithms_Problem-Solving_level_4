@@ -64,8 +64,28 @@ sDate ReadFullDate()
     return Date;
 }
 
+short NumberOfDaysInMonth(short Year, short Month)
+{
+    if (Month < 1 || Month > 12)
+        return 0;
+
+    int NumberOfDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
+}
+
 bool IsLastDayInMonth(sDate Date1)
 {
+    if (Date1.Day == NumberOfDaysInMonth(Date1.Month, Date1.Year))
+    {
+        return true;
+    }
+
+    else
+    {
+        return false;
+    }
+
 }
 
 bool IsLastMonthInYear(sDate Date1)
