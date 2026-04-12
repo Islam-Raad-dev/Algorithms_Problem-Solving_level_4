@@ -123,6 +123,20 @@ sDate IncreaseDateByOneDay(sDate Date)
     return Date;
 }
 
+sDate GetSystemDate()
+{
+    sDate Date;
+
+    time_t t = time(0);
+    tm *Now = localtime(&t);
+
+    Date.Year = Now->tm_year + 1900;
+    Date.Month = Now->tm_mon + 1;
+    Date.Day = Now->tm_mday;
+
+    return Date;
+}
+
 int GetDiffrenceInDays(sDate Date1, sDate Date2, bool IncludeEndDate = false)
 {
     int Days = 0;
@@ -138,9 +152,13 @@ int GetDiffrenceInDays(sDate Date1, sDate Date2, bool IncludeEndDate = false)
 
 int main()
 {
+    cout <<"\n Please Enter Your Birth Date: \n\n";
+
     sDate Date = ReadFullDate();
 
-    cout << "\n\nYour Age In Days Is: " << GetDiffrenceInDays(Date, {ReadYear(), 1, 1}, true) << " Days.\n\n";
+    sDate Date2 = GetSystemDate();
+
+    cout << "\n\nYour Age In Days Is: " << GetDiffrenceInDays(Date, Date2, true) << " Days.\n\n";
 
     return 0;
 }
