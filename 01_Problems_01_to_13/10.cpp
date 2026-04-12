@@ -20,7 +20,7 @@ short ReadMonth()
 {
     short Month;
 
-    cout << "\n\nPlease Enter A Month Number: ";
+    cout << "\n\nPlease Enter A Month: ";
     cin >> Month;
 
     return Month;
@@ -30,7 +30,7 @@ short ReadDay()
 {
     short Day;
 
-    cout << "\n\nPlease Enter A Day Number: ";
+    cout << "\n\nPlease Enter A Day: ";
     cin >> Day;
 
     return Day;
