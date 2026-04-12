@@ -62,9 +62,9 @@ short DaysFromBeginningOfYear(short Year, short Month, short Day)
 {
     short TotalDays = 0;
 
-    for (short m = 1; m < Month; ++m)
+    for (short i = 1; i <= Month - 1; i++)
     {
-        TotalDays += NumberOfDaysInMonth(Year, m);
+        TotalDays += NumberOfDaysInMonth(Year, i);
     }
 
     TotalDays += Day;
