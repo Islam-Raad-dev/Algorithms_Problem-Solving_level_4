@@ -48,7 +48,7 @@ short ReadDayToAdd()
 {
     short Days;
 
-    cout << "\n\nPlease Enter A Days: ";
+    cout << "\n\nPlease Enter A Days To Add: ";
     cin >> Days;
 
     return Days;
@@ -128,7 +128,7 @@ sDate GetDateFromDayOrderInYear(short Year, short DateOrderInYear)
     return Date;
 }
 
-int AddingDaysToDate(short Year, short Month, short Day, short AddingDays)
+sDate AddingDaysToDate(sDate Date, short AddingDays)
 {
 
 }
@@ -138,14 +138,8 @@ int main()
     short Days = ReadDayToAdd();
 
 
-    cout << "\nNumber Of Days From The Beginning Of The Year is " << DaysOrderInYear << endl;
 
-    cout << "\n";
-
-    sDate Date;
-
-    Date = GetDateFromDayOrderInYear(Year, DaysOrderInYear);
-
+    Date = AddingDaysToDate(Date, Days);
 
     cout << "Date After Adding [" <<AddingDaysToDate(Year, Month, Day, DaysAdding) << "] Days Is: "<< Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"
          << endl;
