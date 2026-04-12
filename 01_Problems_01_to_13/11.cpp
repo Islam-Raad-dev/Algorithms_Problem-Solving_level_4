@@ -80,9 +80,19 @@ short DaysFromBeginningOfYear(short Year, short Month, short Day)
     return TotalDays;
 }
 
-sDate GetDateFromDayOrderInYear(short Year, short DayOrder)
+sDate GetDateFromDayOrderInYear(short Year, short DateOrderInYear)
 {
     sDate Date;
+    short RemainingDays = DateOrderInYear;
+    short MonthDays = 0;
+
+    Date.Year = Year;
+    Date.Month = 1;
+
+    while (true)
+    {
+        MonthDays = NumberOfDaysInMonth(Date.Month, Year);
+    }
 
     return Date;
 }
@@ -101,7 +111,8 @@ int main()
     sDate Date;
 
     Date = GetDateFromDayOrderInYear(Year, DaysOrderInYear);
-    cout << "Date For [" << DaysOrderInYear << "] Is: " << Date.Day << "/" << Date.Month << "/" << Date.Year << endl;
+    cout << "Date For [" << DaysOrderInYear << "] Is: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"
+         << endl;
 
     return 0;
 }
