@@ -201,17 +201,32 @@ int main()
     cout<<"Date After: \n";
 
         Date = IncreaseDateByOneDay(Date);
-        cout << "One Day: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "1- One Day: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        
+        Date = IncreaseDateByXDays(Date, 15);
+        cout << "3- Adding 15 Days: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
     
         Date = IncreaseDateByOneWeek(Date);
-        cout << "One Week: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "2- One Week: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+
+        Date = IncreaseDateByXWeeks(Date, 3);
+        cout << "5- Adding 3 Weeks: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+
     
         Date = IncreaseDateByOneMonth(Date);
-        cout << "One Month: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
-    
-        Date = IncreaseDateByOneYear(Date);
-        cout << "One Year: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
-    
+        cout << "4- One Month: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+
+        Date = IncreaseDateByXMonths(Date, 5);
+        cout << "6- Adding 5 Months: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+
+        Date = IncreaseDateByXYears(Date, 1);
+        cout << "7- Adding 1 Year: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+
+        
+        Date = IncreaseDateByXYYearFaster(Date, 2, 3, 4);
+        cout << "8- Adding 2 Years, 3 Months, 4 Days: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+
+
         Date = IncreaseDateByOneDecade(Date, 0, 0, 0);
         cout << "One Decade: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
     
