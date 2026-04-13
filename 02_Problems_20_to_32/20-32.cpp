@@ -105,7 +105,7 @@ sDate IncreaseDateByOneDay(sDate Date)
     }
     else
     {
-        Date.Day++;
+        Date.Day++;   
     }
     return Date;
 }
