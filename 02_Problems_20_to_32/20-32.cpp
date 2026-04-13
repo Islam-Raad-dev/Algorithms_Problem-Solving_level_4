@@ -204,17 +204,17 @@ int main()
         cout << "1- One Day: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
         
         Date = IncreaseDateByXDays(Date, 15);
-        cout << "3- Adding 15 Days: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "2- Adding 15 Days: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
     
         Date = IncreaseDateByOneWeek(Date);
-        cout << "2- One Week: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "3- One Week: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
         Date = IncreaseDateByXWeeks(Date, 3);
-        cout << "5- Adding 3 Weeks: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "4- Adding 3 Weeks: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
     
         Date = IncreaseDateByOneMonth(Date);
-        cout << "4- One Month: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "5- One Month: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
         Date = IncreaseDateByXMonths(Date, 5);
         cout << "6- Adding 5 Months: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
@@ -222,19 +222,26 @@ int main()
         Date = IncreaseDateByXYears(Date, 1);
         cout << "7- Adding 1 Year: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
-        
+
         Date = IncreaseDateByXYYearFaster(Date, 2, 3, 4);
         cout << "8- Adding 2 Years, 3 Months, 4 Days: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
 
         Date = IncreaseDateByOneDecade(Date, 0, 0, 0);
-        cout << "One Decade: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "9- One Decade: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
     
+        Date = IncreaseDateByXDecade(Date, 2, 0, 0);
+        cout << "10- Two Decades: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+
+        Date = IncreaseDateByXDecadeFaster(Date, 3, 0, 0);
+        cout << "11- Three Decades Faster: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+
         Date = IncreaseDateByOneCentury(Date, 0, 0, 0);
-        cout << "One Century: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "12- One Century: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
     
         Date = IncreaseDateByOneMillennium(Date, 0, 0, 0);
-        cout<<"One Millennium: "<<Date.Day<<"/"<<Date.Month<<"/"<<Date.Year<<"\n";
+        cout<<"13- One Millennium: "<<Date.Day<<"/"<<Date.Month<<"/"<<Date.Year<<"\n";
+        
     cout << "\n\n";   
    
     return 0;   
