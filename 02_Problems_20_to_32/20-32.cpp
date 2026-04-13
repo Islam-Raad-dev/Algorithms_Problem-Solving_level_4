@@ -22,7 +22,7 @@ short ReadYear()
     cin >> Year;
 
     return Year;
-}
+}  
 
 short ReadMonth()
 {
