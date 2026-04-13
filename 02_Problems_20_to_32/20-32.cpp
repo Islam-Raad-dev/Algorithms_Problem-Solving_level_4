@@ -140,7 +140,7 @@ sDate IncreaseDateByXMonths(sDate Date, short Months)
         else
         {
             Date.Month++;    
-        }
+        }   
     }
     return Date;
 }
