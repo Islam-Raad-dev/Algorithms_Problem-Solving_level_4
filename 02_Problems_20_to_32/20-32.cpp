@@ -54,7 +54,7 @@ sDate ReadFullDate()
 
     return Date;
 }   
-
+      
 bool IsLeapYear(short Year)
 {
     if (Year % 4 == 0 && Year % 100 != 0 || Year % 400 == 0)
