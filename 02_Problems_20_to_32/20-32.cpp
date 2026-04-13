@@ -79,7 +79,7 @@ short NumberOfDaysInMonth(short Year, short Month)
 
 bool IsLastDayInMonth(sDate Date1)
 {
-    return (Date1.Day == NumberOfDaysInMonth(Date1.Year, Date1.Month));
+    return (Date1.Day == NumberOfDaysInMonth(Date1.Year, Date1.Month));  
 }
 
 bool IsLastMonthInYear(short Month)
