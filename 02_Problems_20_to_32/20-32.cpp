@@ -112,8 +112,8 @@ sDate IncreaseDateByOneDay(sDate Date)
 
 sDate IncreaseDateByXDays(sDate Date, short Days)
 {
-    for (short i = 0; i < Days; i++)
-    {
+    for (short i = 1; i <= Days; i++)
+    { 
         Date = IncreaseDateByOneDay(Date);   
     }
     return Date;
