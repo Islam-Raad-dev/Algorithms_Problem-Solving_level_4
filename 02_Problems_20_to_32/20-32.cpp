@@ -197,7 +197,29 @@ sDate IncreaseDateByOneMillennium(sDate Date, short Centuries, short Months, sho
 int main()
 {
     sDate Date = ReadFullDate();
+
+    cout<<"Date After: \n";
+
+        Date = IncreaseDateByOneDay(Date);
+        cout << "One Day: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
     
+        Date = IncreaseDateByOneWeek(Date);
+        cout << "One Week: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+    
+        Date = IncreaseDateByOneMonth(Date);
+        cout << "One Month: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+    
+        Date = IncreaseDateByOneYear(Date);
+        cout << "One Year: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+    
+        Date = IncreaseDateByOneDecade(Date, 0, 0, 0);
+        cout << "One Decade: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+    
+        Date = IncreaseDateByOneCentury(Date, 0, 0, 0);
+        cout << "One Century: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+    
+        Date = IncreaseDateByOneMillennium(Date, 0, 0, 0);
+        cout<<"One Millennium: "<<Date.Day<<"/"<<Date.Month<<"/"<<Date.Year<<"\n";
     cout << "\n\n";   
    
     return 0;   
