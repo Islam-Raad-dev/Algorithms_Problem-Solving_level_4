@@ -94,7 +94,7 @@ sDate IncreaseDateByOneDay(sDate Date)
         if (IsLastMonthInYear(Date.Month))
         {
             Date.Month = 1;
-            Date.Day = 1;
+            Date.Day = 1;  
             Date.Year++;  
         }
         else
