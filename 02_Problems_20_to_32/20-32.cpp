@@ -219,7 +219,7 @@ int main()
 
     cout << "\n\nIncreasing Date By One Millennium: " << IncreaseDateByOneMillennium(Date, 10, 10, 1).Day << "/" << IncreaseDateByOneMillennium(Date, 10, 10, 1).Month << "/" << IncreaseDateByOneMillennium(Date, 10, 10, 1).Year; 
 
-    cout << "\n\n";
+    cout << "\n\n";   
 
     return 0;
 }
