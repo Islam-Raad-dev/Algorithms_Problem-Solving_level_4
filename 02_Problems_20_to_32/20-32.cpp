@@ -53,7 +53,7 @@ sDate ReadFullDate()
     Date.Day = ReadDay();
 
     return Date;
-}
+}   
 
 bool IsLeapYear(short Year)
 {
