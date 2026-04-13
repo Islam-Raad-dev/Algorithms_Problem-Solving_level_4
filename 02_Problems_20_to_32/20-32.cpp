@@ -121,7 +121,7 @@ sDate IncreaseDateByXDays(sDate Date, short Days)
 
 sDate IncreaseDateByOneWeek(sDate Date)
 {
-    return IncreaseDateByXDays(Date, 7);
+    return IncreaseDateByXDays(Date, 7);   
 }
 
 sDate IncreaseDateByXWeeks(sDate Date, short Weeks)
