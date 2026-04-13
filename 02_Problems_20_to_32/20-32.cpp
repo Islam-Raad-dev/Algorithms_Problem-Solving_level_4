@@ -6,7 +6,7 @@ Increase Date Problems (20-32)
 
 #include <iostream>
 using namespace std;
-  
+
 struct sDate
 {
     short Day;
@@ -22,7 +22,7 @@ short ReadYear()
     cin >> Year;
 
     return Year;
-}  
+} 
 
 short ReadMonth()
 {
