@@ -84,7 +84,7 @@ bool IsLastDayInMonth(sDate Date1)
 
 bool IsLastMonthInYear(short Month)
 {
-    return (Month == 12);
+    return (Month == 12);   
 }
 
 sDate IncreaseDateByOneDay(sDate Date)
