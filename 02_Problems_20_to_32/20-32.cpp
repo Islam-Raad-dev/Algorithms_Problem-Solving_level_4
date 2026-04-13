@@ -217,8 +217,7 @@ int main()
     cout << "\n\nIncreasing Date By One Century: " << IncreaseDateByOneCentury(Date, 100, 10, 1).Day << "/" << IncreaseDateByOneCentury(Date, 100, 10, 1).Month << "/" << IncreaseDateByOneCentury(Date, 100, 10, 1).Year;
 
 
-    cout << "\n\nIncreasing Date By One Millennium: " << IncreaseDateByOneMillennium(Date, 10, 10, 1).Day << "/" << IncreaseDateByOneMillennium(Date, 10, 10, 1).Month << "/" << IncreaseDateByOneMillennium(Date, 10, 10, 1).Year;
-    
+    cout << "\n\nIncreasing Date By One Millennium: " << IncreaseDateByOneMillennium(Date, 10, 10, 1).Day << "/" << IncreaseDateByOneMillennium(Date, 10, 10, 1).Month << "/" << IncreaseDateByOneMillennium(Date, 10, 10, 1).Year; 
 
     cout << "\n\n";
 
