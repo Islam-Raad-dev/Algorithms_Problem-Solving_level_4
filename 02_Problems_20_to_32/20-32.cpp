@@ -219,28 +219,31 @@ int main()
         Date = IncreaseDateByXMonths(Date, 5);
         cout << "06- Adding 5 Months: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
+        Date = IncreaseDateByOneYear(Date);
+        cout << "07- One Year: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+
         Date = IncreaseDateByXYears(Date, 1);
-        cout << "07- Adding 1 Year: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "08- Adding 1 Year: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
 
-        Date = IncreaseDateByXYYearFaster(Date, 2, 3, 4);
-        cout << "08- Adding 2 Years, 3 Months, 4 Days: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        Date = IncreaseDateByXYYearFaster(Date, 10, 0, 0);
+        cout << "09- Adding 10 Years: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
 
         Date = IncreaseDateByOneDecade(Date, 0, 0, 0);
-        cout << "09- One Decade: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "10- One Decade: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
     
         Date = IncreaseDateByXDecade(Date, 2, 0, 0);
-        cout << "10- Two Decades: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "11- Two Decades: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
         Date = IncreaseDateByXDecadeFaster(Date, 3, 0, 0);
-        cout << "11- Three Decades Faster: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "12- Three Decades Faster: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
         Date = IncreaseDateByOneCentury(Date, 0, 0, 0);
-        cout << "12- One Century: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "13- One Century: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
     
         Date = IncreaseDateByOneMillennium(Date, 0, 0, 0);
-        cout<<"13- One Millennium: "<<Date.Day<<"/"<<Date.Month<<"/"<<Date.Year<<"\n";
+        cout<<"14- One Millennium: "<<Date.Day<<"/"<<Date.Month<<"/"<<Date.Year<<"\n";
 
     cout << "\n\n";   
    
