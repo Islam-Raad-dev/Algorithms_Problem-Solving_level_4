@@ -100,7 +100,7 @@ sDate IncreaseDateByOneDay(sDate Date)
         else
         {
             Date.Month++;
-            Date.Day = 1;
+            Date.Day = 1;  
         }
     }
     else
