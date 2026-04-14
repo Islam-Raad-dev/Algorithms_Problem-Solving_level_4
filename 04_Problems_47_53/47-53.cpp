@@ -132,9 +132,7 @@ bool IsItWeekEnd(sDate Date)
 
 bool IsItBusinessDay(sDate Date)
 {
-    short DayIndex = DayOfWeekOrder(Date);
-
-    return (DayIndex >= 1 && DayIndex <= 5);
+    return !IsItWeekEnd(Date);
 }
 short DaysUntilTheEndOfTheWeek()
 {
@@ -200,11 +198,11 @@ int main()
         cout << "No, It's Not Business Day\n";
     }
 
-    cout << "\n\nDays Until The End Of The Week   : \n" << DaysUntilTheEndOfTheWeek();
+    cout << "\n\nDays Until The End Of The Week   : \n" << DaysUntilTheEndOfTheWeek()<< "Days" << endl;
 
-    cout << "\n\nDays Until The End Of The Month  : \n" << DaysUntilTheEndOfTheMonth();
+    cout << "\n\nDays Until The End Of The Month  : \n" << DaysUntilTheEndOfTheMonth()<< "Days" << endl;
 
-    cout << "\n\nDays Until The End Of The Year   : \n" << DaysUntilTheEndOfTheYear();
+    cout << "\n\nDays Until The End Of The Year   : \n" << DaysUntilTheEndOfTheYear()<< "Days" << endl;
 
     return 0;
 }
