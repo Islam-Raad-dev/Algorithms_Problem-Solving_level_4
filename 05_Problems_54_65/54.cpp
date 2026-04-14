@@ -144,19 +144,19 @@ sDate IncreaseDateByOneDay(sDate Date)
 
 int GetDiffrenceInDays(sDate DateFrom, sDate DateTo, bool IncludeEndDate = false)
 {
-    int Days = 0;
+    int DaysCount = 0;
 
     while (IsDate1LessThanDate2(DateFrom, DateTo))
     {
         if(IsItBusinessDay(DateFrom))
         {
-            Days++;
+            DaysCount++;
         }
 
         DateFrom = IncreaseDateByOneDay(DateFrom);
     }
 
-    return Days;
+    return DaysCount;
 }
 
 short DayOfWeekOrder(short Day, short Month, short Year)
