@@ -153,7 +153,13 @@ short DaysUntilTheEndOfTheMonth(sDate Date)
 
 short DaysUntilTheEndOfTheYear(sDate Date)
 {
-    return (IsLeapYear(Date.Year) ? 366 : 365) - GetDiffrenceInDays(Date, {31, 12, Date.Year}, true);
+    sDate EndOfYearDate;
+
+    EndOfYearDate.Day = 31;
+    EndOfYearDate.Month = 12;
+    EndOfYearDate.Year = Date.Year;
+
+    return GetDiffrenceInDays(Date, EndOfYearDate, true);
 }
 
 sDate GetSystemDate()
