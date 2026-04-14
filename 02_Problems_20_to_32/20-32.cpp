@@ -93,19 +93,26 @@ sDate IncreaseDateByOneDay(sDate Date)
     {
         if (IsLastMonthInYear(Date.Month))
         {
+
             Date.Month = 1;   
             Date.Day = 1;  
-            Date.Year++;  
+            Date.Year++; 
+             
         }
         else
         {
+
             Date.Month++;  
-            Date.Day = 1;  
+            Date.Day = 1;
+
         }
     }
+
     else
     {
+
         Date.Day++;   
+
     }
     return Date;
 }
@@ -113,8 +120,10 @@ sDate IncreaseDateByOneDay(sDate Date)
 sDate IncreaseDateByXDays(sDate Date, short Days)
 {
     for (short i = 1; i <= Days; i++)
-    { 
+    {
+
         Date = IncreaseDateByOneDay(Date);   
+
     }
     return Date;
 }
@@ -132,12 +141,13 @@ sDate IncreaseDateByXMonths(sDate Date, short Months)
 {
     for (short i = 0; i < Months; i++)
     {
+
         if (IsLastMonthInYear(Date.Month))
         {
             Date.Month = 1;
             Date.Year++;  
         }
-        
+
         else
         {
             Date.Month++;    
