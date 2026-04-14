@@ -180,7 +180,7 @@ int main()
 {
     sDate Date = GetSystemDate();
 
-    cout<<"Today is: " << DayShortName(DayOfWeekOrder(Date)) << "/" << Date.Month << "/" << Date.Year << "\n";
+    cout<<"Today is: " << DayShortName(DayOfWeekOrder(Date)) << ", " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
 
     //------------------------------
@@ -221,11 +221,11 @@ int main()
     //------------------------------
 
 
-    cout << "\n\nDays Until The End Of The Week   : \n" << DaysUntilTheEndOfTheWeek()<< "Days" << endl;
+    cout << "\n\nDays Until The End Of The Week :" << DaysUntilTheEndOfTheWeek(Date)<< " Day(s)" << endl;
 
-    cout << "\n\nDays Until The End Of The Month  : \n" << DaysUntilTheEndOfTheMonth()<< "Days" << endl;
+    cout << "\nDays Until The End Of The Month:" << DaysUntilTheEndOfTheMonth(Date)<< " Day(s)" << endl;
 
-    cout << "\n\nDays Until The End Of The Year   : \n" << DaysUntilTheEndOfTheYear()<< "Days" << endl;
+    cout << "\nDays Until The End Of The Year :" << DaysUntilTheEndOfTheYear(Date)<< " Day(s)\n" << endl;
 
     return 0;
 }
