@@ -113,7 +113,7 @@ short DayOfWeekOrder(sDate Date)
 
 short IsItEndOfWeek(sDate Date)
 {
-    return DayOfWeekOrder(Date.Day, Date.Month, Date.Year) == 6;
+    return DayOfWeekOrder(Date) == 6;
 }
 
 string DayShortName(short DayOfWeekOrder)
