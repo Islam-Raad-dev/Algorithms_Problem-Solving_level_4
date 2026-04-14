@@ -37,16 +37,13 @@ short NumberOfDaysInMonth(short Year, short Month)
 
 short DayOfWeekOrder(short Day, short Month, short Year)
 {
-    if (Month < 3)
-    {
-        Month += 12;
-        Year--;
-    }
+    short a, y, m;
 
-    short K = Year % 100;
-    short J = Year / 100;
+    a = (14 - Month) / 12;
+    y = Year - a;
+    m = Month + 12 * a - 2;
 
-    return (Day + (13 * (Month + 1)) / 5 + K + (K / 4) + (J / 4) - (2 * J)) % 7;
+    return (Day + y + y / 4 - y / 100 + y / 400 + (31 * m) / 12) % 7;
 }
 
 short DayOfWeekOrder(sDate Date)
