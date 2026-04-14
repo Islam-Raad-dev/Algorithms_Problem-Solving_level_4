@@ -11,6 +11,7 @@ enum CompareDates {
     Date1EqualDate2 = 0,
     Date1AfterDate2 = 1
 };
+
 struct sDate
 {
     short Day;
@@ -71,6 +72,10 @@ bool IsDate1EqualDate2(sDate Date1, sDate Date2)
 bool IsDate1AfterDate2(sDate Date1, sDate Date2)
 {
     return (!IsDate1BeforeDate2(Date1, Date2) && !IsDate1EqualDate2(Date1, Date2)) ? true : false;
+}
+
+sDate CompareDates(sDate Date1, sDate Date2){
+
 }
 
 int main(){
