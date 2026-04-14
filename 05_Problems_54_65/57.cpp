@@ -76,14 +76,7 @@ int main(){
     cout <<"\nEnter Date 2:\n";
     sDate Date2 = ReadFullDate();
 
-    if(IsDate1AfterDate2(Date1, Date2))
-    {
-        cout << "\nYes, Date 1 is after Date 2." << endl;
-    }
-    else
-    {
-        cout << "\nNo, Date 1 is not after Date 2." << endl;
-    }
+    cout <<"Compare Result = ";
 
     return 0;
 }
