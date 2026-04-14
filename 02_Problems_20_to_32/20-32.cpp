@@ -228,7 +228,7 @@ int main()
         cout << "05- One Month: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
         Date = IncreaseDateByXMonths(Date, 5);
-        cout << "06- Adding 5 Months: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "06- Adding 5 Months: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";  
 
         Date = IncreaseDateByOneYear(Date);
         cout << "07- One Year: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
