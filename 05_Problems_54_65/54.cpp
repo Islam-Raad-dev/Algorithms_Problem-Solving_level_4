@@ -17,7 +17,7 @@ short ReadYear()
 {
     short Year;
 
-    cout << "Please Enter A Year: ";
+    cout << "\nPlease Enter A Year: ";
     cin >> Year;
 
     return Year;
@@ -27,7 +27,7 @@ short ReadMonth()
 {
     short Month;
 
-    cout << "\n\nPlease Enter A Month: ";
+    cout << "\nPlease Enter A Month: ";
     cin >> Month;
 
     return Month;
@@ -37,7 +37,7 @@ short ReadDay()
 {
     short Day;
 
-    cout << "\n\nPlease Enter A Day: ";
+    cout << "\nPlease Enter A Day: ";
     cin >> Day;
 
     return Day;
