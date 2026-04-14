@@ -205,19 +205,24 @@ sDate GetSystemDate()
     return Date;
 }
 
+short ReadVactionDays()
+{
+    short Days;
+
+    cout << "\n\nPlease Enter The Number Of Vaction Days: ";
+    cin >> Days;
+
+    return Days;
+}
+
 int main()
 {
     cout <<"\nVaction Start:\n";
-    sDate DateFrom = ReadFullDate();
+    sDate Date = ReadFullDate();
 
-    cout <<"\nVaction Ends: \n";
-    sDate DateTo = ReadFullDate();
+    short VactionDays = ReadVactionDays();
 
-    cout <<"\nVaction From: " << DayShortName(DayOfWeekOrder(DateFrom)) << ", " << DateFrom.Day << "/" << DateFrom.Month << "/" << DateFrom.Year;
-
-    cout <<"\nVaction To: " << DayShortName(DayOfWeekOrder(DateTo)) << ", " << DateTo.Day << "/" << DateTo.Month << "/" << DateTo.Year;
-
-    cout << "\n\nActual Vaction Days: " << CalculateVactionDays(DateFrom, DateTo) << " Day(s)\n" << endl;
+    cout <<"\nReturn Date: \n" << DayShortName(DayOfWeekOrder(Date)) << " " << Date.Day << "/" << Date.Month << "/" << Date.Year; 
 
 
 
