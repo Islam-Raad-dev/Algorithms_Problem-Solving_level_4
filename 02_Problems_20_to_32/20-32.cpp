@@ -23,7 +23,7 @@ short ReadYear()
 
     return Year;
 } 
-
+     
 short ReadMonth()
 {
     short Month;
