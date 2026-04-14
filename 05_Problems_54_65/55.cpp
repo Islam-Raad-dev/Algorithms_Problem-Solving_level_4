@@ -194,7 +194,12 @@ sDate CalculateVactionReturnDays(sDate DateFrom, short VactionDays)
 
         DateFrom = IncreaseDateByOneDay(DateFrom);
     }
-    
+
+    while(IsItWeekEnd(DateFrom))
+    {
+        DateFrom = IncreaseDateByOneDay(DateFrom);
+    }
+
     return DateFrom;
 }
 
