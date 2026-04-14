@@ -80,3 +80,14 @@ bool IsLastDayInMonth(sDate Date1)
 {
     return (Date1.Day == NumberOfDaysInMonth(Date1.Year, Date1.Month));  
 }
+
+int main()
+{
+    sDate Date1 = ReadFullDate();
+
+    cout <<"\n\nVaction Days: \n\n";
+
+    
+
+    return 0;
+}
