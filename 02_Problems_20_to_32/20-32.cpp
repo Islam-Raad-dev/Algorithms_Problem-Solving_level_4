@@ -240,7 +240,7 @@ int main()
         cout << "12- Three Decades Faster: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"; 
 
         Date = IncreaseDateByOneCentury(Date, 0, 0, 0);
-        cout << "13- One Century: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "13- One Century: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"; 
     
         Date = IncreaseDateByOneMillennium(Date, 0, 0, 0);
         cout<<"14- One Millennium: "<<Date.Day<<"/"<<Date.Month<<"/"<<Date.Year<<"\n";
