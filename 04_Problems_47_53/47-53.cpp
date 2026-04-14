@@ -92,12 +92,12 @@ int main()
     cout << "\nIs It End Of Week? \n";
     if (IsItWeekEnd(Date))
     {
-        cout << "Yes, It's Weekend\n";
+        cout << "Yes, It's Saturday\n";
     }
 
     else
     {
-        cout << "No, It's Not Weekend\n";
+        cout << "No, It's Not End Of Week\n";
     }
 
     cout << "\n\nIs It Weekend? \n";
