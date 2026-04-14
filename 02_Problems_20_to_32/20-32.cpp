@@ -218,7 +218,7 @@ int main()
         cout << "02- Adding 15 Days: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";   
     
         Date = IncreaseDateByOneWeek(Date);
-        cout << "03- One Week: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "03- One Week: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";    
 
         Date = IncreaseDateByXWeeks(Date, 3);
         cout << "04- Adding 3 Weeks: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
