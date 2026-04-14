@@ -81,10 +81,6 @@ bool IsLastDayInMonth(sDate Date1)
     return (Date1.Day == NumberOfDaysInMonth(Date1.Year, Date1.Month));  
 }
 
-bool IsLastMonthInYear(short Month)
-{
-    return (Month == 12);   
-}
 
 sDate DecreaseDateByOneDay(sDate Date)
 {
@@ -141,9 +137,9 @@ sDate DecreaseDateByXMonths(sDate Date, short Months)
     for (short i = 0; i < Months; i++)
     {
 
-        if (IsLastMonthInYear(Date.Month))
+        if (Date.Month == 1)
         {
-            Date.Month = 1;
+            Date.Month = 12;
             Date.Year--;  
         }
 
