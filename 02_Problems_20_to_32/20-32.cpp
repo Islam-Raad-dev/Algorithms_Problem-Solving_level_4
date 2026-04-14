@@ -221,7 +221,7 @@ int main()
         cout << "03- One Week: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";    
 
         Date = IncreaseDateByXWeeks(Date, 3);
-        cout << "04- Adding 3 Weeks: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "04- Adding 3 Weeks: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";    
 
     
         Date = IncreaseDateByOneMonth(Date);
