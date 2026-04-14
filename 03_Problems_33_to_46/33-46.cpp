@@ -211,10 +211,10 @@ int main()
     cout<<"\n\nDate After: \n\n";    
 
         Date = DecreaseDateByOneDay(Date);
-        cout << "01- Subtract One Day         : " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";  
+        cout << "01- Subtract One Day          : " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";  
         
         Date = DecreaseDateByXDays(Date, 10);
-        cout << "02- Subtract 10 Days         : " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";   
+        cout << "02- Subtract 10 Days          : " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";   
     
         Date = DecreaseDateByOneWeek(Date);
         cout << "03- Subtract One Week         : " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";    
@@ -241,19 +241,19 @@ int main()
 
 
         Date = DecreaseDateByOneDecade(Date, 0, 0, 0);
-        cout << "10- Subtract One Decade: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "10- Subtract One Decade       : " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
     
         Date = DecreaseDateByXDecade(Date, 10, 0, 0);
-        cout << "11- Subtract 10 Decades: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "11- Subtract 10 Decades       : " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
         Date = DecreaseDateByXDecadeFaster(Date, 10, 0, 0);
         cout << "12- Subtract 10 Decades Faster: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
         Date = DecreaseDateByOneCentury(Date, 0, 0, 0);
-        cout << "13- Subtract One Century: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"; 
+        cout << "13- Subtract One Century      : " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"; 
     
         Date = DecreaseDateByOneMillennium(Date, 0, 0, 0);
-        cout<<"14- Subtract One Millennium: "<<Date.Day<<"/"<<Date.Month<<"/"<<Date.Year<<"\n";
+        cout<<"14- Subtract One Millennium   : "<<Date.Day<<"/"<<Date.Month<<"/"<<Date.Year<<"\n";
 
     cout << "\n\n";
    
