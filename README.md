@@ -26,11 +26,11 @@ The repository is organized to manage the increased volume of challenges:
 
 ### 1. The 65 Problem Challenge
 Advanced problems grouped to simulate real programming growth:
-* **01_Problems_01_to_13**
-* **02_Problems_14_to_26**
-* **03_Problems_27_to_39**
-* **04_Problems_40_to_52**
-* **05_Problems_53_to_65**
+* **01_Problems_01_to_19**
+* **02_Problems_20_to_32**
+* **03_Problems_33_to_46**
+* **04_Problems_47_to_53**
+* **05_Problems_54_to_65**
 
 ### 2. Realistic System Projects
 Large-scale projects designed to simulate real-world systems:
