@@ -90,7 +90,7 @@ sDate DecreaseDateByOneDay(sDate Date)
 {
     if (Date.Day == 1)
     {
-        if (IsLastMonthInYear(Date.Month))
+        if (Date.Month == 1)
         {
 
             Date.Month = 12;  
@@ -211,33 +211,33 @@ int main()
     cout<<"\n\nDate After: \n\n";    
 
         Date = DecreaseDateByOneDay(Date);
-        cout << "01- Subtract One Day: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";  
+        cout << "01- Subtract One Day         : " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";  
         
         Date = DecreaseDateByXDays(Date, 10);
-        cout << "02- Subtract 10 Days: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";   
+        cout << "02- Subtract 10 Days         : " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";   
     
         Date = DecreaseDateByOneWeek(Date);
-        cout << "03- Subtract One Week: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";    
+        cout << "03- Subtract One Week         : " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";    
 
         Date = DecreaseDateByXWeeks(Date, 10);
-        cout << "04- Subtract 10 Weeks: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "04- Subtract 10 Weeks         : " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
     
         Date = DecreaseDateByOneMonth(Date);
-        cout << "05- Subtract One Month: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "05- Subtract One Month        : " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
         Date = DecreaseDateByXMonths(Date, 5);
-        cout << "06- Subtract 5 Months: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";  
+        cout << "06- Subtract 5 Months         : " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";  
 
         Date = DecreaseDateByOneYear(Date);
-        cout << "07- Subtract One Year: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "07- Subtract One Year         : " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
         Date = DecreaseDateByXYears(Date, 10);
-        cout << "08- Subtract 10 Years: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "08- Subtract 10 Years         : " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
 
         Date = DecreaseDateByXYYearFaster(Date, 10, 0, 0);
-        cout << "09- Subtract 10 Years: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "09- Subtract 10 Years Faster  : " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
 
         Date = DecreaseDateByOneDecade(Date, 0, 0, 0);
