@@ -67,7 +67,8 @@ bool IsDate1AfterDate2(sDate Date1, sDate Date2)
 {
     return (!IsDate1BeforeDate2(Date1, Date2) && !IsDate1EqualDate2(Date1, Date2)) ? true : false;
 }
-enum enCompareDates {
+enum enCompareDates 
+{
     Before = -1,
     Equal = 0,
     After = 1
@@ -79,14 +80,12 @@ enCompareDates CompareDates(sDate Date1, sDate Date2)
     {
         return Before;
     }
-    else if(IsDate1EqualDate2(Date1, Date2))
+    if(IsDate1EqualDate2(Date1, Date2))
     {
         return Equal;
     }
-    else
-    {
         return After;
-    }
+
 }
 
 int main(){
