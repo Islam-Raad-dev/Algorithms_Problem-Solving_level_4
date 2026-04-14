@@ -75,6 +75,20 @@ sDate IncreaseDateByOneDay(sDate Date)
     return Date;
 }
 
+int GetDiffrenceInDays(sDate Date1, sDate Date2, bool IncludeEndDate = false)
+{
+    int Days = 0;
+
+    while (IsDate1LessThanDate2(Date1, Date2))
+    {
+        Date1 = IncreaseDateByOneDay(Date1);
+        Days++;
+    }
+
+    return (IncludeEndDate) ? ++Days : Days;
+}
+
+
 short DayOfWeekOrder(short Day, short Month, short Year)
 {
     short a, y, m;
