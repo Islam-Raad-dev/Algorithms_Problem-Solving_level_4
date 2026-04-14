@@ -35,12 +35,28 @@ short NumberOfDaysInMonth(short Year, short Month)
     return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
 }
 
-sDate DayOfWeekOrder(sDate Date)
+short DayOfWeekOrder(short Day, short Month, short Year)
 {
+    if (Month < 3)
+    {
+        Month += 12;
+        Year--;
+    }
+
+    short K = Year % 100;
+    short J = Year / 100;
+
+    return (Day + (13 * (Month + 1)) / 5 + K + (K / 4) + (J / 4) - (2 * J)) % 7;
 }
 
-bool IsEndOfWeek(sDate Date)
+short DayOfWeekOrder(sDate Date)
 {
+    return DayOfWeekOrder(Date.Day, Date.Month, Date.Year);
+}
+
+short IsItEndOfWeek(sDate Date)
+{
+    return DayOfWeekOrder(Date.Day, Date.Month, Date.Year) == 6;
 }
 
 bool IsItWeekEnd(sDate Date)
@@ -62,12 +78,12 @@ short DaysUntilTheEndOfTheYear()
 {
 }
 
-string DayShortName(sDate Date)
+string DayShortName(short DayOfWeekOrder)
 {
 
     string Days[7] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
-    return Days[Date.Day % 7];
+    return Days[DayOfWeekOrder];
 }
 sDate GetSystemDate()
 {
@@ -90,7 +106,7 @@ int main()
     cout<<"Today is: " << DayShortName(DayOfWeekOrder(Date)) << "/" << Date.Month << "/" << Date.Year << "\n";
 
     cout << "\nIs It End Of Week? \n";
-    if (IsItWeekEnd(Date))
+    if (IsItEndOfWeek(Date))
     {
         cout << "Yes, It's Saturday\n";
     }
