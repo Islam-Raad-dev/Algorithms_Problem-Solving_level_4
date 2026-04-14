@@ -42,9 +42,11 @@ short DaysUntilTheEndOfTheYear()
 
 string DayShortName(sDate Date)
 {
+
     string Days[7] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
     return Days[Date.Day % 7];
+    
 }
 sDate GetSystemDate()
 {
