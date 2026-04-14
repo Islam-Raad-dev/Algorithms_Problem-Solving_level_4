@@ -110,14 +110,11 @@ int main()
         cout << "No, It's Not Business Day\n";
     }
 
-    cout << "\n\nDays Until The End Of The Week: \n";
-    Date = DaysUntilTheEndOfTheWeek();
+    cout << "\n\nDays Until The End Of The Week: \n" << DaysUntilTheEndOfTheWeek();
 
-    cout << "\n\nDays Until The End Of The Month: \n";
-    Date = DaysUntilTheEndOfTheMonth();
+    cout << "\n\nDays Until The End Of The Month: \n" << DaysUntilTheEndOfTheMonth();
 
-    cout << "\n\nDays Until The End Of The Year: \n";
-    Date = DaysUntilTheEndOfTheYear();
+    cout << "\n\nDays Until The End Of The Year: \n" << DaysUntilTheEndOfTheYear();
 
     return 0;
 }
