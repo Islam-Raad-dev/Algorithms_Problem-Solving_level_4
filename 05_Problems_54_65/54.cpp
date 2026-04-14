@@ -76,18 +76,133 @@ short NumberOfDaysInMonth(short Year, short Month)
     return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];  
 }
 
+short NumberOfDaysInMonth(short Year, short Month)
+{
+    if (Month < 1 || Month > 12)
+        return 0;
+
+    int NumberOfDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
+}
+
+bool IsDate1LessThanDate2(sDate Date1, sDate Date2)
+{
+    return (Date1.Year < Date2.Year) ? true : (Date1.Year == Date2.Year && Date1.Month < Date2.Month) ? true : (Date1.Year == Date2.Year && Date1.Month == Date2.Month && Date1.Day < Date2.Day) ? true : false;
+}
+
 bool IsLastDayInMonth(sDate Date1)
 {
     return (Date1.Day == NumberOfDaysInMonth(Date1.Year, Date1.Month));  
 }
 
+bool IsLastMonthInYear(short Month)
+{
+    return (Month == 12);   
+}
+
+sDate IncreaseDateByOneDay(sDate Date)
+{
+    if (IsLastDayInMonth(Date))
+    {
+        if (IsLastMonthInYear(Date.Month))
+        {
+
+            Date.Month = 1;   
+            Date.Day = 1;  
+            Date.Year++; 
+
+        }
+        else
+        {
+
+            Date.Month++;  
+            Date.Day = 1;
+
+        }
+    }
+
+    else
+    {
+
+        Date.Day++;   
+
+    }
+    return Date;
+}
+
+int GetDiffrenceInDays(sDate Date1, sDate Date2, bool IncludeEndDate = false)
+{
+    int Days = 0;
+
+    while (IsDate1LessThanDate2(Date1, Date2))
+    {
+        Date1 = IncreaseDateByOneDay(Date1);
+        Days++;
+    }
+
+    return (IncludeEndDate) ? ++Days : Days;
+}
+
+short DayOfWeekOrder(short Day, short Month, short Year)
+{
+    short a, y, m;
+
+    a = (14 - Month) / 12;
+    y = Year - a;
+    m = Month + 12 * a - 2;
+
+    return (Day + y + y / 4 - y / 100 + y / 400 + (31 * m) / 12) % 7;
+}
+
+short DayOfWeekOrder(sDate Date)
+{
+    return DayOfWeekOrder(Date.Day, Date.Month, Date.Year);
+}
+
+
+string DayShortName(short DayOfWeekOrder)
+{
+
+    string Days[7] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+
+    return Days[DayOfWeekOrder];
+}
+
+
+
+sDate GetSystemDate()
+{
+    sDate Date;
+
+    time_t t = time(0);
+    tm *Now = localtime(&t);
+
+    Date.Year = Now->tm_year + 1900;
+    Date.Month = Now->tm_mon + 1;
+    Date.Day = Now->tm_mday;
+
+    return Date;
+}
+
 int main()
 {
+    sDate Date = GetSystemDate();
+
+
+    cout <<"\nVaction Start:\n";
     sDate Date1 = ReadFullDate();
 
-    cout <<"\n\nVaction Days: \n\n";
+    cout <<"\nVaction Ends: \n";
+    sDate Date2 = ReadFullDate();
 
-    
+    cout <<"\nVaction From: " << DayShortName(DayOfWeekOrder(Date1)) << ", " << Date1.Day << "/" << Date1.Month << "/" << Date1.Year;
+
+    cout <<"\nVaction To: " << DayShortName(DayOfWeekOrder(Date2)) << ", " << Date2.Day << "/" << Date2.Month << "/" << Date2.Year;
+
+    cout << "\n\nActual Vaction Days: " << GetDiffrenceInDays(Date1, Date2) << " Day(s)" << endl;
+
+
 
     return 0;
 }
