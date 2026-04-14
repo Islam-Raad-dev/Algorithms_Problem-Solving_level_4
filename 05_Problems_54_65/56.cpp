@@ -88,7 +88,6 @@ bool IsDate1AfterDate2(sDate Date1, sDate Date2)
     return (Date1.Year > Date2.Year) ? true : (Date1.Year == Date2.Year && Date1.Month > Date2.Month) ? true : (Date1.Year == Date2.Year && Date1.Month == Date2.Month && Date1.Day > Date2.Day) ? true : false;
 }
 
-
 int main(){
 
     sDate Date1 = ReadFullDate();
