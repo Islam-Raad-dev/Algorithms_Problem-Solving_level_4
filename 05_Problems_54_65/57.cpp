@@ -6,6 +6,11 @@ Comparse Date Function:
 #include <iostream>
 using namespace std;
 
+enum CompareDates {
+    Date1BeforeDate2 = -1,
+    Date1EqualDate2 = 0,
+    Date1AfterDate2 = 1
+};
 struct sDate
 {
     short Day;
