@@ -93,7 +93,7 @@ int main(){
     cout <<"\nEnter Date 1:\n";
     sDate Date1 = ReadFullDate();
 
-    cout <<"\nEnter Date 2:\n";
+    cout <<"Enter Date 2:\n";
     sDate Date2 = ReadFullDate();
 
     cout <<"\nCompare Result = " << CompareDates(Date1, Date2) << "\n";
