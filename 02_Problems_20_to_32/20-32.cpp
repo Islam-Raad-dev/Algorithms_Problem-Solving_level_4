@@ -209,7 +209,7 @@ int main()
 {
     sDate Date = ReadFullDate();
 
-    cout<<"\nDate After: \n\n";
+    cout<<"\nDate After: \n\n";    
 
         Date = IncreaseDateByOneDay(Date);
         cout << "01- One Day: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
