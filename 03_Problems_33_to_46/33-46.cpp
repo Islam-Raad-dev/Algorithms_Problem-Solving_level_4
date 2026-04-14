@@ -86,7 +86,7 @@ bool IsLastMonthInYear(short Month)
     return (Month == 12);   
 }
 
-sDate IncreaseDateByOneDay(sDate Date)
+sDate DecreaseDateByOneDay(sDate Date)
 {
     if (IsLastDayInMonth(Date))
     {
@@ -95,7 +95,7 @@ sDate IncreaseDateByOneDay(sDate Date)
 
             Date.Month = 1;   
             Date.Day = 1;  
-            Date.Year++; 
+            Date.Year--; 
 
         }
         else
@@ -116,27 +116,27 @@ sDate IncreaseDateByOneDay(sDate Date)
     return Date;
 }
 
-sDate IncreaseDateByXDays(sDate Date, short Days)
+sDate DecreaseDateByXDays(sDate Date, short Days)
 {
     for (short i = 1; i <= Days; i++)
     {
 
-        Date = IncreaseDateByOneDay(Date);   
+        Date = DecreaseDateByOneDay(Date);   
 
     }
     return Date;
 }
 
-sDate IncreaseDateByOneWeek(sDate Date)
+sDate DecreaseDateByOneWeek(sDate Date)
 {
-    return IncreaseDateByXDays(Date, 7);   
+    return DecreaseDateByXDays(Date, 7);   
 }
 
-sDate IncreaseDateByXWeeks(sDate Date, short Weeks)
+sDate DecreaseDateByXWeeks(sDate Date, short Weeks)
 {
-    return IncreaseDateByXDays(Date, Weeks * 7);
+    return DecreaseDateByXDays(Date, Weeks * 7);
 }
-sDate IncreaseDateByXMonths(sDate Date, short Months)
+sDate DecreaseDateByXMonths(sDate Date, short Months)
 {
     for (short i = 0; i < Months; i++)
     {
@@ -144,64 +144,64 @@ sDate IncreaseDateByXMonths(sDate Date, short Months)
         if (IsLastMonthInYear(Date.Month))
         {
             Date.Month = 1;
-            Date.Year++;  
+            Date.Year--;  
         }
 
         else
         {
-            Date.Month++;    
+            Date.Month--;    
         }   
     }
     return Date;
 }
 
-sDate IncreaseDateByOneMonth(sDate Date)
+sDate DecreaseDateByOneMonth(sDate Date)
 {
-    return IncreaseDateByXMonths(Date, 1);
+    return DecreaseDateByXMonths(Date, 1);
 }
 
-sDate IncreaseDateByXYears(sDate Date, short Years)
+sDate DecreaseDateByXYears(sDate Date, short Years)
 {
-    Date.Year += Years;
+    Date.Year -= Years;
     return Date;
 }   
 
-sDate IncreaseDateByOneYear(sDate Date)
+sDate DecreaseDateByOneYear(sDate Date)
 {
-    return IncreaseDateByXYears(Date, 1);
+    return DecreaseDateByXYears(Date, 1);
 }
 
-sDate IncreaseDateByXYYearFaster(sDate Date, short Years, short Months, short Days)
+sDate DecreaseDateByXYYearFaster(sDate Date, short Years, short Months, short Days)
 {
-    Date = IncreaseDateByXYears(Date, Years);
-    Date = IncreaseDateByXMonths(Date, Months);
-    Date = IncreaseDateByXDays(Date, Days);
+    Date = DecreaseDateByXYears(Date, Years);
+    Date = DecreaseDateByXMonths(Date, Months);
+    Date = DecreaseDateByXDays(Date, Days);
     return Date;
 }
 
-sDate IncreaseDateByOneDecade(sDate Date, short Years, short Months, short Days)
+sDate DecreaseDateByOneDecade(sDate Date, short Years, short Months, short Days)
 {
-    return IncreaseDateByXYYearFaster(Date, 10, Months, Days);
+    return DecreaseDateByXYYearFaster(Date, 10, Months, Days);
 }
 
-sDate IncreaseDateByXDecade(sDate Date, short Decades, short Months, short Days)
+sDate DecreaseDateByXDecade(sDate Date, short Decades, short Months, short Days)
 {
-    return IncreaseDateByXYYearFaster(Date, Decades * 10, Months, Days);
+    return DecreaseDateByXYYearFaster(Date, Decades * 10, Months, Days);
 }
 
-sDate IncreaseDateByXDecadeFaster(sDate Date, short Decades, short Months, short Days)
+sDate DecreaseDateByXDecadeFaster(sDate Date, short Decades, short Months, short Days)
 {
-    return IncreaseDateByXYYearFaster(Date, Decades * 10, Months, Days);
+    return DecreaseDateByXYYearFaster(Date, Decades * 10, Months, Days);
 }
 
-sDate IncreaseDateByOneCentury(sDate Date, short Years, short Months, short Days)
+sDate DecreaseDateByOneCentury(sDate Date, short Years, short Months, short Days)
 {
-    return IncreaseDateByXYYearFaster(Date, 100, Months, Days);
+    return DecreaseDateByXYYearFaster(Date, 100, Months, Days);
 }
 
-sDate IncreaseDateByOneMillennium(sDate Date, short Centuries, short Months, short Days)
+sDate DecreaseDateByOneMillennium(sDate Date, short Centuries, short Months, short Days)
 {
-    return IncreaseDateByXYYearFaster(Date, Centuries * 100, Months, Days);
+    return DecreaseDateByXYYearFaster(Date, Centuries * 100, Months, Days);
 }
 
 int main()
@@ -210,50 +210,50 @@ int main()
 
     cout<<"\nDate After: \n\n";    
 
-        Date = IncreaseDateByOneDay(Date);
-        cout << "01- One Day: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";  
+        Date = DecreaseDateByOneDay(Date);
+        cout << "01- Subtract One Day: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";  
         
-        Date = IncreaseDateByXDays(Date, 15);
-        cout << "02- Adding 15 Days: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";   
+        Date = DecreaseDateByXDays(Date, 15);
+        cout << "02- Subtract 15 Days: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";   
     
-        Date = IncreaseDateByOneWeek(Date);
-        cout << "03- One Week: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";    
+        Date = DecreaseDateByOneWeek(Date);
+        cout << "03- Subtract One Week: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";    
 
-        Date = IncreaseDateByXWeeks(Date, 3);
-        cout << "04- Adding 3 Weeks: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        Date = DecreaseDateByXWeeks(Date, 3);
+        cout << "04- Subtract 3 Weeks: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
     
-        Date = IncreaseDateByOneMonth(Date);
-        cout << "05- One Month: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        Date = DecreaseDateByOneMonth(Date);
+        cout << "05- Subtract One Month: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
-        Date = IncreaseDateByXMonths(Date, 5);
-        cout << "06- Adding 5 Months: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";  
+        Date = DecreaseDateByXMonths(Date, 5);
+        cout << "06- Subtract 5 Months: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";  
 
-        Date = IncreaseDateByOneYear(Date);
-        cout << "07- One Year: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        Date = DecreaseDateByOneYear(Date);
+        cout << "07- Subtract One Year: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
-        Date = IncreaseDateByXYears(Date, 1);
-        cout << "08- Adding 1 Year: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
-
-
-        Date = IncreaseDateByXYYearFaster(Date, 10, 0, 0);
-        cout << "09- Adding 10 Years: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        Date = DecreaseDateByXYears(Date, 1);
+        cout << "08- Subtract 1 Year: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
 
-        Date = IncreaseDateByOneDecade(Date, 0, 0, 0);
-        cout << "10- One Decade: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        Date = DecreaseDateByXYYearFaster(Date, 10, 0, 0);
+        cout << "09- Subtract 10 Years: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+
+
+        Date = DecreaseDateByOneDecade(Date, 0, 0, 0);
+        cout << "10- Subtract One Decade: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
     
-        Date = IncreaseDateByXDecade(Date, 2, 0, 0);
-        cout << "11- Two Decades: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        Date = DecreaseDateByXDecade(Date, 2, 0, 0);
+        cout << "11- Subtract Two Decades: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
-        Date = IncreaseDateByXDecadeFaster(Date, 3, 0, 0);
-        cout << "12- Three Decades Faster: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        Date = DecreaseDateByXDecadeFaster(Date, 3, 0, 0);
+        cout << "12- Subtract Three Decades Faster: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
-        Date = IncreaseDateByOneCentury(Date, 0, 0, 0);
-        cout << "13- One Century: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"; 
+        Date = DecreaseDateByOneCentury(Date, 0, 0, 0);
+        cout << "13- Subtract One Century: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"; 
     
-        Date = IncreaseDateByOneMillennium(Date, 0, 0, 0);
-        cout<<"14- One Millennium: "<<Date.Day<<"/"<<Date.Month<<"/"<<Date.Year<<"\n";
+        Date = DecreaseDateByOneMillennium(Date, 0, 0, 0);
+        cout<<"14- Subtract One Millennium: "<<Date.Day<<"/"<<Date.Month<<"/"<<Date.Year<<"\n";
 
     cout << "\n\n";
    
