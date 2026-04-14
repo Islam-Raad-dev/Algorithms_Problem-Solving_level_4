@@ -71,7 +71,18 @@ string DayShortName(sDate Date)
 }
 sDate GetSystemDate()
 {
+    sDate Date;
+
+    time_t t = time(0);
+    tm *Now = localtime(&t);
+
+    Date.Year = Now->tm_year + 1900;
+    Date.Month = Now->tm_mon + 1;
+    Date.Day = Now->tm_mday;
+
+    return Date;
 }
+
 int main()
 {
     sDate Date = GetSystemDate();
