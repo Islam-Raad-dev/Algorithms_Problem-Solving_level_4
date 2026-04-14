@@ -254,7 +254,7 @@ int main()
         cout << "13- One Century: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"; 
     
         Date = IncreaseDateByOneMillennium(Date, 0, 0, 0);
-        cout<<"14- One Millennium: "<<Date.Day<<"/"<<Date.Month<<"/"<<Date.Year<<"\n";   
+        cout<<"14- One Millennium: "<<Date.Day<<"/"<<Date.Month<<"/"<<Date.Year<<"\n";
 
     cout << "\n\n";
    
