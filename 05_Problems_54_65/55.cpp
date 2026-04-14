@@ -186,13 +186,16 @@ sDate CalculateVactionReturnDays(sDate DateFrom, short VactionDays)
 
     for(short i = 0; i <= VactionDays + WeekEndCounter; i++)
     {
-        DateFrom = IncreaseDateByOneDay(DateFrom);
 
         if(IsItWeekEnd(DateFrom))
         {
             WeekEndCounter++;
         }
+
+        DateFrom = IncreaseDateByOneDay(DateFrom);
     }
+    
+    return DateFrom;
 }
 
 sDate GetSystemDate()
