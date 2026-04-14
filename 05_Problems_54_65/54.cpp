@@ -66,15 +66,6 @@ bool IsLeapYear(short Year)
     }
 }
 
-short NumberOfDaysInMonth(short Year, short Month)
-{
-    if (Month < 1 || Month > 12)
-        return 0;
-
-    int NumberOfDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-
-    return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];  
-}
 
 short NumberOfDaysInMonth(short Year, short Month)
 {
@@ -99,6 +90,22 @@ bool IsLastDayInMonth(sDate Date1)
 bool IsLastMonthInYear(short Month)
 {
     return (Month == 12);   
+}
+
+short DayOfWeekOrder(short Day, short Month, short Year)
+{
+    short a, y, m;
+
+    a = (14 - Month) / 12;
+    y = Year - a;
+    m = Month + 12 * a - 2;
+
+    return (Day + y + y / 4 - y / 100 + y / 400 + (31 * m) / 12) % 7;
+}
+
+short DayOfWeekOrder(sDate Date)
+{
+    return DayOfWeekOrder(Date.Day, Date.Month, Date.Year);
 }
 
 bool IsItWeekEnd(sDate Date)
@@ -158,23 +165,6 @@ int GetDiffrenceInDays(sDate DateFrom, sDate DateTo, bool IncludeEndDate = false
 
     return DaysCount;
 }
-
-short DayOfWeekOrder(short Day, short Month, short Year)
-{
-    short a, y, m;
-
-    a = (14 - Month) / 12;
-    y = Year - a;
-    m = Month + 12 * a - 2;
-
-    return (Day + y + y / 4 - y / 100 + y / 400 + (31 * m) / 12) % 7;
-}
-
-short DayOfWeekOrder(sDate Date)
-{
-    return DayOfWeekOrder(Date.Day, Date.Month, Date.Year);
-}
-
 
 string DayShortName(short DayOfWeekOrder)
 {
