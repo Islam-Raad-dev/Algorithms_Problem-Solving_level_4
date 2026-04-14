@@ -234,7 +234,7 @@ int main()
         cout << "10- One Decade: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
     
         Date = IncreaseDateByXDecade(Date, 2, 0, 0);
-        cout << "11- Two Decades: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
+        cout << "11- Two Decades: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n"; 
 
         Date = IncreaseDateByXDecadeFaster(Date, 3, 0, 0);
         cout << "12- Three Decades Faster: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
