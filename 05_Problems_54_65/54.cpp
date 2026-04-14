@@ -47,9 +47,9 @@ sDate ReadFullDate()
 {
     sDate Date;
 
-    Date.Year = ReadYear();
-    Date.Month = ReadMonth();
     Date.Day = ReadDay();
+    Date.Month = ReadMonth();
+    Date.Year = ReadYear();
 
     return Date;
 }   
@@ -200,7 +200,7 @@ int main()
 
     cout <<"\nVaction To: " << DayShortName(DayOfWeekOrder(Date2)) << ", " << Date2.Day << "/" << Date2.Month << "/" << Date2.Year;
 
-    cout << "\n\nActual Vaction Days: " << GetDiffrenceInDays(Date1, Date2) << " Day(s)" << endl;
+    cout << "\n\nActual Vaction Days: " << GetDiffrenceInDays(Date1, Date2) << " Day(s)\n" << endl;
 
 
 
