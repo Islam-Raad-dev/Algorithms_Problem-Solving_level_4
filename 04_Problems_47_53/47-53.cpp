@@ -167,6 +167,10 @@ int main()
 
     cout<<"Today is: " << DayShortName(DayOfWeekOrder(Date)) << "/" << Date.Month << "/" << Date.Year << "\n";
 
+
+    //------------------------------
+
+
     cout << "\nIs It End Of Week? \n";
     if (IsItEndOfWeek(Date))
     {
@@ -198,6 +202,9 @@ int main()
     {
         cout << "No, It's Not Business Day\n";
     }
+
+    //------------------------------
+
 
     cout << "\n\nDays Until The End Of The Week   : \n" << DaysUntilTheEndOfTheWeek()<< "Days" << endl;
 
