@@ -13,7 +13,7 @@ struct sDate
     short Month;
     short Year;
 };
-
+    
 short ReadYear()
 {
     short Year;
