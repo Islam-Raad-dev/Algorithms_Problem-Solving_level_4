@@ -116,6 +116,14 @@ short IsItEndOfWeek(sDate Date)
     return DayOfWeekOrder(Date.Day, Date.Month, Date.Year) == 6;
 }
 
+string DayShortName(short DayOfWeekOrder)
+{
+
+    string Days[7] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+
+    return Days[DayOfWeekOrder];
+}
+
 bool IsItWeekEnd(sDate Date)
 {
 }
@@ -135,13 +143,6 @@ short DaysUntilTheEndOfTheYear()
 {
 }
 
-string DayShortName(short DayOfWeekOrder)
-{
-
-    string Days[7] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
-
-    return Days[DayOfWeekOrder];
-}
 sDate GetSystemDate()
 {
     sDate Date;
