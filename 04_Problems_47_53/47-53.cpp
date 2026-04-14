@@ -126,10 +126,15 @@ string DayShortName(short DayOfWeekOrder)
 
 bool IsItWeekEnd(sDate Date)
 {
+    short DayIndex = DayOfWeekOrder(Date);
+    return (DayIndex == 5 || DayIndex == 6);
 }
 
 bool IsItBusinessDay(sDate Date)
 {
+    short DayIndex = DayOfWeekOrder(Date);
+
+    return (DayIndex >= 1 && DayIndex <= 5);
 }
 short DaysUntilTheEndOfTheWeek()
 {
