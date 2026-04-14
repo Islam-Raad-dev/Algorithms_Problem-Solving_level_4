@@ -175,20 +175,24 @@ string DayShortName(short DayOfWeekOrder)
     return Days[DayOfWeekOrder];
 }
 
-short CalculateVactionDays(sDate DateFrom, sDate DateTo)
+sDate CalculateVactionReturnDays(sDate DateFrom, short VactionDays)
 {
-    short Days = 0;
+    short WeekEndCounter = 0;
 
-    while(IsDate1LessThanDate2(DateFrom, DateTo))
+    while(IsItWeekEnd(DateFrom))
     {
-        if (!IsItWeekEnd(DateFrom))
-        {
-            Days++;
-        }
         DateFrom = IncreaseDateByOneDay(DateFrom);
     }
 
-    return Days;
+    for(short i = 0; i <= VactionDays + WeekEndCounter; i++)
+    {
+        DateFrom = IncreaseDateByOneDay(DateFrom);
+
+        if(IsItWeekEnd(DateFrom))
+        {
+            WeekEndCounter++;
+        }
+    }
 }
 
 sDate GetSystemDate()
