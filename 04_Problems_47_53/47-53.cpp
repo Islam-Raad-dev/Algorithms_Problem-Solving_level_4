@@ -13,6 +13,28 @@ struct sDate
     short Year;
 };
 
+bool IsLeapYear(short Year)
+{
+    if (Year % 4 == 0 && Year % 100 != 0 || Year % 400 == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+short NumberOfDaysInMonth(short Year, short Month)
+{
+    if (Month < 1 || Month > 12)
+        return 0;
+
+    int NumberOfDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
+}
+
 sDate TodayIs()
 {
 }
@@ -46,7 +68,6 @@ string DayShortName(sDate Date)
     string Days[7] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
     return Days[Date.Day % 7];
-    
 }
 sDate GetSystemDate()
 {
@@ -97,7 +118,6 @@ int main()
 
     cout << "\n\nDays Until The End Of The Year: \n";
     Date = DaysUntilTheEndOfTheYear();
-
 
     return 0;
 }
