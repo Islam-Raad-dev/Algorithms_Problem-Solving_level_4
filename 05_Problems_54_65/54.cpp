@@ -187,20 +187,17 @@ sDate GetSystemDate()
 
 int main()
 {
-    sDate Date = GetSystemDate();
-
-
     cout <<"\nVaction Start:\n";
-    sDate Date1 = ReadFullDate();
+    sDate DateFrom = ReadFullDate();
 
     cout <<"\nVaction Ends: \n";
-    sDate Date2 = ReadFullDate();
+    sDate DateTo = ReadFullDate();
 
-    cout <<"\nVaction From: " << DayShortName(DayOfWeekOrder(Date1)) << ", " << Date1.Day << "/" << Date1.Month << "/" << Date1.Year;
+    cout <<"\nVaction From: " << DayShortName(DayOfWeekOrder(DateFrom)) << ", " << DateFrom.Day << "/" << DateFrom.Month << "/" << DateFrom.Year;
 
-    cout <<"\nVaction To: " << DayShortName(DayOfWeekOrder(Date2)) << ", " << Date2.Day << "/" << Date2.Month << "/" << Date2.Year;
+    cout <<"\nVaction To: " << DayShortName(DayOfWeekOrder(DateTo)) << ", " << DateTo.Day << "/" << DateTo.Month << "/" << DateTo.Year;
 
-    cout << "\n\nActual Vaction Days: " << GetDiffrenceInDays(Date1, Date2) << " Day(s)\n" << endl;
+    cout << "\n\nActual Vaction Days: " << GetDiffrenceInDays(DateFrom, DateTo, true) << " Day(s)\n" << endl;
 
 
 
