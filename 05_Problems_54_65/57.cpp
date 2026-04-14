@@ -6,12 +6,6 @@ Comparse Date Function:
 #include <iostream>
 using namespace std;
 
-enum CompareDates {
-    Date1BeforeDate2 = -1,
-    Date1EqualDate2 = 0,
-    Date1AfterDate2 = 1
-};
-
 struct sDate
 {
     short Day;
@@ -73,9 +67,26 @@ bool IsDate1AfterDate2(sDate Date1, sDate Date2)
 {
     return (!IsDate1BeforeDate2(Date1, Date2) && !IsDate1EqualDate2(Date1, Date2)) ? true : false;
 }
+enum enCompareDates {
+    Before = -1,
+    Equal = 0,
+    After = 1
+};
 
-sDate CompareDates(sDate Date1, sDate Date2){
-
+enCompareDates CompareDates(sDate Date1, sDate Date2)
+{
+    if(IsDate1BeforeDate2(Date1, Date2))
+    {
+        return Before;
+    }
+    else if(IsDate1EqualDate2(Date1, Date2))
+    {
+        return Equal;
+    }
+    else
+    {
+        return After;
+    }
 }
 
 int main(){
@@ -86,7 +97,7 @@ int main(){
     cout <<"\nEnter Date 2:\n";
     sDate Date2 = ReadFullDate();
 
-    cout <<"Compare Result = ";
+    cout <<"\nCompare Result = " << CompareDates(Date1, Date2) << "\n";
 
     return 0;
 }
