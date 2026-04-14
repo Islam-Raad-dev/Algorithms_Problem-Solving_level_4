@@ -101,6 +101,17 @@ bool IsLastMonthInYear(short Month)
     return (Month == 12);   
 }
 
+bool IsItWeekEnd(sDate Date)
+{
+    short DayIndex = DayOfWeekOrder(Date);
+    return (DayIndex == 5 || DayIndex == 6);
+}
+
+bool IsItBusinessDay(sDate Date)
+{
+    return !IsItWeekEnd(Date);
+}
+
 sDate IncreaseDateByOneDay(sDate Date)
 {
     if (IsLastDayInMonth(Date))
@@ -131,17 +142,21 @@ sDate IncreaseDateByOneDay(sDate Date)
     return Date;
 }
 
-int GetDiffrenceInDays(sDate Date1, sDate Date2, bool IncludeEndDate = false)
+int GetDiffrenceInDays(sDate DateFrom, sDate DateTo, bool IncludeEndDate = false)
 {
     int Days = 0;
 
-    while (IsDate1LessThanDate2(Date1, Date2))
+    while (IsDate1LessThanDate2(DateFrom, DateTo))
     {
-        Date1 = IncreaseDateByOneDay(Date1);
-        Days++;
+        if(IsItBusinessDay(DateFrom))
+        {
+            Days++;
+        }
+
+        DateFrom = IncreaseDateByOneDay(DateFrom);
     }
 
-    return (IncludeEndDate) ? ++Days : Days;
+    return Days;
 }
 
 short DayOfWeekOrder(short Day, short Month, short Year)
@@ -169,7 +184,21 @@ string DayShortName(short DayOfWeekOrder)
     return Days[DayOfWeekOrder];
 }
 
+short CalculateVactionDays(sDate DateFrom, sDate DateTo)
+{
+    short Days = 0;
 
+    while(IsDate1LessThanDate2(DateFrom, DateTo))
+    {
+        if (!IsItWeekEnd(DateFrom))
+        {
+            Days++;
+        }
+        DateFrom = IncreaseDateByOneDay(DateFrom);
+    }
+
+    return Days;
+}
 
 sDate GetSystemDate()
 {
@@ -197,7 +226,7 @@ int main()
 
     cout <<"\nVaction To: " << DayShortName(DayOfWeekOrder(DateTo)) << ", " << DateTo.Day << "/" << DateTo.Month << "/" << DateTo.Year;
 
-    cout << "\n\nActual Vaction Days: " << GetDiffrenceInDays(DateFrom, DateTo, true) << " Day(s)\n" << endl;
+    cout << "\n\nActual Vaction Days: " << CalculateVactionDays(DateFrom, DateTo) << " Day(s)\n" << endl;
 
 
 
