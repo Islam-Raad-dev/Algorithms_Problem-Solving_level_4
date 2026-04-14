@@ -35,6 +35,46 @@ short NumberOfDaysInMonth(short Year, short Month)
     return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
 }
 
+bool IsLastDayInMonth(sDate Date1)
+{
+    return (Date1.Day == NumberOfDaysInMonth(Date1.Year, Date1.Month));  
+}
+
+bool IsLastMonthInYear(short Month)
+{
+    return (Month == 12);   
+}
+
+sDate IncreaseDateByOneDay(sDate Date)
+{
+    if (IsLastDayInMonth(Date))
+    {
+        if (IsLastMonthInYear(Date.Month))
+        {
+
+            Date.Month = 1;   
+            Date.Day = 1;  
+            Date.Year++; 
+
+        }
+        else
+        {
+
+            Date.Month++;  
+            Date.Day = 1;
+
+        }
+    }
+
+    else
+    {
+
+        Date.Day++;   
+
+    }
+    return Date;
+}
+
 short DayOfWeekOrder(short Day, short Month, short Year)
 {
     short a, y, m;
