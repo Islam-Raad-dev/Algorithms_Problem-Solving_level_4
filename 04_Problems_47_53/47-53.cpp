@@ -35,7 +35,7 @@ short NumberOfDaysInMonth(short Year, short Month)
     return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
 }
 
-sDate TodayIs()
+sDate DayOfWeekOrder(sDate Date)
 {
 }
 
@@ -76,9 +76,9 @@ int main()
 {
     sDate Date = GetSystemDate();
 
-    Date = TodayIs();
+    cout<<"Today is: " << DayShortName(DayOfWeekOrder(Date)) << "/" << Date.Month << "/" << Date.Year << "\n";
 
-    cout << "\nIs It End Of Week: \n";
+    cout << "\nIs It End Of Week? \n";
     if (IsItWeekEnd(Date))
     {
         cout << "Yes, It's Weekend\n";
@@ -89,7 +89,7 @@ int main()
         cout << "No, It's Not Weekend\n";
     }
 
-    cout << "\n\nIs It Weekend: \n";
+    cout << "\n\nIs It Weekend? \n";
     if (IsItWeekEnd(Date))
     {
         cout << "Yes, It's Weekend\n";
@@ -99,7 +99,7 @@ int main()
     {
         cout << "No, It's Not Weekend\n";
     }
-    cout << "\n\nIs It Business Day: \n";
+    cout << "\n\nIs It Business Day? \n";
     if (IsItBusinessDay(Date))
     {
         cout << "Yes, It's Business Day\n";
