@@ -134,6 +134,7 @@ bool IsItBusinessDay(sDate Date)
 {
     return !IsItWeekEnd(Date);
 }
+
 short DaysUntilTheEndOfTheWeek()
 {
 }
