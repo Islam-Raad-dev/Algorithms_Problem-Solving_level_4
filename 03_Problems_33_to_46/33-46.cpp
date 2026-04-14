@@ -88,21 +88,21 @@ bool IsLastMonthInYear(short Month)
 
 sDate DecreaseDateByOneDay(sDate Date)
 {
-    if (IsLastDayInMonth(Date))
+    if (Date.Day == 1)
     {
         if (IsLastMonthInYear(Date.Month))
         {
 
-            Date.Month = 1;   
-            Date.Day = 1;  
+            Date.Month = 12;  
+            Date.Day = 31;  
             Date.Year--; 
 
         }
         else
         {
 
-            Date.Month++;  
-            Date.Day = 1;
+            Date.Month--;  
+            Date.Day = NumberOfDaysInMonth(Date.Year, Date.Month); 
 
         }
     }
@@ -110,7 +110,7 @@ sDate DecreaseDateByOneDay(sDate Date)
     else
     {
 
-        Date.Day++;   
+        Date.Day--;   
 
     }
     return Date;
@@ -201,14 +201,14 @@ sDate DecreaseDateByOneCentury(sDate Date, short Years, short Months, short Days
 
 sDate DecreaseDateByOneMillennium(sDate Date, short Centuries, short Months, short Days)
 {
-    return DecreaseDateByXYYearFaster(Date, Centuries * 100, Months, Days);
+    return DecreaseDateByXYYearFaster(Date, 1000, Months, Days);
 }
 
 int main()
 {
     sDate Date = ReadFullDate();
 
-    cout<<"\nDate After: \n\n";    
+    cout<<"\n\nDate After: \n\n";    
 
         Date = DecreaseDateByOneDay(Date);
         cout << "01- Subtract One Day: " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";  
