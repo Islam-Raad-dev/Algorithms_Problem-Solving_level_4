@@ -135,16 +135,25 @@ bool IsItBusinessDay(sDate Date)
     return !IsItWeekEnd(Date);
 }
 
-short DaysUntilTheEndOfTheWeek()
+short DaysUntilTheEndOfTheWeek(sDate Date)
 {
+    return 6 - DayOfWeekOrder(Date);
 }
 
-short DaysUntilTheEndOfTheMonth()
+short DaysUntilTheEndOfTheMonth(sDate Date)
 {
+    sDate EndOfMonthDate;
+
+    EndOfMonthDate.Day = NumberOfDaysInMonth(Date.Year, Date.Month);
+    EndOfMonthDate.Month = Date.Month;
+    EndOfMonthDate.Year = Date.Year;
+
+    return GetDiffrenceInDays(Date, EndOfMonthDate, true);
 }
 
-short DaysUntilTheEndOfTheYear()
+short DaysUntilTheEndOfTheYear(sDate Date)
 {
+    return (IsLeapYear(Date.Year) ? 366 : 365) - GetDiffrenceInDays(Date, {31, 12, Date.Year}, true);
 }
 
 sDate GetSystemDate()
