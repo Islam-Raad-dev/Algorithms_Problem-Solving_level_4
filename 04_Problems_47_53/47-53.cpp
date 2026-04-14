@@ -28,15 +28,15 @@ bool IsItWeekEnd(sDate Date)
 bool IsItBusinessDay(sDate Date)
 {
 }
-sDate DaysUntilTheEndOfTheWeek()
+short DaysUntilTheEndOfTheWeek()
 {
 }
 
-sDate DaysUntilTheEndOfTheMonth()
+short DaysUntilTheEndOfTheMonth()
 {
 }
 
-sDate DaysUntilTheEndOfTheYear()
+short DaysUntilTheEndOfTheYear()
 {
 }
 
@@ -57,23 +57,45 @@ int main()
 
     cout << "\nIs It End Of Week: \n";
     if (IsItWeekEnd(Date))
+    {
         cout << "Yes, It's Weekend\n";
+    }
+
     else
+    {
         cout << "No, It's Not Weekend\n";
+    }
 
     cout << "\n\nIs It Weekend: \n";
     if (IsItWeekEnd(Date))
+    {
         cout << "Yes, It's Weekend\n";
-    else
-        cout << "No, It's Not Weekend\n";
+    }
 
+    else
+    {
+        cout << "No, It's Not Weekend\n";
+    }
     cout << "\n\nIs It Business Day: \n";
     if (IsItBusinessDay(Date))
+    {
         cout << "Yes, It's Business Day\n";
+    }
+
     else
+    {
         cout << "No, It's Not Business Day\n";
+    }
 
-    cout << "\n\n;
+    cout << "\n\nDays Until The End Of The Week: \n";
+    Date = DaysUntilTheEndOfTheWeek();
 
-        return 0;
+    cout << "\n\nDays Until The End Of The Month: \n";
+    Date = DaysUntilTheEndOfTheMonth();
+
+    cout << "\n\nDays Until The End Of The Year: \n";
+    Date = DaysUntilTheEndOfTheYear();
+
+
+    return 0;
 }
