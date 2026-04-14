@@ -13,6 +13,7 @@ struct sDate
     short Year;
 };
 
+
 bool IsLeapYear(short Year)
 {
     if (Year % 4 == 0 && Year % 100 != 0 || Year % 400 == 0)
@@ -33,6 +34,11 @@ short NumberOfDaysInMonth(short Year, short Month)
     int NumberOfDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
+}
+
+bool IsDate1LessThanDate2(sDate Date1, sDate Date2)
+{
+    return (Date1.Year < Date2.Year) ? true : (Date1.Year == Date2.Year && Date1.Month < Date2.Month) ? true : (Date1.Year == Date2.Year && Date1.Month == Date2.Month && Date1.Day < Date2.Day) ? true : false;
 }
 
 bool IsLastDayInMonth(sDate Date1)
