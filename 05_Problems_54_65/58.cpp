@@ -71,3 +71,18 @@ Period2 ReadFullDate2()
 
     return Date;
 }
+
+int main(){
+
+    cout << "Please Enter First Period: " << endl;
+    Period1 StartPeriod = ReadFullDate1();
+    Period1 EndPeriod = ReadFullDate1();
+
+    cout << "Please Enter Second Period: " << endl;
+    Period2 SecondPeriod = ReadFullDate2();
+    Period2 EndSecondPeriod = ReadFullDate2();
+
+    cout <<
+
+    return 0;
+}
