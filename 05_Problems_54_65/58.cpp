@@ -50,9 +50,20 @@ short ReadDay()
     return Day;
 }
 
-sDate ReadFullDate()
+Period1 ReadFullDate1()
 {
-    sDate Date;
+    Period1 Date;
+
+    Date.Day = ReadDay();
+    Date.Month = ReadMonth();
+    Date.Year = ReadYear();
+
+    return Date;
+}
+
+Period2 ReadFullDate2()
+{
+    Period2 Date;
 
     Date.Day = ReadDay();
     Date.Month = ReadMonth();
