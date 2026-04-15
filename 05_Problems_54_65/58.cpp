@@ -6,18 +6,17 @@ Is Overlap Periods
 #include <iostream>
 using namespace std;
 
-struct Period1
+struct sDate
 {
     short Day;
     short Month;
     short Year;
 };
 
-struct Period2
+struct sPeriod
 {
-    short Day;
-    short Month;
-    short Year;
+    sDate StartDate;
+    sDate EndDate;
 };
 
 short ReadYear()
@@ -50,9 +49,9 @@ short ReadDay()
     return Day;
 }
 
-Period1 ReadFullDate1()
+sDate ReadFullDate()
 {
-    Period1 Date;
+    sDate Date;
 
     Date.Day = ReadDay();
     Date.Month = ReadMonth();
@@ -61,41 +60,35 @@ Period1 ReadFullDate1()
     return Date;
 }
 
-Period2 ReadFullDate2()
+sPeriod ReadFullPeriod()
 {
-    Period2 Date;
+    sPeriod Period;
 
-    Date.Day = ReadDay();
-    Date.Month = ReadMonth();
-    Date.Year = ReadYear();
+    cout << "\nPlease Enter The Start Date Of The Period: " << endl;
+    Period.StartDate = ReadFullDate();
 
-    return Date;
+    cout << "\nPlease Enter The End Date Of The Period: " << endl;
+    Period.EndDate = ReadFullDate();
+
+    return Period;
 }
 
 bool IsOverlap(Period1 StartPeriod1, Period1 EndPeriod1, Period2 StartPeriod2, Period2 EndPeriod2)
 {
-    return (StartPeriod1.Year < EndPeriod2.Year) ? true : (StartPeriod1.Year   == EndPeriod2.Year && StartPeriod1.Month < EndPeriod2.Month) ? true : (StartPeriod1.Year == EndPeriod2.Year && StartPeriod1.Month == EndPeriod2.Month && StartPeriod1.Day <= EndPeriod2.Day) ? true : (EndPeriod1.Year > StartPeriod2.Year) ? true : (EndPeriod1.Year == StartPeriod2.Year && EndPeriod1.Month > StartPeriod2.Month) ? true : (EndPeriod1.Year == StartPeriod2.Year && EndPeriod1.Month == StartPeriod2.Month && EndPeriod1.Day >= StartPeriod2.Day) ? true : false;
+    return 
 }
 int main(){
 
     cout << "Please Enter First Period:\n " << endl;
 
-    cout << "Enter Start Period 1: " << endl;
-    Period1 StartPeriod1 = ReadFullDate1();
-
-    cout << "Enter End Period 1: " << endl;
-    Period1 EndPeriod1 = ReadFullDate1();
+    Period1 Period1 = ReadFullDate1();
 
 
     cout << "Please Enter Second Period: " << endl;
 
-    cout << "Enter Start Period 2:\n " << endl;
-    Period2 StartPeriod2 = ReadFullDate2();
+    Period2 Period2 = ReadFullPeriod();
 
-    cout << "Enter End Period 2: " << endl;
-    Period2 EndPeriod2 = ReadFullDate2();
-
-    if(IsOverlap(StartPeriod1, EndPeriod1, StartPeriod2, EndPeriod2))
+    if(IsOverlap(Period1,Period2))
     {
         cout<< "\nYes, The Two Periods Overlap Each Other." << endl;
     }
