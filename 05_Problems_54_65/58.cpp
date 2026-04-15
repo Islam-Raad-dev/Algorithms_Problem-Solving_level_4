@@ -6,7 +6,14 @@ Is Overlap Periods
 #include <iostream>
 using namespace std;
 
-struct sDate
+struct Period1
+{
+    short Day;
+    short Month;
+    short Year;
+};
+
+struct Period2
 {
     short Day;
     short Month;
