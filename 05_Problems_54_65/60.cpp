@@ -111,7 +111,7 @@ enCompareDates CompareDates(sDate Date1, sDate Date2)
 }
 bool IsDateinPeriod(sDate Date,sPeriod Period)
 {
-    return (
+    return !(
              CompareDates(Date, Period.StartDate) == Before 
              || 
              CompareDates(Date, Period.EndDate) == After);
