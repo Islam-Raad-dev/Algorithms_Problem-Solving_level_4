@@ -87,11 +87,11 @@ int main(){
 
     if(IsOverlap(Period1,Period2))
     {
-        cout<< "\nYes, The Two Periods Overlap Each Other." << endl;
+        cout<< "\nYes, The Two Periods Overlap." << endl;
     }
     else
     {
-        cout<< "\nNo, The Two Periods Do Not Overlap Each Other." << endl;
+        cout<< "\nNo, The Two Periods Do Not Overlap." << endl;
     }
 
     return 0;
