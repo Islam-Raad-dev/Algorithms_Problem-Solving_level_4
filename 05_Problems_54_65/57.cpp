@@ -63,10 +63,12 @@ bool IsDate1EqualDate2(sDate Date1, sDate Date2)
 {
     return (Date1.Year == Date2.Year && Date1.Month == Date2.Month && Date1.Day == Date2.Day) ? true : false;
 }
+
 bool IsDate1AfterDate2(sDate Date1, sDate Date2)
 {
     return (!IsDate1BeforeDate2(Date1, Date2) && !IsDate1EqualDate2(Date1, Date2)) ? true : false;
 }
+
 enum enCompareDates 
 {
     Before = -1,
