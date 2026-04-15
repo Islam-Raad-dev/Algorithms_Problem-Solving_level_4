@@ -161,7 +161,7 @@ short PeriodLengthInDays(sPeriod Period, bool IncludeEndDate = false)
 
 }
 int main()
-{
+{ 
 
     cout << "Please Enter Period:\n " << endl;
     sPeriod Period = ReadFullPeriod();
