@@ -171,11 +171,11 @@ int main()
 
     if(DateIsWithinPeriod(Date, Period))
     {
-        cout << "\nThe Date Is Within The Period." << endl;
+        cout << "\nYes ,The Date Is Within The Period." << endl;
     }
     else
     {
-        cout << "\nThe Date Is Not Within The Period." << endl;
+        cout << "\nNo, The Date Is Not Within The Period." << endl;
     }
 
     return 0;
