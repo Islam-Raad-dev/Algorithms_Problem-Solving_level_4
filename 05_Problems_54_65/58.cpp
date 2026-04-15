@@ -111,7 +111,14 @@ enCompareDates CompareDates(sDate Date1, sDate Date2)
 
 bool IsOverlapPeriod(sPeriod Period1, sPeriod Period2)
 {
-    return (IsDate1BeforeDate2(Period1.StartDate, Period2.EndDate) && IsDate1AfterDate2(Period1.EndDate, Period2.StartDate)) || (IsDate1EqualDate2(Period1.StartDate, Period2.EndDate) || IsDate1EqualDate2(Period1.EndDate, Period2.StartDate));
+    if(
+        CompareDates(Period1.StartDate, Period2.EndDate) == After 
+        || 
+        CompareDates(Period1.EndDate, Period2.StartDate) == Before)
+    {
+        return false;
+    }
+    return true;
 }
 int main(){
 
