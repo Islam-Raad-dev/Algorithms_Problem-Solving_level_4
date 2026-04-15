@@ -28,8 +28,8 @@ short ReadYear()
     cin >> Year;
 
     return Year;
-} 
-     
+}
+
 short ReadMonth()
 {
     short Month;
@@ -72,17 +72,34 @@ Period2 ReadFullDate2()
     return Date;
 }
 
-int main(){
+bool IsPeriodOverlap(Period1 StartPeriod1, Period1 EndPeriod1, Period2 StartPeriod2, Period2 EndPeriod2)
+{
+    return (StartPeriod1.Year < EndPeriod2.Year) ? true : (StartPeriod1.Year == EndPeriod2.Year && StartPeriod1.Month < EndPeriod2.Month)                                      ? true
+                                                      : (StartPeriod1.Year == EndPeriod2.Year && StartPeriod1.Month == EndPeriod2.Month && StartPeriod1.Day <= EndPeriod2.Day) ? true
+                                                      : (EndPeriod1.Year > StartPeriod2.Year)                                                                                  ? true
+                                                      : (EndPeriod1.Year == StartPeriod2.Year && EndPeriod1.Month > StartPeriod2.Month)                                        ? true
+                                                      : (EndPeriod1.Year == StartPeriod2.Year && EndPeriod1.Month == StartPeriod2.Month && EndPeriod1.Day >= StartPeriod2.Day) ? true
+                                                                                                                                                                               : false;
+}
+int main()
+{
 
     cout << "Please Enter First Period: " << endl;
-    Period1 StartPeriod = ReadFullDate1();
-    Period1 EndPeriod = ReadFullDate1();
+    Period1 StartPeriod1 = ReadFullDate1();
+    Period1 EndPeriod1 = ReadFullDate1();
 
     cout << "Please Enter Second Period: " << endl;
-    Period2 SecondPeriod = ReadFullDate2();
-    Period2 EndSecondPeriod = ReadFullDate2();
+    Period2 StartPeriod2 = ReadFullDate2();
+    Period2 EndPeriod2 = ReadFullDate2();
 
-    cout <<
+    if (IsPeriodOverlap(StartPeriod1, EndPeriod1, StartPeriod2, EndPeriod2))
+    {
+        cout << "Yes, The Two Periods Overlap Each Other." << endl;
+    }
+    else
+    {
+        cout << "No, The Two Periods Do Not Overlap Each Other." << endl;
+    }
 
     return 0;
 }
