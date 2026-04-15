@@ -74,90 +74,44 @@ sPeriod ReadFullPeriod()
     return Period;
 }
 
-bool IsLeapYear(short Year)
-{
-    if (Year % 4 == 0 && Year % 100 != 0 || Year % 400 == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
-
-short NumberOfDaysInMonth(short Year, short Month)
-{
-    if (Month < 1 || Month > 12)
-        return 0;
-
-    int NumberOfDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-
-    return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
-}
-
-bool IsLastDayInMonth(sDate Date1)
-{
-    return (Date1.Day == NumberOfDaysInMonth(Date1.Year, Date1.Month));  
-}
-
-bool IsLastMonthInYear(short Month)
-{
-    return (Month == 12);   
-}
-
-bool IsDate1LessThanDate2(sDate Date1, sDate Date2)
+bool IsDate1BeforeDate2(sDate Date1, sDate Date2)
 {
     return (Date1.Year < Date2.Year) ? true : (Date1.Year == Date2.Year && Date1.Month < Date2.Month) ? true : (Date1.Year == Date2.Year && Date1.Month == Date2.Month && Date1.Day < Date2.Day) ? true : false;
 }
 
-sDate IncreaseDateByOneDay(sDate Date)
+bool IsDate1EqualDate2(sDate Date1, sDate Date2)
 {
-    if (IsLastDayInMonth(Date))
-    {
-        if (IsLastMonthInYear(Date.Month))
-        {
-
-            Date.Month = 1;   
-            Date.Day = 1;  
-            Date.Year++; 
-
-        }
-        else
-        {
-
-            Date.Month++;  
-            Date.Day = 1;
-
-        }
-    }
-
-    else
-    {
-
-        Date.Day++;   
-
-    }
-    return Date;
+    return (Date1.Year == Date2.Year && Date1.Month == Date2.Month && Date1.Day == Date2.Day) ? true : false;
 }
 
-int GetDiffrenceInDays(sDate Date1, sDate Date2, bool IncludeEndDate = false)
+bool IsDate1AfterDate2(sDate Date1, sDate Date2)
 {
-    int Days = 0;
-
-    while (IsDate1LessThanDate2(Date1, Date2))
-    {
-        Date1 = IncreaseDateByOneDay(Date1);
-        Days++;
-    }
-
-    return (IncludeEndDate) ? ++Days : Days;
+    return (!IsDate1BeforeDate2(Date1, Date2) && !IsDate1EqualDate2(Date1, Date2)) ? true : false;
 }
 
-bool DateIsWithinPeriod(sDate Date,sPeriod Period)
+enum enCompareDates 
 {
+    Before = -1,
+    Equal = 0,
+    After = 1
+};
 
+enCompareDates CompareDates(sDate Date1, sDate Date2)
+{
+    if(IsDate1BeforeDate2(Date1, Date2))
+    {
+        return Before;
+    }
+    if(IsDate1EqualDate2(Date1, Date2))
+    {
+        return Equal;
+    }
+        return After;
+
+}
+bool DateIsinPeriod(sDate Date,sPeriod Period)
+{
+    return (Cop)
 }
 
 int main()
@@ -169,7 +123,7 @@ int main()
     cout << "Enter Date To Check: \n";
     sDate Date = ReadFullDate();
 
-    if(DateIsWithinPeriod(Date, Period))
+    if(DateIsinPeriod(Date, Period))
     {
         cout << "\nYes ,The Date Is Within The Period." << endl;
     }
