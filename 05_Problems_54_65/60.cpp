@@ -109,9 +109,12 @@ enCompareDates CompareDates(sDate Date1, sDate Date2)
         return After;
 
 }
-bool DateIsinPeriod(sDate Date,sPeriod Period)
+bool IsDateinPeriod(sDate Date,sPeriod Period)
 {
-    return (Cop)
+    return (
+             CompareDates(Date, Period.StartDate) == Before 
+             || 
+             CompareDates(Date, Period.EndDate) == After);
 }
 
 int main()
@@ -123,7 +126,7 @@ int main()
     cout << "Enter Date To Check: \n";
     sDate Date = ReadFullDate();
 
-    if(DateIsinPeriod(Date, Period))
+    if(IsDateinPeriod(Date, Period))
     {
         cout << "\nYes ,The Date Is Within The Period." << endl;
     }
