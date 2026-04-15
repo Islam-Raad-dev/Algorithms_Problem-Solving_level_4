@@ -73,20 +73,17 @@ sPeriod ReadFullPeriod()
     return Period;
 }
 
-bool IsOverlap(Period1 StartPeriod1, Period1 EndPeriod1, Period2 StartPeriod2, Period2 EndPeriod2)
+bool IsOverlap(sPeriod Period1, sPeriod Period2)
 {
-    return 
+    return (IsDate1BeforeDate2(Period1.StartDate, Period2.EndDate) && IsDate1AfterDate2(Period1.EndDate, Period2.StartDate)) || (IsDate1EqualDate2(Period1.StartDate, Period2.EndDate) || IsDate1EqualDate2(Period1.EndDate, Period2.StartDate));
 }
 int main(){
 
     cout << "Please Enter First Period:\n " << endl;
-
-    Period1 Period1 = ReadFullDate1();
-
+    sPeriod Period1 = ReadFullPeriod();
 
     cout << "Please Enter Second Period: " << endl;
-
-    Period2 Period2 = ReadFullPeriod();
+    sPeriod Period2 = ReadFullPeriod();
 
     if(IsOverlap(Period1,Period2))
     {
