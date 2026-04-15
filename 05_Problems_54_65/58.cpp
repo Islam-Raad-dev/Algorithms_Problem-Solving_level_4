@@ -78,7 +78,7 @@ bool IsOverlap(Period1 StartPeriod1, Period1 EndPeriod1, Period2 StartPeriod2, P
 }
 int main(){
 
-    cout << "Please Enter First Period: " << endl;
+    cout << "Please Enter First Period:\n " << endl;
 
     cout << "Enter Start Period 1: " << endl;
     Period1 StartPeriod1 = ReadFullDate1();
@@ -89,7 +89,7 @@ int main(){
 
     cout << "Please Enter Second Period: " << endl;
 
-    cout << "Enter Start Period 2: " << endl;
+    cout << "Enter Start Period 2:\n " << endl;
     Period2 StartPeriod2 = ReadFullDate2();
 
     cout << "Enter End Period 2: " << endl;
@@ -97,11 +97,11 @@ int main(){
 
     if(IsOverlap(StartPeriod1, EndPeriod1, StartPeriod2, EndPeriod2))
     {
-        cout<< "Yes, The Two Periods Overlap Each Other." << endl;
+        cout<< "\nYes, The Two Periods Overlap Each Other." << endl;
     }
     else
     {
-        cout<< "No, The Two Periods Do Not Overlap Each Other." << endl;
+        cout<< "\nNo, The Two Periods Do Not Overlap Each Other." << endl;
     }
 
     return 0;
