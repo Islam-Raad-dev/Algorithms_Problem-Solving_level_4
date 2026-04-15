@@ -166,6 +166,8 @@ int main()
     cout << "Please Enter Period:\n " << endl;
     sPeriod Period = ReadFullPeriod();
 
+    cout << "Enter Date To Check: \n";
+    sDate Date = ReadFullDate();
 
     cout << "\nPeriod Length Is: " << PeriodLengthInDays(Period) << endl;
 
