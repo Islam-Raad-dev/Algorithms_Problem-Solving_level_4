@@ -88,7 +88,28 @@ bool IsDate1AfterDate2(sDate Date1, sDate Date2)
     return (!IsDate1BeforeDate2(Date1, Date2) && !IsDate1EqualDate2(Date1, Date2)) ? true : false;
 }
 
-bool IsOverlap(sPeriod Period1, sPeriod Period2)
+enum enCompareDates 
+{
+    Before = -1,
+    Equal = 0,
+    After = 1
+};
+
+enCompareDates CompareDates(sDate Date1, sDate Date2)
+{
+    if(IsDate1BeforeDate2(Date1, Date2))
+    {
+        return Before;
+    }
+    if(IsDate1EqualDate2(Date1, Date2))
+    {
+        return Equal;
+    }
+        return After;
+
+}
+
+bool IsOverlapPeriod(sPeriod Period1, sPeriod Period2)
 {
     return (IsDate1BeforeDate2(Period1.StartDate, Period2.EndDate) && IsDate1AfterDate2(Period1.EndDate, Period2.StartDate)) || (IsDate1EqualDate2(Period1.StartDate, Period2.EndDate) || IsDate1EqualDate2(Period1.EndDate, Period2.StartDate));
 }
@@ -100,7 +121,7 @@ int main(){
     cout << "Please Enter Second Period: " << endl;
     sPeriod Period2 = ReadFullPeriod();
 
-    if(IsOverlap(Period1,Period2))
+    if(IsOverlapPeriod(Period1,Period2))
     {
         cout<< "\nYes, The Two Periods Overlap." << endl;
     }
