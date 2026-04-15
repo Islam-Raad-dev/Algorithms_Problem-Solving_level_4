@@ -155,11 +155,11 @@ int GetDiffrenceInDays(sDate Date1, sDate Date2, bool IncludeEndDate = false)
     return (IncludeEndDate) ? ++Days : Days;
 }
 
-short PeriodLengthInDays(sPeriod Period, bool IncludeEndDate = false)
+bool DateIsWithinPeriod(sDate Date,sPeriod Period)
 {
-    return GetDiffrenceInDays(Period.StartDate, Period.EndDate, IncludeEndDate);
 
 }
+
 int main()
 { 
 
@@ -169,9 +169,14 @@ int main()
     cout << "Enter Date To Check: \n";
     sDate Date = ReadFullDate();
 
-    cout << "\nPeriod Length Is: " << PeriodLengthInDays(Period) << endl;
-
-    cout << "\nPeriod Length (Including End Date) Is: " << PeriodLengthInDays(Period, true) << endl;
+    if(DateIsWithinPeriod(Date, Period))
+    {
+        cout << "\nThe Date Is Within The Period." << endl;
+    }
+    else
+    {
+        cout << "\nThe Date Is Not Within The Period." << endl;
+    }
 
     return 0;
 }
