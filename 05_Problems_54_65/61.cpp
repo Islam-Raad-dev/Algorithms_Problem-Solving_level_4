@@ -121,6 +121,17 @@ bool IsOverlapPeriod(sPeriod Period1, sPeriod Period2)
     return true;
 }
 
+bool IsLeapYear(short Year)
+{
+    if (Year % 4 == 0 && Year % 100 != 0 || Year % 400 == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
 short NumberOfDaysInMonth(short Year, short Month)
 {
     if (Month < 1 || Month > 12)
