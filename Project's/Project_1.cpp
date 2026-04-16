@@ -51,6 +51,12 @@ enum enManageUsersOptions
     eBackToMainMenu = 6
 };
 
+enum enUserPermissions
+{
+    eTransactions = 1,
+    eManageUsers = 2
+};
+
 struct sClientInfo
 {
     string AccountNumber;
