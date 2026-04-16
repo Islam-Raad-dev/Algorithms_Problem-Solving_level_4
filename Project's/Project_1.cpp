@@ -707,7 +707,8 @@ void ShowMainMenu()
     cout << "\t[4] Update Client Info.\n";
     cout << "\t[5] Find Client.\n";
     cout << "\t[6] Transaction.\n";
-    cout << "\t[7] Exit.";
+    cout << "\t[7] Manage Users.\n";
+    cout << "\t[8] Logout.";
 
     cout << "\n=================================================================\n";
     PerformMainMenuOption((enMainMenuOptions)ReadMainMenuOption());
