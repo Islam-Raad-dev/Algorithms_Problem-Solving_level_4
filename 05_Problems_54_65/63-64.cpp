@@ -23,7 +23,7 @@ string ReadDateString(string Message)
     return DateString;
 }
 
-sDate ConvertStringToDate(string DateString)
+sDate StringToDateSturctur(string DateString)
 {
     sDate Date;
 
@@ -34,7 +34,7 @@ sDate ConvertStringToDate(string DateString)
     return Date;
 }
 
-void PrintStringDate(sDate Date)
+void DateToString(sDate Date)
 {
     cout << "\nThe Date Is: " << Date.Day << "/" << Date.Month << "/" << Date.Year << endl;
 }
@@ -43,7 +43,7 @@ int main()
 {
     string DateString = ReadDateString("\nPlease Enter A Date dd/mm/yyyy: ");
 
-    sDate Date = ConvertStringToDate(DateString);
+    sDate Date = StringToDateSturctur(DateString);
 
     cout << "\nDay: " << Date.Day << endl;
     cout << "Month: " << Date.Month << endl;
@@ -51,7 +51,7 @@ int main()
 
 
     cout << "You Entered :";
-    PrintStringDate(Date);
+    DateToString(Date);
 
     return 0;
 }
