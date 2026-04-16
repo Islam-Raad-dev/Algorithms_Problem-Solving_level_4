@@ -61,11 +61,16 @@ sDate StringToDateSturctur(string DateString)
     return Date;
 }
 
+sDate DateToString(sDate Date)
+{
+    cout << "\nThe Date Is: " << Date.Day << "/" << Date.Month << "/" << Date.Year << endl;
+}
+
 int main()
 {
 
     string DateString = ReadDateString("Please Enter A Date (DD/MM/YYYY): ");
-    sDate Date = StringToDateSturctur(DateString);
+    sDate Date = StringToDate(DateString);
 
     cout << "\nThe Formated Date Is: " << Date.Day << "/" << Date.Month << "/" << Date.Year << endl;
 
