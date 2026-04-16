@@ -568,10 +568,7 @@ void ShowLoginScreen()
     cout << "\tLogin Screen";
     cout << "\n-----------------------------------------------\n";
 }
-void ShowEndScreen()
-{
-    ShowLoginScreen();
-}
+
 
 // --- Transaction Menu Logic ---
 
@@ -686,7 +683,7 @@ void PerformMainMenuOption(enMainMenuOptions MainMenuOptions)
 
     case enMainMenuOptions::eExit:
         system("clear");
-        ShowEndScreen();
+        ShowLoginScreen();
         exit(0);
         break;
 
@@ -715,12 +712,15 @@ void ShowMainMenu()
     PerformMainMenuOption((enMainMenuOptions)ReadMainMenuOption());
 }
 
+void Login(){
+
+}
+
 int main()
 {
     while (true)
     {
-
-        ShowMainMenu();
+        Login();
     }
     return 0;
 }
