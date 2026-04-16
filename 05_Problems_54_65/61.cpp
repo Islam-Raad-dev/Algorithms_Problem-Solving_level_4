@@ -140,6 +140,14 @@ bool IsLastMonthInYear(short Month)
 {
     return (Month == 12);
 }
+
+bool IsDateInPeriod(sDate Date, sPeriod Period)
+{
+    return (CompareDates(Date, Period.StartDate) == After || CompareDates(Date, Period.StartDate) == Equal) &&
+           (CompareDates(Date, Period.EndDate) == Before || CompareDates(Date, Period.EndDate) == Equal);
+}
+
+
 sDate IncreaseDateByOneDay(sDate Date)
 {
     if (IsLastDayInMonth(Date))
@@ -167,7 +175,7 @@ sDate IncreaseDateByOneDay(sDate Date)
     return Date;
 }
 
-short PeriodLengthInDays(sPeriod Period, bool IncludeEndDate = false)
+int PeriodLengthInDays(sPeriod Period, bool IncludeEndDate = false)
 {
     int Days = 0;
 
@@ -212,9 +220,29 @@ sPeriod GetOverlapPeriod(sPeriod Period1, sPeriod Period2)
     return OverlapPeriod;
 }
 
-short CountOverlapDays(sPeriod Period1, sPeriod Period2, bool IncludeEndDate = false)
+int CountOverlapDays(sPeriod Period1, sPeriod Period2)
 {
-    return PeriodLengthInDays(GetOverlapPeriod(Period1, Period2), IncludeEndDate);
+    int Period1Length = PeriodLengthInDays(Period1, true);
+    int Period2Length = PeriodLengthInDays(Period2, true);
+    int OverlapDays = 0;
+
+    if (!IsOverlapPeriod(Period1, Period2))
+    {
+        return 0;
+    }
+
+    if (Period1Length < Period2Length)
+    {
+        while (IsDate1BeforeDate2(Period1.StartDate, Period1.EndDate))
+        {
+            if(IsDateInPeriod(Period1.StartDate, Period2))
+            {
+                OverlapDays++;
+            }
+            Period1.StartDate = IncreaseDateByOneDay(Period1.StartDate);
+
+        }
+    }
 }
 
 int main()
