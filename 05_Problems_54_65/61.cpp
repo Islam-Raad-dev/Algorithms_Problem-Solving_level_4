@@ -254,6 +254,8 @@ int CountOverlapDays(sPeriod Period1, sPeriod Period2)
             Period2.StartDate = IncreaseDateByOneDay(Period2.StartDate);
         }
     }
+
+    return OverlapDays;
 }
 
 int main()
