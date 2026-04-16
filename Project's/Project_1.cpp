@@ -598,7 +598,6 @@ void PerformTransactionMenuOption(enTransactionOptions TransactionOptions)
         GoBackToTransactionMenu();
         break;
     case enTransactionOptions::eShowToMainMenu:
-        // Handled by returning
         break;
     default:
         cout << "Invalid Choose, Try Again.";
