@@ -18,7 +18,7 @@ string ReadDateString(string Message)
     string DateString;
 
     cout << Message;
-    cin >> DateString;
+    getline(cin >> ws, DateString);
 
     return DateString;
 }
