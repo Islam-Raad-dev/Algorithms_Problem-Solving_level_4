@@ -14,7 +14,7 @@ using namespace std;
 
 const string ClientsFileName = "Clients.txt";
 
-// Forward Declaration
+
 void ShowMainMenu();
 void ShowTransactionScreen();
 
