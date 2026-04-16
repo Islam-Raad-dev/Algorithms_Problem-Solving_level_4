@@ -120,6 +120,69 @@ bool IsOverlapPeriod(sPeriod Period1, sPeriod Period2)
     }
     return true;
 }
+
+short NumberOfDaysInMonth(short Year, short Month)
+{
+    if (Month < 1 || Month > 12)
+        return 0;
+
+    int NumberOfDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
+}
+
+bool IsLastDayInMonth(sDate Date1)
+{
+    return (Date1.Day == NumberOfDaysInMonth(Date1.Year, Date1.Month));  
+}
+
+bool IsLastMonthInYear(short Month)
+{
+    return (Month == 12);   
+}
+sDate IncreaseDateByOneDay(sDate Date)
+{
+    if (IsLastDayInMonth(Date))
+    {
+        if (IsLastMonthInYear(Date.Month))
+        {
+
+            Date.Month = 1;   
+            Date.Day = 1;  
+            Date.Year++; 
+
+        }
+        else
+        {
+
+            Date.Month++;  
+            Date.Day = 1;
+
+        }
+    }
+
+    else
+    {
+
+        Date.Day++;   
+
+    }
+    return Date;
+}
+
+short PeriodLengthInDays(sPeriod Period, bool IncludeEndDate = false)
+{
+    int Days = 0;
+
+    while (IsDate1BeforeDate2(Period.StartDate, Period.EndDate))
+    {
+        Period.StartDate = IncreaseDateByOneDay(Period.StartDate);
+        Days++;
+    }
+
+    return (IncludeEndDate) ? ++Days : Days;
+}
+
 int main(){
 
     cout << "Please Enter First Period:\n " << endl;
