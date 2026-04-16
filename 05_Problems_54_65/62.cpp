@@ -98,6 +98,13 @@ bool IsItValidDate(sDate Date)
                 return false;
             }
         }
+
+        short DaysInMonth = NumberOfDaysInMonth(Date.Year, Date.Month);
+        if (Date.Day > DaysInMonth)
+        {
+            return false;
+        }
+        return true;
     }
 }
 
