@@ -18,7 +18,7 @@ const string UserFileName = "Users.txt";
 
 void ShowMainMenu();
 void ShowTransactionScreen();
-void ShowLogicalScreen();
+void ShowLoginScreen();
 
 enum enMainMenuOptions
 {
@@ -562,6 +562,12 @@ void ShowTotalBalanceScreen()
     ShowTotalBalance();
 }
 
+void ShowLoginScreen()
+{
+    cout << "\n-----------------------------------------------\n";
+    cout << "\tLogical Screen";
+    cout << "\n-----------------------------------------------\n";
+}
 void ShowEndScreen()
 {
     cout << "\n\nThank You For Using Our System.\n\n";
