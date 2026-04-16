@@ -687,6 +687,7 @@ void PerformMainMenuOption(enMainMenuOptions MainMenuOptions)
 
 
     case enMainMenuOptions::eTransaction:
+        system("clear");
         ShowTransactionScreen();
         break;
 
