@@ -25,15 +25,38 @@ string ReadDateString(string Message)
     return DateString;
 }
 
+vector<string> SplitString(string str, char Delimiter)
+{
+    vector<string> vString;
+
+    string word = "";
+    for (auto x : str)
+    {
+        if (x == Delimiter)
+        {
+            vString.push_back(word);
+            word = "";
+        }
+        else
+        {
+            word = word + x;
+        }
+    }
+    vString.push_back(word);
+
+    return vString;
+}
+
 sDate StringToDateSturctur(string DateString)
 {
     sDate Date;
 
-    vector
-
-    Date.Day = stoi(DateString.substr(0, 2));
-    Date.Month = stoi(DateString.substr(3, 2));
-    Date.Year = stoi(DateString.substr(6, 4));
+    vector <string> vDate;
+    
+    vDate = SplitString(DateString, '/');
+    Date.Day = stoi(vDate[0]);
+    Date.Month = stoi(vDate[1]);
+    Date.Year = stoi(vDate[2]);
 
     return Date;
 }
