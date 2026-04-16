@@ -61,15 +61,17 @@ sDate StringToDateSturctur(string DateString)
     return Date;
 }
 
-string ReplaceWordInString(string str, string WordToReplace, string WordToReplaceWith)
+string ReplaceWordInString(string S1, string WordToReplace, string ReplaceTo)
 {
-    size_t pos = str.find(WordToReplace);
-    if (pos != string::npos)
-    {
-        str.replace(pos, WordToReplace.length(), WordToReplaceWith);
-    }
+    short pos = S1.find(WordToReplace);
 
-    return str;
+    while (pos != std::string::npos)
+    {
+        S1 = S1.replace(pos, WordToReplace.length(), ReplaceTo);
+        pos = S1.find(WordToReplace);
+
+    }
+    return S1;
 }
 
 string FormateDate(sDate Date, string DateFormate = "DD/MM/YYYY")
