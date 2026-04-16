@@ -28,7 +28,8 @@ enum enMainMenuOptions
     eUpdate = 4,
     eFind = 5,
     eTransaction = 6,
-    eExit = 7,
+    eMangeUsers = 7,
+    eLogout = 8
 
 };
 
