@@ -45,7 +45,10 @@ int main()
 
     sDate Date = ConvertStringToDate(DateString);
 
-    cout << "\nThe Date Is: " << Date.Day << "/" << Date.Month << "/" << Date.Year << endl;
+    cout << "\nDay: " << Date.Day << endl;
+    cout << "Month: " << Date.Month << endl;
+    cout << "Year: " << Date.Year << endl;
+    
 
     PrintStringDate(Date);
 
