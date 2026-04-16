@@ -565,7 +565,7 @@ void ShowTotalBalanceScreen()
 void ShowLoginScreen()
 {
     cout << "\n-----------------------------------------------\n";
-    cout << "\tLogical Screen";
+    cout << "\tLogin Screen";
     cout << "\n-----------------------------------------------\n";
 }
 void ShowEndScreen()
