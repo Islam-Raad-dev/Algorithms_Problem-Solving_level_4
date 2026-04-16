@@ -632,7 +632,7 @@ void ShowTransactionScreen()
 short ReadMainMenuOption()
 {
     short Choose;
-    cout << "Enter Your Choose [1 - 7]: ";
+    cout << "Enter Your Choose [1 - 8]: ";
     cin >> Choose;
     return Choose;
 }
