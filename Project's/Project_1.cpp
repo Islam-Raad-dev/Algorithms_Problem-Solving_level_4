@@ -41,6 +41,16 @@ enum enTransactionOptions
     eShowToMainMenu = 4
 };
 
+enum enManageUsersOptions
+{
+    eListUsers = 1,
+    eAddUser = 2,
+    eDeleteUser = 3,
+    eUpdateUser = 4,
+    eFindUser = 5,
+    eBackToMainMenu = 6
+};
+
 struct sClientInfo
 {
     string AccountNumber;
@@ -606,7 +616,7 @@ void PerformTransactionMenuOption(enTransactionOptions TransactionOptions)
     case enTransactionOptions::eShowToMainMenu:
         break;
 
-        
+
     default:
         cout << "Invalid Choose, Try Again.";
         break;
