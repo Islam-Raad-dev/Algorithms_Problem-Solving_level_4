@@ -25,14 +25,14 @@ string ReadDateString(string Message)
     return DateString;
 }
 
-vector<string> SplitString(string str, char Delimiter)
+vector<string> SplitString(string str, string Delimiter)
 {
     vector<string> vString;
 
     string word = "";
-    for (auto x : str)
+    for (char x : str)
     {
-        if (x == Delimiter)
+        if (x == Delimiter[0])  
         {
             vString.push_back(word);
             word = "";
@@ -53,7 +53,7 @@ sDate StringToDateSturctur(string DateString)
 
     vector <string> vDate;
     
-    vDate = SplitString(DateString, '/');
+    vDate = SplitString(DateString, "/");
     Date.Day = stoi(vDate[0]);
     Date.Month = stoi(vDate[1]);
     Date.Year = stoi(vDate[2]);
