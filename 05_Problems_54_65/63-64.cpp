@@ -4,6 +4,8 @@ Read / Print Date String
 
 */
 #include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 
 struct sDate
@@ -26,6 +28,8 @@ string ReadDateString(string Message)
 sDate StringToDateSturctur(string DateString)
 {
     sDate Date;
+
+    vector
 
     Date.Day = stoi(DateString.substr(0, 2));
     Date.Month = stoi(DateString.substr(3, 2));
