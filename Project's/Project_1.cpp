@@ -18,6 +18,7 @@ const string UserFileName = "Users.txt";
 
 void ShowMainMenu();
 void ShowTransactionScreen();
+void ShowLogicalScreen();
 
 enum enMainMenuOptions
 {
