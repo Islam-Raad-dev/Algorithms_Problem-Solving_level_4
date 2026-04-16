@@ -782,6 +782,7 @@ void ShowMangeUsersScreen()
         cout << "\t[5] Find User.\n";
         cout << "\t[6] Main Menu.\n";
         cout << "\n-----------------------------------------------\n";
+        PerformMangeUsersMenuOption((enManageUsersOptions)ReadMangeUsersMenuOption());
 }
 
 // --- Main Menu Logic ---
