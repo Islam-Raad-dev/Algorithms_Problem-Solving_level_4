@@ -1,6 +1,6 @@
 /*
 
-Formate Date
+Formate Date 
 
 */
 #include <iostream>
