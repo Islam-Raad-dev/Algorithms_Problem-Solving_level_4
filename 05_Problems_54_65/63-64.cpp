@@ -12,3 +12,13 @@ struct sDate
     short Month;
     short Year;
 };
+
+string ReadDateString()
+{
+    string DateString;
+
+    cout << "\nPlease Enter A Date String: ";
+    cin >> DateString;
+
+    return DateString;
+}
