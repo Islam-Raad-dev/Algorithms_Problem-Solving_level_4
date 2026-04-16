@@ -221,7 +221,7 @@ int main()
     cout << "Please Enter Second Period: " << endl;
     sPeriod Period2 = ReadFullPeriod();
 
-    cout << "Overlap Days Between The Two Periods Is: " << PeriodLengthInDays(GetOverlapPeriod(Period1, Period2)) << endl;
+    cout << "Overlap Days Count Is: " <<
 
     return 0;
 }
