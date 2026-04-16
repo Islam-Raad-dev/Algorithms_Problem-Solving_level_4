@@ -75,6 +75,7 @@ short NumberOfDaysInMonth(short Year, short Month)
 
     return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
 }
+
 bool IsItValidDate(sDate Date)
 {
     if (Date.Year < 1 || Date.Month < 1 || Date.Month > 12 || Date.Day < 1 || Date.Day > NumberOfDaysInMonth(Date.Year, Date.Month))
@@ -83,6 +84,7 @@ bool IsItValidDate(sDate Date)
     }
     return true;
 }
+
 int main()
 {
 
