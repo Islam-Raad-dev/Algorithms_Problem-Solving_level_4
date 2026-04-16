@@ -630,6 +630,14 @@ void ShowDeleteUserScreen()
     cout << "\n-----------------------------------------------\n";
 }
 
+void ShowUpdateUserScreen()
+{
+    system("clear");
+    cout << "\n-----------------------------------------------\n";
+    cout << "\tUpdate User Screen";
+    cout << "\n-----------------------------------------------\n";
+}
+
 void ShowFindUserScreen()
 {
     system("clear");
@@ -741,11 +749,11 @@ void PerformMangeUsersMenuOption(enManageUsersOptions MangeUsersOptions)
         break;
 
     case enManageUsersOptions::eUpdateUser:
-        ShowDeleteUserScreen();
+        ShowUpdateUserScreen();
         GoBackToMangeUsersMenu();
         break;
 
-        
+
     case enManageUsersOptions::eFindUser:
         ShowFindUserScreen();
         GoBackToMangeUsersMenu();
