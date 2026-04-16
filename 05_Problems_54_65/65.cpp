@@ -61,8 +61,28 @@ sDate StringToDateSturctur(string DateString)
     return Date;
 }
 
-string FormateDate(sDate Date)
+string ReplaceWordInString(string str, string WordToReplace, string WordToReplaceWith)
 {
+    size_t pos = str.find(WordToReplace);
+    if (pos != string::npos)
+    {
+        str.replace(pos, WordToReplace.length(), WordToReplaceWith);
+    }
+
+    return str;
+}
+
+string FormateDate(sDate Date, string DateFormate = "DD/MM/YYYY")
+{
+    string FormattedDateToString = DateFormate;
+
+    FormattedDateToString = ReplaceWordInString(DateFormate, "DD", to_string(Date.Day));
+
+    FormattedDateToString = ReplaceWordInString(FormattedDateToString, "MM", to_string(Date.Month));
+    
+    FormattedDateToString = ReplaceWordInString(FormattedDateToString, "YYYY", to_string(Date.Year));
+
+    return FormattedDateToString;
 }
 
 int main()
