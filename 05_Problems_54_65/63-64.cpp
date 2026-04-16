@@ -41,7 +41,7 @@ void PrintStringDate(sDate Date)
 
 int main()
 {
-    string DateString = ReadDateString();
+    string DateString = ReadDateString("\nPlease Enter A Date dd/mm/yyyy: ");
 
     sDate Date = ConvertStringToDate(DateString);
 
