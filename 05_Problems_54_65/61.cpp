@@ -246,7 +246,7 @@ int CountOverlapDays(sPeriod Period1, sPeriod Period2)
 
     else
     {
-        while(IsDate1BeforeDate2()){
+        while(IsDate1BeforeDate2(Period2.StartDate, Period2.EndDate)){
             if(IsDateInPeriod(Period2.StartDate, Period1))
             {
                 OverlapDays++;
