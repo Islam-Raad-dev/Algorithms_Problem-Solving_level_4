@@ -76,6 +76,7 @@ int main()
 {
 
     string DateString = ReadDateString("Please Enter A Date (DD/MM/YYYY): ");
+    
     sDate Date = StringToDateSturctur(DateString);
 
     cout << "\n" << FormateDate(Date) << endl;
