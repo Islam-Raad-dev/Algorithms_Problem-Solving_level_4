@@ -570,7 +570,7 @@ void ShowLoginScreen()
 }
 void ShowEndScreen()
 {
-    cout << "\n\nThank You For Using Our System.\n\n";
+    ShowLoginScreen();
 }
 
 // --- Transaction Menu Logic ---
