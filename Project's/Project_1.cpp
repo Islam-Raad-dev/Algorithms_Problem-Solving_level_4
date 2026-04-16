@@ -207,6 +207,32 @@ bool FindClientByAccountNumber(string AccountNumber, vector<sClientInfo> &vClien
     return false;
 }
 
+bool FindUserByNameAndPassword(string UserName, string Password, string FileName)
+{
+    fstream MyFile;
+    MyFile.open(FileName, ios::in);
+
+    if (MyFile.is_open())
+    {
+        string Line;
+        vector<string> vUserData;
+        while (getline(MyFile, Line))
+        {
+            vUserData = SplitString(Line, "#//#");
+            if (vUserData.size() >= 2)
+            {
+                if (vUserData[0] == UserName && vUserData[1] == Password)
+                {
+                    MyFile.close();
+                    return true;
+                }
+            }
+        }
+        MyFile.close();
+    }
+    return false;
+}
+
 bool MarkClintForDeleteByAccountNumber(string AccountNumber, vector<sClientInfo> &vClient)
 {
     for (sClientInfo &C : vClient)
