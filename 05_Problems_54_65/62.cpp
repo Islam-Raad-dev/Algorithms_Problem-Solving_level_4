@@ -93,11 +93,11 @@ int main()
 
     if (IsItValidDate(Date))
     {
-        cout << "\nThe Date Is Valid." << endl;
+        cout << "\nYes, The Date Is Valid." << endl;
     }
     else
     {
-        cout << "\nThe Date Is Not Valid." << endl;
+        cout << "\nNo, The Date Is Not Valid." << endl;
     }
 
 
