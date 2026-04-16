@@ -1,6 +1,6 @@
 /*
 
-Read / Print Date String
+Read / Print Date String 
 
 */
 #include <iostream>
