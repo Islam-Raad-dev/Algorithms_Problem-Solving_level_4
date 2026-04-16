@@ -48,7 +48,6 @@ struct sClientInfo
     bool MarkForDelete = false;
 };
 
-// --- Helper & Utility Functions ---
 
 vector<string> SplitString(string S1, string delim)
 {
