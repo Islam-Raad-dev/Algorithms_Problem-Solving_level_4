@@ -243,6 +243,8 @@ int CountOverlapDays(sPeriod Period1, sPeriod Period2)
 
         }
     }
+
+    return 
 }
 
 int main()
