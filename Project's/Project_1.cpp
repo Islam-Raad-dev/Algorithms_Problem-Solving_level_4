@@ -589,16 +589,24 @@ void PerformTransactionMenuOption(enTransactionOptions TransactionOptions)
         ShowDepositScreen();
         GoBackToTransactionMenu();
         break;
+
+
     case enTransactionOptions::eWithdraw:
         ShowWithdrawScreen();
         GoBackToTransactionMenu();
         break;
+
+
     case enTransactionOptions::eTotalBalance:
         ShowTotalBalanceScreen();
         GoBackToTransactionMenu();
         break;
+
+
     case enTransactionOptions::eShowToMainMenu:
         break;
+
+        
     default:
         cout << "Invalid Choose, Try Again.";
         break;
