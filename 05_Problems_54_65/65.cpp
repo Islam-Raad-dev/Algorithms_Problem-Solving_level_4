@@ -94,15 +94,15 @@ int main()
 
     cout << "\n" << FormateDate(Date) << endl;
 
-    cout << "\n" << FormateDate(Date) << endl;
+    cout << "\n" << FormateDate(Date, "MM/DD/YYYY") << endl;
 
-    cout << "\n" << FormateDate(Date) << endl;
+    cout << "\n" << FormateDate(Date, "YYYY/MM/DD") << endl;
 
-    cout << "\n" << FormateDate(Date) << endl;
+    cout << "\n" << FormateDate(Date, "DD-MM-YYYY") << endl;
 
-    cout << "\n" << FormateDate(Date) << endl;
+    cout << "\n" << FormateDate(Date, "MM-DD-YYYY") << endl;
 
-    cout << "\n" << FormateDate(Date) << endl;
+    cout << "\n" << FormateDate(Date, "YYYY-MM-DD") << endl;
 
 
     return 0;
