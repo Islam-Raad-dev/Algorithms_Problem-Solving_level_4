@@ -670,14 +670,79 @@ void ShowTransactionScreen()
     } while (Choice != enTransactionOptions::eShowToMainMenu);
 }
 
-void ShowMangeUsersScreen()
+
+
+// --- Mange User Menu Logic ---
+
+short ReadMangeUsersMenuOption()
 {
-    system("clear");
-    cout << "\n-----------------------------------------------\n";
-    cout << "\tManage Users Screen";
-    cout << "\n-----------------------------------------------\n";
+    short Choose;
+    cout << "Enter Your Choose [1 - 4]: ";
+    cin >> Choose;
+    return Choose;
 }
 
+void PerformMangeUsersMenuOption(enMangeUsersOptions MangeUsersOptions)
+{
+    switch (MangeUsersOptions)
+    {
+    case enMangeUsersOptions::eAdd:
+        ShowAddNewUserScreen();
+        GoBackToMangeUsersMenu();
+        break;
+
+    case enMangeUsersOptions::eDelete:
+        ShowDeleteUserScreen();
+        GoBackToMangeUsersMenu();
+        break;
+
+    case enMangeUsersOptions::eUpdate:
+        ShowUpdateUserScreen();
+        GoBackToMangeUsersMenu();
+        break;
+
+    case enMangeUsersOptions::eShowToMainMenu:
+        break;
+
+    default:
+        cout << "Invalid Choose, Try Again.";
+        break;
+    }
+}
+
+void ShowMangeUsersScreen()
+{
+        system("clear");
+        cout << "\n-----------------------------------------------\n";
+        cout << "\tManage Users Screen";
+        cout << "\n-----------------------------------------------\n";
+        cout << "\t[1] List Users.\n";
+        cout << "\t[2] Add New User.\n";
+        cout << "\t[3] Delete User.\n";
+        cout << "\t[4] Update User Info.\n";
+        cout << "\t[5] Back To Main Menu.\n";
+        cout << "\n-----------------------------------------------\n";
+}
+void ShowTransactionScreen()
+{
+    enTransactionOptions Choice;
+    do
+    {
+        system("clear");
+        cout << "\n-----------------------------------------------\n";
+        cout << "\tTransaction Screen";
+        cout << "\n-----------------------------------------------\n";
+        cout << "\t[1] Deposit.\n";
+        cout << "\t[2] Withdraw.\n";
+        cout << "\t[3] Total Balance.\n";
+        cout << "\t[4] Back To Main Menu.\n";
+        cout << "\n-----------------------------------------------\n";
+        Choice = (enTransactionOptions)ReadTransactionMenuOption();
+        if (Choice == enTransactionOptions::eShowToMainMenu)
+            break;
+        PerformTransactionMenuOption(Choice);
+    } while (Choice != enTransactionOptions::eShowToMainMenu);
+}
 
 // --- Main Menu Logic ---
 
