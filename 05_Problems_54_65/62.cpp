@@ -78,11 +78,27 @@ short NumberOfDaysInMonth(short Year, short Month)
 
 bool IsItValidDate(sDate Date)
 {
-    if (Date.Year < 1 || Date.Month < 1 || Date.Month > 12 || Date.Day < 1 || Date.Day > NumberOfDaysInMonth(Date.Year, Date.Month))
+    if (Date.Day < 1 || Date.Month > 31)
     {
         return false;
     }
-    return true;
+    if (Date.Month == 12)
+    {
+        if (IsLeapYear(Date.Year))
+        {
+            if (Date.Day > 29)
+            {
+                return false;
+            }
+        }
+        else
+        {
+            if (Date.Day > 28)
+            {
+                return false;
+            }
+        }
+    }
 }
 
 int main()
@@ -99,7 +115,6 @@ int main()
     {
         cout << "\nNo, The Date Is Not Valid." << endl;
     }
-
 
     return 0;
 }
