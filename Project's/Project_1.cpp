@@ -627,6 +627,15 @@ void ShowTransactionScreen()
     } while (Choice != enTransactionOptions::eShowToMainMenu);
 }
 
+void ShowMangeUsersScreen()
+{
+    system("clear");
+    cout << "\n-----------------------------------------------\n";
+    cout << "\tManage Users Screen";
+    cout << "\n-----------------------------------------------\n";
+}
+
+
 // --- Main Menu Logic ---
 
 short ReadMainMenuOption()
@@ -682,10 +691,14 @@ void PerformMainMenuOption(enMainMenuOptions MainMenuOptions)
         break;
 
 
-    case enMainMenuOptions::eExit:
+    case enMainMenuOptions::eMangeUsers:
+        system("clear");
+        ShowMangeUsersScreen();
+        break;
+
+    case enMainMenuOptions::eLogout:
         system("clear");
         ShowLoginScreen();
-        exit(0);
         break;
 
 
