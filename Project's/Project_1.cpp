@@ -13,6 +13,7 @@ Bank System Project 3
 using namespace std;
 
 const string ClientsFileName = "Clients.txt";
+const string UserFileName = "Users.txt";
 
 
 void ShowMainMenu();
