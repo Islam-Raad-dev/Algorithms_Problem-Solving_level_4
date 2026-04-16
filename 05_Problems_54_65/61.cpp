@@ -27,8 +27,8 @@ short ReadYear()
     cin >> Year;
 
     return Year;
-} 
-     
+}
+
 short ReadMonth()
 {
     short Month;
@@ -75,7 +75,9 @@ sPeriod ReadFullPeriod()
 
 bool IsDate1BeforeDate2(sDate Date1, sDate Date2)
 {
-    return (Date1.Year < Date2.Year) ? true : (Date1.Year == Date2.Year && Date1.Month < Date2.Month) ? true : (Date1.Year == Date2.Year && Date1.Month == Date2.Month && Date1.Day < Date2.Day) ? true : false;
+    return (Date1.Year < Date2.Year) ? true : (Date1.Year == Date2.Year && Date1.Month < Date2.Month)                         ? true
+                                          : (Date1.Year == Date2.Year && Date1.Month == Date2.Month && Date1.Day < Date2.Day) ? true
+                                                                                                                              : false;
 }
 
 bool IsDate1EqualDate2(sDate Date1, sDate Date2)
@@ -88,7 +90,7 @@ bool IsDate1AfterDate2(sDate Date1, sDate Date2)
     return (!IsDate1BeforeDate2(Date1, Date2) && !IsDate1EqualDate2(Date1, Date2)) ? true : false;
 }
 
-enum enCompareDates 
+enum enCompareDates
 {
     Before = -1,
     Equal = 0,
@@ -97,23 +99,21 @@ enum enCompareDates
 
 enCompareDates CompareDates(sDate Date1, sDate Date2)
 {
-    if(IsDate1BeforeDate2(Date1, Date2))
+    if (IsDate1BeforeDate2(Date1, Date2))
     {
         return Before;
     }
-    if(IsDate1EqualDate2(Date1, Date2))
+    if (IsDate1EqualDate2(Date1, Date2))
     {
         return Equal;
     }
-        return After;
-
+    return After;
 }
 
 bool IsOverlapPeriod(sPeriod Period1, sPeriod Period2)
 {
-    if(
-        CompareDates(Period1.StartDate, Period2.EndDate) == After 
-        || 
+    if (
+        CompareDates(Period1.StartDate, Period2.EndDate) == After ||
         CompareDates(Period1.EndDate, Period2.StartDate) == Before)
     {
         return false;
@@ -133,12 +133,12 @@ short NumberOfDaysInMonth(short Year, short Month)
 
 bool IsLastDayInMonth(sDate Date1)
 {
-    return (Date1.Day == NumberOfDaysInMonth(Date1.Year, Date1.Month));  
+    return (Date1.Day == NumberOfDaysInMonth(Date1.Year, Date1.Month));
 }
 
 bool IsLastMonthInYear(short Month)
 {
-    return (Month == 12);   
+    return (Month == 12);
 }
 sDate IncreaseDateByOneDay(sDate Date)
 {
@@ -147,25 +147,22 @@ sDate IncreaseDateByOneDay(sDate Date)
         if (IsLastMonthInYear(Date.Month))
         {
 
-            Date.Month = 1;   
-            Date.Day = 1;  
-            Date.Year++; 
-
+            Date.Month = 1;
+            Date.Day = 1;
+            Date.Year++;
         }
         else
         {
 
-            Date.Month++;  
+            Date.Month++;
             Date.Day = 1;
-
         }
     }
 
     else
     {
 
-        Date.Day++;   
-
+        Date.Day++;
     }
     return Date;
 }
@@ -183,7 +180,40 @@ short PeriodLengthInDays(sPeriod Period, bool IncludeEndDate = false)
     return (IncludeEndDate) ? ++Days : Days;
 }
 
-int main(){
+sPeriod GetOverlapPeriod(sPeriod Period1, sPeriod Period2)
+{
+    sPeriod OverlapPeriod;
+
+    if (!IsOverlapPeriod(Period1, Period2))
+    {
+        OverlapPeriod.StartDate = {0, 0, 0};
+        OverlapPeriod.EndDate = {0, 0, 0};
+        return OverlapPeriod;
+    }
+
+    if (IsDate1BeforeDate2(Period1.StartDate, Period2.StartDate))
+    {
+        OverlapPeriod.StartDate = Period2.StartDate;
+    }
+    else
+    {
+        OverlapPeriod.StartDate = Period1.StartDate;
+    }
+
+    if (IsDate1BeforeDate2(Period1.EndDate, Period2.EndDate))
+    {
+        OverlapPeriod.EndDate = Period1.EndDate;
+    }
+    else
+    {
+        OverlapPeriod.EndDate = Period2.EndDate;
+    }
+
+    return OverlapPeriod;
+}
+
+int main()
+{
 
     cout << "Please Enter First Period:\n " << endl;
     sPeriod Period1 = ReadFullPeriod();
