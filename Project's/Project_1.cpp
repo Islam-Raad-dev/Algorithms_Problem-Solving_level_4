@@ -606,6 +606,45 @@ void ShowLoginScreen()
     cout << "\n-----------------------------------------------\n";
 }
 
+void ShowListUsersScreen()
+{
+    system("clear");
+    cout << "\n-----------------------------------------------\n";
+    cout << "\tList Users Screen";
+    cout << "\n-----------------------------------------------\n";
+}
+
+void ShowAddUserScreen()
+{
+    system("clear");
+    cout << "\n-----------------------------------------------\n";
+    cout << "\tAdd User Screen";
+    cout << "\n-----------------------------------------------\n";
+}
+
+void ShowDeleteUserScreen()
+{
+    system("clear");
+    cout << "\n-----------------------------------------------\n";
+    cout << "\tDelete User Screen";
+    cout << "\n-----------------------------------------------\n";
+}
+
+void ShowFindUserScreen()
+{
+    system("clear");
+    cout << "\n-----------------------------------------------\n";
+    cout << "\tFind User Screen";
+    cout << "\n-----------------------------------------------\n";
+}
+
+void GoBackToMangeUsersMenu()
+{
+    cout << "\n\nPress Enter to return to Mange Users Menu...";
+    cin.ignore(100, '\n');
+    cin.get();
+}
+
 
 // --- Transaction Menu Logic ---
 
@@ -701,6 +740,12 @@ void PerformMangeUsersMenuOption(enManageUsersOptions MangeUsersOptions)
         GoBackToMangeUsersMenu();
         break;
 
+    case enManageUsersOptions::eUpdateUser:
+        ShowDeleteUserScreen();
+        GoBackToMangeUsersMenu();
+        break;
+
+        
     case enManageUsersOptions::eFindUser:
         ShowFindUserScreen();
         GoBackToMangeUsersMenu();
