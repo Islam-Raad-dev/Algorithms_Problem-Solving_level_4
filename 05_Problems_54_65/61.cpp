@@ -244,7 +244,16 @@ int CountOverlapDays(sPeriod Period1, sPeriod Period2)
         }
     }
 
-    return 
+    else
+    {
+        while(IsDate1BeforeDate2()){
+            if(IsDateInPeriod(Period2.StartDate, Period1))
+            {
+                OverlapDays++;
+            }
+            Period2.StartDate = IncreaseDateByOneDay(Period2.StartDate);
+        }
+    }
 }
 
 int main()
