@@ -212,6 +212,11 @@ sPeriod GetOverlapPeriod(sPeriod Period1, sPeriod Period2)
     return OverlapPeriod;
 }
 
+short CountOverlapDays(sPeriod Period1, sPeriod Period2, bool IncludeEndDate = false)
+{
+    return PeriodLengthInDays(GetOverlapPeriod(Period1, Period2), IncludeEndDate);
+}
+
 int main()
 {
 
@@ -221,7 +226,7 @@ int main()
     cout << "Please Enter Second Period: " << endl;
     sPeriod Period2 = ReadFullPeriod();
 
-    cout << "Overlap Days Count Is: " <<
+    cout << "Overlap Days Count Is: " << CountOverlapDays(Period1, Period2) << endl;
 
     return 0;
 }
