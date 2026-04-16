@@ -48,8 +48,9 @@ int main()
     cout << "\nDay: " << Date.Day << endl;
     cout << "Month: " << Date.Month << endl;
     cout << "Year: " << Date.Year << endl;
-    
 
+
+    cout << "You Entered :";
     PrintStringDate(Date);
 
     return 0;
