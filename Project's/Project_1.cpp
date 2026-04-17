@@ -685,7 +685,7 @@ vector<stUser> SaveUsersDataToFile(string FileName, vector<stUser> vUsers)
 
         MyFile.close();
     }
-    
+
     return vUsers;
 }
 
@@ -693,6 +693,7 @@ vector<stUser> SaveUsersDataToFile(string FileName, vector<stUser> vUsers)
 void AddDataLineToFile(string FileName, string stDataLine)
 {
     fstream MyFile;
+
     MyFile.open(FileName, ios::out | ios::app);
     if (MyFile.is_open())
     {
@@ -705,6 +706,7 @@ void AddDataLineToFile(string FileName, string stDataLine)
 void AddNewClient()
 {
     sClient Client;
+
     Client = ReadNewClient();
     AddDataLineToFile(ClientsFileName, ConvertRecordToLine(Client));
 }
@@ -713,6 +715,7 @@ void AddNewClient()
 void AddNewUser()
 {
     stUser User;
+
     User = ReadNewUser();
     AddDataLineToFile(UsersFileName, ConvertUserRecordToLine(User));
 }
@@ -725,6 +728,7 @@ void AddNewClients()
     {
         cout << "Adding New Client:\n\n";
         AddNewClient();
+        
         cout << "\nClient Added Successfully, do you want to add more clients? Y/N? ";
         cin >> AddMore;
     } while (toupper(AddMore) == 'Y');
