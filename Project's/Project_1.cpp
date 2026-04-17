@@ -921,7 +921,7 @@ bool DepositBalanceToClientByAccountNumber(string AccountNumber, double Amount, 
             }
         }
     }
-    
+
     return false;
 }
 
@@ -931,6 +931,7 @@ string ReadClientAccountNumber()
     string AccountNumber = "";
     cout << "\nPlease enter AccountNumber? ";
     cin >> AccountNumber;
+
     return AccountNumber;
 }
 
@@ -940,6 +941,7 @@ string ReadUserName()
     string Username = "";
     cout << "\nPlease enter Username? ";
     cin >> Username;
+
     return Username;
 }
 
@@ -950,6 +952,7 @@ void ShowAddNewUserScreen()
     cout << "\n-----------------------------------\n";
     cout << "\tAdd New User Screen";
     cout << "\n-----------------------------------\n";
+    
     AddNewUsers();
 }
 
@@ -958,6 +961,7 @@ void ShowDeleteUserScreen()
     cout << "\n-----------------------------------\n";
     cout << "\tDelete Users Screen";
     cout << "\n-----------------------------------\n";
+
     vector <stUser> vUsers = LoadUsersDataFromFile(UsersFileName);
     string Username = ReadUserName();
     DeleteUserByUsername(Username, vUsers);
