@@ -1049,7 +1049,7 @@ void ShowFindClientScreen()
 
     if (FindClientByAccountNumber(AccountNumber, vClients, Client))
         PrintClientCard(Client);
-        
+
     else
         cout << "\nClient with Account Number[" << AccountNumber << "] is not found!";
 }
@@ -1059,11 +1059,14 @@ void ShowFindUserScreen()
     cout << "\n-----------------------------------\n";
     cout << "\tFind User Screen";
     cout << "\n-----------------------------------\n";
+
     vector <stUser> vUsers = LoadUsersDataFromFile(UsersFileName);
     stUser User;
     string Username = ReadUserName();
+
     if (FindUserByUsername(Username, vUsers, User))
         PrintUserCard(User);
+        
     else
         cout << "\nUser with Username [" << Username << "] is not found!";
 }
