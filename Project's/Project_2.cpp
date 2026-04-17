@@ -6,7 +6,6 @@
 #include <iomanip>
 using namespace std;
 
-
 struct stUser
 {
     string UserName;
@@ -15,7 +14,6 @@ struct stUser
     bool MarkForDelete = false;
 };
 
-
 enum enTransactionsMenueOptions
 {
     eDeposit = 1,
@@ -23,7 +21,6 @@ enum enTransactionsMenueOptions
     eShowTotalBalance = 3,
     eShowMainMenue = 4
 };
-
 
 enum enManageUsersMenueOptions
 {
@@ -34,7 +31,6 @@ enum enManageUsersMenueOptions
     eFindUser = 5,
     eMainMenue = 6
 };
-
 
 enum enMainMenueOptions
 {
@@ -47,7 +43,6 @@ enum enMainMenueOptions
     eManageUsers = 7,
     eExit = 8
 };
-
 
 enum enMainMenuePermissions
 {
@@ -63,7 +58,6 @@ enum enMainMenuePermissions
 
 const string ClientsFileName = "Clients.txt";
 const string UsersFileName = "Users.txt";
-
 
 stUser CurrentUser;
 void ShowMainMenue();
@@ -82,13 +76,11 @@ struct sClient
     bool MarkForDelete = false;
 };
 
-
 vector<string> SplitString(string S1, string Delim)
 {
     vector<string> vString;
     short pos = 0;
-    string sWord; 
-
+    string sWord;
 
     while ((pos = S1.find(Delim)) != std::string::npos)
     {
@@ -221,7 +213,7 @@ sClient ReadNewClient()
                                        ClientsFileName))
     {
         cout << "\nClient with [" << Client.AccountNumber << "] already exists,Enter another Account Number ? ";
-            getline(cin >> ws, Client.AccountNumber);
+        getline(cin >> ws, Client.AccountNumber);
     }
     cout << "Enter PinCode? ";
     getline(cin, Client.PinCode);
@@ -299,7 +291,7 @@ stUser ReadNewUser()
     while (UserExistsByUsername(User.UserName, UsersFileName))
     {
         cout << "\nUser with [" << User.UserName << "] already exists,Enter another Username ? ";
-            getline(cin >> ws, User.UserName);
+        getline(cin >> ws, User.UserName);
     }
     cout << "Enter Password? ";
     getline(cin, User.Password);
@@ -307,3 +299,607 @@ stUser ReadNewUser()
     return User;
 }
 
+vector<stUser> LoadUsersDataFromFile(string FileName)
+{
+    vector<stUser> vUsers;
+    fstream MyFile;
+    MyFile.open(FileName, ios::in); // read Mode
+    if (MyFile.is_open())
+    {
+        string Line;
+        stUser User;
+        while (getline(MyFile, Line))
+        {
+            User = ConvertUserLinetoRecord(Line);
+            vUsers.push_back(User);
+        }
+        MyFile.close();
+    }
+    return vUsers;
+}
+
+vector<sClient> LoadCleintsDataFromFile(string FileName)
+{
+    vector<sClient> vClients;
+    fstream MyFile;
+    MyFile.open(FileName, ios::in); // read Mode
+    if (MyFile.is_open())
+    {
+        string Line;
+        sClient Client;
+        while (getline(MyFile, Line))
+        {
+            Client = ConvertLinetoRecord(Line);
+            vClients.push_back(Client);
+        }
+        MyFile.close();
+    }
+    return vClients;
+}
+void PrintClientRecordLine(sClient Client)
+{
+    cout << "| " << setw(15) << left << Client.AccountNumber;
+    cout << "| " << setw(10) << left << Client.PinCode;
+    cout << "| " << setw(40) << left << Client.Name;
+    cout << "| " << setw(12) << left << Client.Phone;
+    cout << "| " << setw(12) << left << Client.AccountBalance;
+}
+
+void PrintUserRecordLine(stUser User)
+{
+    cout << "| " << setw(15) << left << User.UserName;
+    cout << "| " << setw(10) << left << User.Password;
+    cout << "| " << setw(40) << left << User.Permissions;
+}
+void PrintClientRecordBalanceLine(sClient Client)
+{
+    cout << "| " << setw(15) << left << Client.AccountNumber;
+    cout << "| " << setw(40) << left << Client.Name;
+    cout << "| " << setw(12) << left << Client.AccountBalance;
+}
+void ShowAccessDeniedMessage()
+{
+    cout << "\n------------------------------------\n";
+    cout << "Access Denied, \nYou dont Have Permission To Do
+        this,\nPlease Conact Your Admin.";
+                 cout
+                 << "\n------------------------------------\n";
+}
+
+void ShowAllClientsScreen()
+{
+    if (!CheckAccessPermission(enMainMenuePermissions::pListClients))
+    {
+        ShowAccessDeniedMessage();
+        return;
+    }
+    vector<sClient> vClients =
+        LoadCleintsDataFromFile(ClientsFileName);
+    cout << "\n\t\t\t\t\tClient List (" << vClients.size() << ")
+                                                              Client(s)
+                                                                  .";
+                                                              cout
+         << "\n_______________________________________________________";
+    cout << "_________________________________________\n"
+         << endl;
+    cout << "| " << left << setw(15) << "Accout Number";
+    cout << "| " << left << setw(10) << "Pin Code";
+    cout << "| " << left << setw(40) << "Client Name";
+    cout << "| " << left << setw(12) << "Phone";
+    cout << "| " << left << setw(12) << "Balance";
+    cout << "\n_______________________________________________________";
+    cout << "_________________________________________\n"
+         << endl;
+    if (vClients.size() == 0)
+        cout << "\t\t\t\tNo Clients Available In the System!";
+    else
+        for (sClient Client : vClients)
+        {
+            PrintClientRecordLine(Client);
+            cout << endl;
+        }
+    cout << "\n_______________________________________________________";
+    cout << "_________________________________________\n"
+         << endl;
+}
+
+void ShowAllUsersScreen()
+{
+    vector<stUser> vUsers = LoadUsersDataFromFile(UsersFileName);
+    cout << "\n\t\t\t\t\tUsers List (" << vUsers.size() << ")
+                                                           User(s)
+                                                               .";
+                                                           cout
+         << "\n_______________________________________________________";
+    cout << "_________________________________________\n"
+         << endl;
+    cout << "| " << left << setw(15) << "User Name";
+    cout << "| " << left << setw(10) << "Password";
+    cout << "| " << left << setw(40) << "Permissions";
+    cout << "\n_______________________________________________________";
+    cout << "_________________________________________\n"
+         << endl;
+    if (vUsers.size() == 0)
+        cout << "\t\t\t\tNo Users Available In the System!";
+    else
+        for (stUser User : vUsers)
+        {
+            PrintUserRecordLine(User);
+            cout << endl;
+        }
+    cout << "\n_______________________________________________________";
+    cout << "_________________________________________\n"
+         << endl;
+}
+
+void ShowTotalBalances()
+{
+    vector<sClient> vClients =
+        LoadCleintsDataFromFile(ClientsFileName);
+    cout << "\n\t\t\t\t\tBalances List (" << vClients.size() << ")
+                                                                Client(s)
+                                                                    .";
+                                                                cout
+         << "\n_______________________________________________________";
+    cout << "_________________________________________\n"
+         << endl;
+    cout << "| " << left << setw(15) << "Accout Number";
+    cout << "| " << left << setw(40) << "Client Name";
+    cout << "| " << left << setw(12) << "Balance";
+    cout << "\n_______________________________________________________";
+    cout << "_________________________________________\n"
+         << endl;
+    double TotalBalances = 0;
+    if (vClients.size() == 0)
+        cout << "\t\t\t\tNo Clients Available In the System!";
+    else
+        for (sClient Client : vClients)
+        {
+            PrintClientRecordBalanceLine(Client);
+            TotalBalances += Client.AccountBalance;
+            cout << endl;
+        }
+    cout << "\n_______________________________________________________";
+    cout << "_________________________________________\n"
+         << endl;
+    cout << "\t\t\t\t\t Total Balances = " << TotalBalances;
+}
+
+void PrintClientCard(sClient Client)
+{
+    cout << "\nThe following are the client details:\n";
+    cout << "-----------------------------------";
+    cout << "\nAccout Number: " << Client.AccountNumber;
+    cout << "\nPin Code : " << Client.PinCode;
+    cout << "\nName : " << Client.Name;
+    cout << "\nPhone : " << Client.Phone;
+    cout << "\nAccount Balance: " << Client.AccountBalance;
+    cout << "\n-----------------------------------\n";
+}
+void PrintUserCard(stUser User)
+{
+    cout << "\nThe following are the user details:\n";
+    cout << "-----------------------------------";
+    cout << "\nUsername : " << User.UserName;
+    cout << "\nPassword : " << User.Password;
+    cout << "\nPermissions : " << User.Permissions;
+    cout << "\n-----------------------------------\n";
+}
+bool FindClientByAccountNumber(string AccountNumber, vector<sClient> vClients, sClient &Client)
+{
+    for (sClient C : vClients)
+    {
+        if (C.AccountNumber == AccountNumber)
+        {
+            Client = C;
+            return true;
+        }
+    }
+    return false;
+}
+
+bool FindUserByUsername(string Username, vector<stUser> vUsers,
+                        stUser &User)
+{
+    for (stUser U : vUsers)
+    {
+        if (U.UserName == Username)
+        {
+            User = U;
+            return true;
+        }
+    }
+    return false;
+}
+bool FindUserByUsernameAndPassword(string Username, string Password, stUser &User)
+{
+    vector<stUser> vUsers = LoadUsersDataFromFile(UsersFileName);
+    for (stUser U : vUsers)
+    {
+        if (U.UserName == Username && U.Password == Password)
+        {
+            User = U;
+            return true;
+        }
+    }
+    return false;
+}
+
+sClient ChangeClientRecord(string AccountNumber)
+{
+    sClient Client;
+    Client.AccountNumber = AccountNumber;
+    cout << "\n\nEnter PinCode? ";
+    getline(cin >> ws, Client.PinCode);
+    cout << "Enter Name? ";
+    getline(cin, Client.Name);
+    cout << "Enter Phone? ";
+    getline(cin, Client.Phone);
+    cout << "Enter AccountBalance? ";
+    cin >> Client.AccountBalance;
+    return Client;
+}
+stUser ChangeUserRecord(string Username)
+{
+    stUser User;
+    User.UserName = Username;
+    cout << "\n\nEnter Password? ";
+    getline(cin >> ws, User.Password);
+    User.Permissions = ReadPermissionsToSet();
+    return User;
+}
+
+bool MarkClientForDeleteByAccountNumber(string AccountNumber,
+                                        vector<sClient> &vClients)
+{
+    for (sClient &C : vClients)
+    {
+        if (C.AccountNumber == AccountNumber)
+        {
+            C.MarkForDelete = true;
+            return true;
+        }
+    }
+    return false;
+}
+bool MarkUserForDeleteByUsername(string Username, vector<stUser> &
+                                                      vUsers)
+{
+    for (stUser &U : vUsers)
+    {
+        if (U.UserName == Username)
+        {
+            U.MarkForDelete = true;
+            return true;
+        }
+    }
+    return false;
+}
+
+vector<sClient> SaveCleintsDataToFile(string FileName, vector<sClient> vClients)
+{
+    fstream MyFile;
+    MyFile.open(FileName, ios::out); // overwrite
+    string DataLine;
+    if (MyFile.is_open())
+    {
+        for (sClient C : vClients)
+        {
+            if (C.MarkForDelete == false)
+            {
+                // we only write records that are not marked for
+                delete.DataLine = ConvertRecordToLine(C);
+                MyFile << DataLine << endl;
+            }
+        }
+        MyFile.close();
+    }
+    return vClients;
+}
+
+vector<stUser> SaveUsersDataToFile(string FileName, vector<stUser> vUsers)
+{
+    fstream MyFile;
+    MyFile.open(FileName, ios::out); // overwrite
+    string DataLine;
+    if (MyFile.is_open())
+    {
+        for (stUser U : vUsers)
+        {
+            if (U.MarkForDelete == false)
+            {
+                // we only write records that are not marked for
+                delete.DataLine = ConvertUserRecordToLine(U);
+                MyFile << DataLine << endl;
+            }
+        }
+        MyFile.close();
+    }
+    return vUsers;
+}
+
+void AddDataLineToFile(string FileName, string stDataLine)
+{
+    fstream MyFile;
+    MyFile.open(FileName, ios::out | ios::app);
+    if (MyFile.is_open())
+    {
+        MyFile << stDataLine << endl;
+        MyFile.close();
+    }
+}
+void AddNewClient()
+{
+    sClient Client;
+    Client = ReadNewClient();
+    AddDataLineToFile(ClientsFileName,
+                      ConvertRecordToLine(Client));
+}
+void AddNewUser()
+{
+    stUser User;
+    User = ReadNewUser();
+    AddDataLineToFile(UsersFileName,
+                      ConvertUserRecordToLine(User));
+}
+
+void AddNewClients()
+{
+    char AddMore = 'Y';
+    do
+    {
+        // system("cls");
+        cout << "Adding New Client:\n\n";
+        AddNewClient();
+        cout << "\nClient Added Successfully, do you want to add
+            more clients
+            ? Y / N
+            ? ";
+                  cin >>
+                  AddMore;
+    } while (toupper(AddMore) == 'Y');
+}
+void AddNewUsers()
+{
+    char AddMore = 'Y';
+    do
+    {
+        // system("cls");
+        cout << "Adding New User:\n\n";
+        AddNewUser();
+        cout << "\nUser Added Successfully, do you want to add more Users? Y / N? ";
+        cin >>
+                  AddMore;
+    } while (toupper(AddMore) == 'Y');
+}
+
+void AddNewClients()
+{
+char AddMore = 'Y';
+do
+{
+//system("cls");
+cout << "Adding New Client:\n\n";
+AddNewClient();
+cout << "\nClient Added Successfully, do you want to add
+more clients? Y/N? ";
+cin >> AddMore;
+} while (toupper(AddMore) == 'Y');
+}
+void AddNewUsers()
+{
+char AddMore = 'Y';
+do
+{
+//system("cls");
+cout << "Adding New User:\n\n";
+AddNewUser();
+cout << "\nUser Added Successfully, do you want to add
+more Users? Y/N? ";
+cin >> AddMore;
+} while (toupper(AddMore) == 'Y');
+}
+ProgrammingAdvices.com
+© Copyright 2022
+Project 1 Bank Extension 2 Solution
+bool DeleteClientByAccountNumber(string AccountNumber, vector
+<sClient>& vClients)
+{
+sClient Client;
+char Answer = 'n';
+if (FindClientByAccountNumber(AccountNumber, vClients,
+Client))
+{
+PrintClientCard(Client);
+cout << "\n\nAre you sure you want delete this client? y/n
+? ";
+cin >> Answer;
+if (Answer == 'y' || Answer == 'Y')
+{
+MarkClientForDeleteByAccountNumber(AccountNumber,
+vClients);
+SaveCleintsDataToFile(ClientsFileName, vClients);
+//Refresh Clients
+vClients = LoadCleintsDataFromFile(ClientsFileName);
+cout << "\n\nClient Deleted Successfully.";
+return true;
+}
+}
+else
+{
+cout << "\nClient with Account Number (" << AccountNumber
+<< ") is Not Found!";
+return false;
+}
+}
+ProgrammingAdvices.com
+© Copyright 2022
+Project 1 Bank Extension 2 Solution
+bool DeleteUserByUsername(string Username, vector <stUser>&
+vUsers)
+{
+if (Username == "Admin")
+{
+cout << "\n\nYou cannot Delete This User.";
+return false;
+}
+stUser User;
+char Answer = 'n';
+if (FindUserByUsername(Username, vUsers, User))
+{
+PrintUserCard(User);
+cout << "\n\nAre you sure you want delete this User? y/n ? ";
+cin >> Answer;
+if (Answer == 'y' || Answer == 'Y')
+{
+MarkUserForDeleteByUsername(Username, vUsers);
+SaveUsersDataToFile(UsersFileName, vUsers);
+//Refresh Clients
+vUsers = LoadUsersDataFromFile(UsersFileName);
+cout << "\n\nUser Deleted Successfully.";
+return true;
+}
+}
+else
+{
+cout << "\nUser with Username (" << Username << ") is Not
+Found!";
+return false;
+}
+}
+ProgrammingAdvices.com
+© Copyright 2022
+Project 1 Bank Extension 2 Solution
+bool UpdateClientByAccountNumber(string AccountNumber, vector
+<sClient>& vClients)
+{
+sClient Client;
+char Answer = 'n';
+if (FindClientByAccountNumber(AccountNumber, vClients,
+Client))
+{
+PrintClientCard(Client);
+cout << "\n\nAre you sure you want update this client? y/n
+? ";
+cin >> Answer;
+if (Answer == 'y' || Answer == 'Y')
+{
+for (sClient& C : vClients)
+{
+if (C.AccountNumber == AccountNumber)
+{
+C = ChangeClientRecord(AccountNumber);
+break;
+}
+}
+SaveCleintsDataToFile(ClientsFileName, vClients);
+cout << "\n\nClient Updated Successfully.";
+return true;
+}
+}
+else
+{
+cout << "\nClient with Account Number (" << AccountNumber
+<< ") is Not Found!";
+return false;
+}
+}
+ProgrammingAdvices.com
+© Copyright 2022
+Project 1 Bank Extension 2 Solution
+bool UpdateUserByUsername(string Username, vector <stUser>&
+vUsers)
+{
+stUser User;
+char Answer = 'n';
+if (FindUserByUsername(Username, vUsers, User))
+{
+PrintUserCard(User);
+cout << "\n\nAre you sure you want update this User? y/n ?
+";
+cin >> Answer;
+if (Answer == 'y' || Answer == 'Y')
+{
+for (stUser& U : vUsers)
+{
+if (U.UserName == Username)
+{
+U = ChangeUserRecord(Username);
+break;
+}
+}
+SaveUsersDataToFile(UsersFileName, vUsers);
+cout << "\n\nUser Updated Successfully.";
+return true;
+}
+}
+else
+{
+cout << "\nUser with Account Number (" << Username << ")
+is Not Found!";
+return false;
+}
+}
+ProgrammingAdvices.com
+© Copyright 2022
+Project 1 Bank Extension 2 Solution
+bool DepositBalanceToClientByAccountNumber(string AccountNumber,
+double Amount, vector <sClient>& vClients)
+{
+char Answer = 'n';
+cout << "\n\nAre you sure you want perfrom this transaction?
+y/n ? ";
+cin >> Answer;
+if (Answer == 'y' || Answer == 'Y')
+{
+for (sClient& C : vClients)
+{
+if (C.AccountNumber == AccountNumber)
+{
+C.AccountBalance += Amount;
+SaveCleintsDataToFile(ClientsFileName, vClients);
+cout << "\n\nDone Successfully. New balance is: "
+<< C.AccountBalance;
+return true;
+}
+}
+return false;
+}
+}
+string ReadClientAccountNumber()
+{
+string AccountNumber = "";
+cout << "\nPlease enter AccountNumber? ";
+cin >> AccountNumber;
+return AccountNumber;
+}
+ProgrammingAdvices.com
+© Copyright 2022
+Project 1 Bank Extension 2 Solution
+string ReadUserName()
+{
+string Username = "";
+cout << "\nPlease enter Username? ";
+cin >> Username;
+return Username;
+}
+void ShowListUsersScreen()
+{
+ShowAllUsersScreen();
+}
+void ShowAddNewUserScreen()
+{
+cout << "\n-----------------------------------\n";
+cout << "\tAdd New User Screen";
+cout << "\n-----------------------------------\n";
+AddNewUsers();
+}
+void ShowDeleteUserScreen()
+{
+cout << "\n-----------------------------------\n";
+cout << "\tDelete Users Screen";
+cout << "\n-----------------------------------\n";
+vector <stUser> vUsers = LoadUsersDataFromFile(UsersFileName);
+string Username = ReadUserName();
+DeleteUserByUsername(Username, vUsers);
+}
