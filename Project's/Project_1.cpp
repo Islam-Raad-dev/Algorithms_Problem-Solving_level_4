@@ -606,7 +606,7 @@ stUser ChangeUserRecord(string Username)
     getline(cin >> ws, User.Password);
 
     User.Permissions = ReadPermissionsToSet();
-    
+
     return User;
 }
 
@@ -621,6 +621,7 @@ bool MarkClientForDeleteByAccountNumber(string AccountNumber, vector<sClient> &v
             return true;
         }
     }
+    
     return false;
 }
 
