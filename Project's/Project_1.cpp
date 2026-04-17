@@ -493,7 +493,7 @@ void ShowTotalBalances()
 
     if (vClients.size() == 0)
         cout << "\t\t\t\tNo Clients Available In the System!";
-        
+
     else
         for (sClient Client : vClients)
         {
@@ -554,7 +554,7 @@ bool FindUserByUsername(string Username, vector<stUser> vUsers, stUser &User)
             User = U;
             return true;
         }
-    }
+    } 
     return false;
 }
 
