@@ -25,9 +25,6 @@ application uses text files to store client and user data.
 using namespace std;
 
 
-const string ClientsFileName = "Clients.txt";
-const string UsersFileName = "Users.txt";
-
 
 // هيكل بيانات المستخدم
 struct stUser
@@ -103,6 +100,8 @@ struct sClient
     bool MarkForDelete = false;
 };
 
+const string ClientsFileName = "Clients.txt";
+const string UsersFileName = "Users.txt";
 stUser CurrentUser;
 
 // دالة تقسيم النصوص بناءً على فاصل
@@ -573,7 +572,7 @@ bool FindUserByUsername(string Username, vector<stUser> vUsers, stUser &User)
 bool FindUserByUsernameAndPassword(string Username, string Password, stUser& User)
 {
     vector<stUser> vUsers = LoadUsersDataFromFile(UsersFileName);
-    
+
     for (stUser U : vUsers)
     {
         if (U.UserName == Username && U.Password == Password)
@@ -1500,25 +1499,26 @@ void Login()
     do
     {
         system("clear");
-        cout << "\n---------------------------------\n";
-        cout << "\tLogin Screen";
-        cout << "\n---------------------------------\n";
+        cout << "===========================================\n";
+        cout << "\t\tLogin Screen\n";
+        cout << "===========================================\n";
+
 
         if (LoginFaild)
         {
+
             cout << "Invalid Username/Password!\n";
         }
 
         cout << "Enter Username: ";
-        cin >> ws; 
+        cin >> ws;
         getline(cin, Username);
-        Username = Trim(Username);
 
         cout << "Enter Password: ";
         getline(cin, Password);
-        Password = Trim(Password);
 
-        LoginFaild = !LoadUserInfo(Username, Password);
+        LoginFaild = !FindUserByUsernameAndPassword(Trim(Username), Trim(Password), CurrentUser);
+        
     } while (LoginFaild);
 
     ShowMainMenue();

@@ -1,1 +1,2 @@
-Admin#//#1122#//#-1
+Admin#//#admin123#//#-1
+Manager#//#mgr123#//#31
