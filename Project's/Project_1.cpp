@@ -817,7 +817,7 @@ bool DeleteUserByUsername(string Username, vector<stUser>& vUsers)
         cout << "\nUser with Username (" << Username << ") is Not Found!";
         return false;
     }
-    
+
     return false;
 }
 
@@ -826,11 +826,13 @@ bool UpdateClientByAccountNumber(string AccountNumber, vector<sClient>& vClients
 {
     sClient Client;
     char Answer = 'n';
+
     if (FindClientByAccountNumber(AccountNumber, vClients, Client))
     {
         PrintClientCard(Client);
         cout << "\n\nAre you sure you want update this client? y/n ? ";
         cin >> Answer;
+
         if (Answer == 'y' || Answer == 'Y')
         {
             for (sClient& C : vClients)
@@ -841,16 +843,20 @@ bool UpdateClientByAccountNumber(string AccountNumber, vector<sClient>& vClients
                     break;
                 }
             }
+
             SaveCleintsDataToFile(ClientsFileName, vClients);
             cout << "\n\nClient Updated Successfully.";
+
             return true;
         }
     }
+    
     else
     {
         cout << "\nClient with Account Number (" << AccountNumber << ") is Not Found!";
         return false;
     }
+
     return false;
 }
 
