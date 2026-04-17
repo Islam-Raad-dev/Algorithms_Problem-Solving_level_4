@@ -327,7 +327,7 @@ stUser ReadNewUser()
 {
     stUser User;
 
-    
+
     cout << "Enter Username? ";
     getline(cin >> ws, User.UserName);
 
@@ -339,7 +339,9 @@ stUser ReadNewUser()
 
     cout << "Enter Password? ";
     getline(cin, User.Password);
+
     User.Permissions = ReadPermissionsToSet();
+    
     return User;
 }
 
