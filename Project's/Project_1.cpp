@@ -169,7 +169,7 @@ string ConvertRecordToLine(sClient Client, string Seperator = "#//#")
     stClientRecord += Client.Name + Seperator;
     stClientRecord += Client.Phone + Seperator;
     stClientRecord += to_string(Client.AccountBalance);
-    
+
     return stClientRecord;
 }
 
@@ -177,9 +177,11 @@ string ConvertRecordToLine(sClient Client, string Seperator = "#//#")
 string ConvertUserRecordToLine(stUser User, string Seperator = "#//#")
 {
     string stClientRecord = "";
+
     stClientRecord += User.UserName + Seperator;
     stClientRecord += User.Password + Seperator;
     stClientRecord += to_string(User.Permissions);
+    
     return stClientRecord;
 }
 
