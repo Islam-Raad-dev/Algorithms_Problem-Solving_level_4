@@ -341,7 +341,7 @@ stUser ReadNewUser()
     getline(cin, User.Password);
 
     User.Permissions = ReadPermissionsToSet();
-    
+
     return User;
 }
 
@@ -350,16 +350,19 @@ vector<stUser> LoadUsersDataFromFile(string FileName)
 {
     vector<stUser> vUsers;
     fstream MyFile;
+
     MyFile.open(FileName, ios::in);
     if (MyFile.is_open())
     {
         string Line;
+        
         while (getline(MyFile, Line))
         {
             vUsers.push_back(ConvertUserLinetoRecord(Line));
         }
         MyFile.close();
     }
+
     return vUsers;
 }
 
