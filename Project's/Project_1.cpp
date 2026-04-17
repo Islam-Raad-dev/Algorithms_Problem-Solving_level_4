@@ -592,7 +592,7 @@ sClient ChangeClientRecord(string AccountNumber)
 
     cout << "Enter AccountBalance? ";
     cin >> Client.AccountBalance;
-    
+
     return Client;
 }
 
@@ -601,9 +601,12 @@ stUser ChangeUserRecord(string Username)
 {
     stUser User;
     User.UserName = Username;
+
     cout << "\n\nEnter Password? ";
     getline(cin >> ws, User.Password);
+
     User.Permissions = ReadPermissionsToSet();
+    
     return User;
 }
 
