@@ -77,7 +77,7 @@ vector<string> SplitString(string S1, string delim)
     while ((pos = S1.find(delim)) != std::string::npos)
     {
         sword = S1.substr(0, pos);
-        if (sword != "")
+        if (sword != "") 
         {
             vString.push_back(sword);
         }
