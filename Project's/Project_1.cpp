@@ -562,6 +562,7 @@ bool FindUserByUsername(string Username, vector<stUser> vUsers, stUser &User)
 bool FindUserByUsernameAndPassword(string Username, string Password, stUser &User)
 {
     vector<stUser> vUsers = LoadUsersDataFromFile(UsersFileName);
+    
     for (stUser U : vUsers)
     {
         if (U.UserName == Username && U.Password == Password)
