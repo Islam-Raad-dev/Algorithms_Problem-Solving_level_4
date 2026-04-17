@@ -355,7 +355,7 @@ vector<stUser> LoadUsersDataFromFile(string FileName)
     if (MyFile.is_open())
     {
         string Line;
-        
+
         while (getline(MyFile, Line))
         {
             vUsers.push_back(ConvertUserLinetoRecord(Line));
@@ -371,16 +371,19 @@ vector<sClient> LoadCleintsDataFromFile(string FileName)
 {
     vector<sClient> vClients;
     fstream MyFile;
+
     MyFile.open(FileName, ios::in);
     if (MyFile.is_open())
     {
         string Line;
+
         while (getline(MyFile, Line))
         {
             vClients.push_back(ConvertLinetoRecord(Line));
         }
         MyFile.close();
     }
+    
     return vClients;
 }
 
