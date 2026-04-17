@@ -223,7 +223,7 @@ bool UserExistsByUsername(string Username, string FileName)
     {
         string Line;
         stUser User;
-        
+
         while (getline(MyFile, Line))
         {
             User = ConvertUserLinetoRecord(Line);
@@ -243,6 +243,7 @@ bool UserExistsByUsername(string Username, string FileName)
 sClient ReadNewClient()
 {
     sClient Client;
+
     cout << "Enter Account Number? ";
     getline(cin >> ws, Client.AccountNumber);
 
@@ -254,12 +255,16 @@ sClient ReadNewClient()
 
     cout << "Enter PinCode? ";
     getline(cin, Client.PinCode);
+
     cout << "Enter Name? ";
     getline(cin, Client.Name);
+
     cout << "Enter Phone? ";
     getline(cin, Client.Phone);
+
     cout << "Enter AccountBalance? ";
     cin >> Client.AccountBalance;
+
     return Client;
 }
 
