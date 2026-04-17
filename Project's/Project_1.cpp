@@ -885,7 +885,7 @@ bool UpdateUserByUsername(string Username, vector<stUser>& vUsers)
 
             SaveUsersDataToFile(UsersFileName, vUsers);
             cout << "\n\nUser Updated Successfully.";
-            
+
             return true;
         }
     }
@@ -903,8 +903,10 @@ bool UpdateUserByUsername(string Username, vector<stUser>& vUsers)
 bool DepositBalanceToClientByAccountNumber(string AccountNumber, double Amount, vector<sClient>& vClients)
 {
     char Answer = 'n';
+
     cout << "\n\nAre you sure you want perfrom this transaction? y/n ? ";
     cin >> Answer;
+
     if (Answer == 'y' || Answer == 'Y')
     {
         for (sClient& C : vClients)
@@ -914,10 +916,12 @@ bool DepositBalanceToClientByAccountNumber(string AccountNumber, double Amount, 
                 C.AccountBalance += Amount;
                 SaveCleintsDataToFile(ClientsFileName, vClients);
                 cout << "\n\nDone Successfully. New balance is: " << C.AccountBalance;
+
                 return true;
             }
         }
     }
+    
     return false;
 }
 
