@@ -571,7 +571,7 @@ bool FindUserByUsernameAndPassword(string Username, string Password, stUser &Use
             return true;
         }
     }
-    
+
     return false;
 }
 
@@ -580,14 +580,19 @@ sClient ChangeClientRecord(string AccountNumber)
 {
     sClient Client;
     Client.AccountNumber = AccountNumber;
+
     cout << "\n\nEnter PinCode? ";
     getline(cin >> ws, Client.PinCode);
+
     cout << "Enter Name? ";
     getline(cin, Client.Name);
+
     cout << "Enter Phone? ";
     getline(cin, Client.Phone);
+
     cout << "Enter AccountBalance? ";
     cin >> Client.AccountBalance;
+    
     return Client;
 }
 
