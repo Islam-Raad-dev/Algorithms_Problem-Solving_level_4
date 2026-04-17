@@ -383,7 +383,7 @@ vector<sClient> LoadCleintsDataFromFile(string FileName)
         }
         MyFile.close();
     }
-    
+
     return vClients;
 }
 
@@ -490,8 +490,10 @@ void ShowTotalBalances()
     cout << "\n_________________________________________________________________________________________\n" << endl;
 
     double TotalBalances = 0;
+
     if (vClients.size() == 0)
         cout << "\t\t\t\tNo Clients Available In the System!";
+        
     else
         for (sClient Client : vClients)
         {
