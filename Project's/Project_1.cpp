@@ -1516,7 +1516,7 @@ void Login()
         cout << "Enter Password: ";
         cin >> Password;
 
-        LoginFaild = !FindUserByUsernameAndPassword(Trim(Username), Trim(Password), CurrentUser);
+        LoginFaild = !LoadUserInfo(Username, Password);
         
     } while (LoginFaild);
 
