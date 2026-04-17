@@ -952,7 +952,7 @@ void ShowAddNewUserScreen()
     cout << "\n-----------------------------------\n";
     cout << "\tAdd New User Screen";
     cout << "\n-----------------------------------\n";
-    
+
     AddNewUsers();
 }
 
@@ -972,6 +972,7 @@ void ShowUpdateUserScreen()
     cout << "\n-----------------------------------\n";
     cout << "\tUpdate Users Screen";
     cout << "\n-----------------------------------\n";
+
     vector <stUser> vUsers = LoadUsersDataFromFile(UsersFileName);
     string Username = ReadUserName();
     UpdateUserByUsername(Username, vUsers);
@@ -984,9 +985,13 @@ void ShowDeleteClientScreen()
         ShowAccessDeniedMessage();
         return;
     }
+
+    
     cout << "\n-----------------------------------\n";
     cout << "\tDelete Client Screen";
     cout << "\n-----------------------------------\n";
+
+
     vector <sClient> vClients = LoadCleintsDataFromFile(ClientsFileName);
     string AccountNumber = ReadClientAccountNumber();
     DeleteClientByAccountNumber(AccountNumber, vClients);
