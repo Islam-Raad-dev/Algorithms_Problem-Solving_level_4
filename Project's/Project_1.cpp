@@ -131,15 +131,26 @@ vector<string> SplitString(string S1, string Delim)
 }
 
 // تحويل سطر نصي إلى سجل مستخدم
+string Trim(string s)
+{
+    static const string whitespaces = " \t\r\n\f\v";
+    size_t first = s.find_first_not_of(whitespaces);
+    if (string::npos == first) return "";
+    size_t last = s.find_last_not_of(whitespaces);
+    return s.substr(first, (last - first + 1));
+}
+
 stUser ConvertUserLinetoRecord(string Line, string Seperator = "#//#")
 {
     stUser User;
-    vector<string> vUserData;
-    vUserData = SplitString(Line, Seperator);
-    User.UserName = vUserData[0];
-    User.Password = vUserData[1];
-    User.Permissions = stoi(vUserData[2]);
-
+    vector<string> vUserData = SplitString(Line, Seperator);
+    
+    if (vUserData.size() >= 3)
+    {
+        User.UserName = Trim(vUserData[0]);
+        User.Password = Trim(vUserData[1]);
+        User.Permissions = stoi(Trim(vUserData[2]));
+    }
     return User;
 }
 
@@ -1495,13 +1506,17 @@ void Login()
 
         if (LoginFaild)
         {
-            cout << "Invlaid Username/Password!\n";
+            cout << "Invalid Username/Password!\n";
         }
-        cout << "Enter Username? ";
-        cin >> Username;
 
-        cout << "Enter Password? ";
-        cin >> Password;
+        cout << "Enter Username: ";
+        cin >> ws; 
+        getline(cin, Username);
+        Username = Trim(Username);
+
+        cout << "Enter Password: ";
+        getline(cin, Password);
+        Password = Trim(Password);
 
         LoginFaild = !LoadUserInfo(Username, Password);
     } while (LoginFaild);
