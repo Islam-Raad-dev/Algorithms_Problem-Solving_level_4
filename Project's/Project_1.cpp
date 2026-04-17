@@ -209,7 +209,7 @@ bool ClientExistsByAccountNumber(string AccountNumber, string FileName)
         }
         MyFile.close();
     }
-    
+
     return false;
 }
 
@@ -217,6 +217,7 @@ bool ClientExistsByAccountNumber(string AccountNumber, string FileName)
 bool UserExistsByUsername(string Username, string FileName)
 {
     fstream MyFile;
+
     MyFile.open(FileName, ios::in);
     if (MyFile.is_open())
     {
@@ -233,6 +234,7 @@ bool UserExistsByUsername(string Username, string FileName)
         }
         MyFile.close();
     }
+    
     return false;
 }
 
