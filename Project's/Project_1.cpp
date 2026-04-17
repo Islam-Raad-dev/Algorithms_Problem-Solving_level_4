@@ -1318,7 +1318,7 @@ short ReadManageUsersMenueOption()
     cout << "Choose what do you want to do? [1 to 6]? ";
     short Choice = 0;
     cin >> Choice;
-    
+
     return Choice;
 }
 
@@ -1331,6 +1331,7 @@ void ShowManageUsersMenue()
         GoBackToMainMenue();
         return;
     }
+
     system("clear");
     cout << "===========================================\n";
     cout << "\t\tManage Users Menue Screen\n";
@@ -1342,6 +1343,7 @@ void ShowManageUsersMenue()
     cout << "\t[5] Find User.\n";
     cout << "\t[6] Main Menue.\n";
     cout << "===========================================\n";
+    
     PerfromManageUsersMenueOption((enManageUsersMenueOptions)ReadManageUsersMenueOption());
 }
 
