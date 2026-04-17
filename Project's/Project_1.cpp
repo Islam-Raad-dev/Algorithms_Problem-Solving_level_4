@@ -1343,7 +1343,7 @@ void ShowManageUsersMenue()
     cout << "\t[5] Find User.\n";
     cout << "\t[6] Main Menue.\n";
     cout << "===========================================\n";
-    
+
     PerfromManageUsersMenueOption((enManageUsersMenueOptions)ReadManageUsersMenueOption());
 }
 
@@ -1352,6 +1352,7 @@ void PerfromMainMenueOption(enMainMenueOptions MainMenueOption)
 {
     switch (MainMenueOption)
     {
+
     case enMainMenueOptions::eListClients:
     {
         system("clear");
@@ -1359,38 +1360,60 @@ void PerfromMainMenueOption(enMainMenueOptions MainMenueOption)
         GoBackToMainMenue();
         break;
     }
+
     case enMainMenueOptions::eAddNewClient:
+    {
         system("clear");
         ShowAddNewClientsScreen();
         GoBackToMainMenue();
         break;
+    }
+
     case enMainMenueOptions::eDeleteClient:
+    {
         system("clear");
         ShowDeleteClientScreen();
         GoBackToMainMenue();
         break;
+    }
+
     case enMainMenueOptions::eUpdateClient:
+    {
         system("clear");
         ShowUpdateClientScreen();
         GoBackToMainMenue();
         break;
+    }
+
     case enMainMenueOptions::eFindClient:
+    {
         system("clear");
         ShowFindClientScreen();
         GoBackToMainMenue();
         break;
+    }
+
     case enMainMenueOptions::eShowTransactionsMenue:
+    {
         system("clear");
         ShowTransactionsMenue();
         break;
+    }
+
     case enMainMenueOptions::eManageUsers:
+    {
         system("clear");
         ShowManageUsersMenue();
         break;
+    }
+
     case enMainMenueOptions::eExit:
+    {
         system("clear");
         Login();
         break;
+    }
+
     }
 }
 
@@ -1410,6 +1433,7 @@ void ShowMainMenue()
     cout << "\t[7] Manage Users.\n";
     cout << "\t[8] Logout.\n";
     cout << "===========================================\n";
+
     PerfromMainMenueOption((enMainMenueOptions)ReadMainMenueOption());
 }
 
@@ -1427,27 +1451,35 @@ void Login()
 {
     bool LoginFaild = false;
     string Username, Password;
+
     do
     {
         system("clear");
         cout << "\n---------------------------------\n";
         cout << "\tLogin Screen";
         cout << "\n---------------------------------\n";
+
         if (LoginFaild)
         {
             cout << "Invlaid Username/Password!\n";
         }
         cout << "Enter Username? ";
         cin >> Username;
+
         cout << "Enter Password? ";
         cin >> Password;
+
         LoginFaild = !LoadUserInfo(Username, Password);
     } while (LoginFaild);
+
     ShowMainMenue();
 }
 
 int main()
 {
+
     Login();
+
     return 0;
+    
 }
