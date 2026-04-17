@@ -149,7 +149,7 @@ sClient ConvertLinetoRecord(string Line, string Seperator = "#//#")
     vector<string> vClientData;
 
     vClientData = SplitString(Line, Seperator);
-    
+
     Client.AccountNumber = vClientData[0];
     Client.PinCode = vClientData[1];
     Client.Name = vClientData[2];
@@ -163,11 +163,13 @@ sClient ConvertLinetoRecord(string Line, string Seperator = "#//#")
 string ConvertRecordToLine(sClient Client, string Seperator = "#//#")
 {
     string stClientRecord = "";
+
     stClientRecord += Client.AccountNumber + Seperator;
     stClientRecord += Client.PinCode + Seperator;
     stClientRecord += Client.Name + Seperator;
     stClientRecord += Client.Phone + Seperator;
     stClientRecord += to_string(Client.AccountBalance);
+    
     return stClientRecord;
 }
 
