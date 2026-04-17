@@ -724,11 +724,12 @@ void AddNewUser()
 void AddNewClients()
 {
     char AddMore = 'Y';
+
     do
     {
         cout << "Adding New Client:\n\n";
         AddNewClient();
-        
+
         cout << "\nClient Added Successfully, do you want to add more clients? Y/N? ";
         cin >> AddMore;
     } while (toupper(AddMore) == 'Y');
@@ -738,10 +739,12 @@ void AddNewClients()
 void AddNewUsers()
 {
     char AddMore = 'Y';
+
     do
     {
         cout << "Adding New User:\n\n";
         AddNewUser();
+        
         cout << "\nUser Added Successfully, do you want to add more Users? Y/N? ";
         cin >> AddMore;
     } while (toupper(AddMore) == 'Y');
