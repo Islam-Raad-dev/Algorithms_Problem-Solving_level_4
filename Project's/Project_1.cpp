@@ -744,7 +744,7 @@ void AddNewUsers()
     {
         cout << "Adding New User:\n\n";
         AddNewUser();
-        
+
         cout << "\nUser Added Successfully, do you want to add more Users? Y/N? ";
         cin >> AddMore;
     } while (toupper(AddMore) == 'Y');
@@ -755,25 +755,31 @@ bool DeleteClientByAccountNumber(string AccountNumber, vector<sClient>& vClients
 {
     sClient Client;
     char Answer = 'n';
+
     if (FindClientByAccountNumber(AccountNumber, vClients, Client))
     {
         PrintClientCard(Client);
         cout << "\n\nAre you sure you want delete this client? y/n ? ";
         cin >> Answer;
+
         if (Answer == 'y' || Answer == 'Y')
         {
             MarkClientForDeleteByAccountNumber(AccountNumber, vClients);
             SaveCleintsDataToFile(ClientsFileName, vClients);
             vClients = LoadCleintsDataFromFile(ClientsFileName);
+
             cout << "\n\nClient Deleted Successfully.";
+
             return true;
         }
     }
+
     else
     {
         cout << "\nClient with Account Number (" << AccountNumber << ") is Not Found!";
         return false;
     }
+    
     return false;
 }
 
