@@ -1236,6 +1236,7 @@ void ShowTransactionsMenue()
         GoBackToMainMenue();
         return;
     }
+
     system("clear");
     cout << "===========================================\n";
     cout << "\t\tTransactions Menue Screen\n";
@@ -1245,6 +1246,7 @@ void ShowTransactionsMenue()
     cout << "\t[3] Total Balances.\n";
     cout << "\t[4] Main Menue.\n";
     cout << "===========================================\n";
+
     PerfromTranactionsMenueOption((enTransactionsMenueOptions)ReadTransactionsMenueOption());
 }
 
@@ -1253,6 +1255,7 @@ short ReadMainMenueOption()
     cout << "Choose what do you want to do? [1 to 8]? ";
     short Choice = 0;
     cin >> Choice;
+
     return Choice;
 }
 
@@ -1268,6 +1271,7 @@ void PerfromManageUsersMenueOption(enManageUsersMenueOptions ManageUsersMenueOpt
         GoBackToManageUsersMenue();
         break;
     }
+
     case enManageUsersMenueOptions::eAddNewUser:
     {
         system("clear");
@@ -1275,6 +1279,7 @@ void PerfromManageUsersMenueOption(enManageUsersMenueOptions ManageUsersMenueOpt
         GoBackToManageUsersMenue();
         break;
     }
+
     case enManageUsersMenueOptions::eDeleteUser:
     {
         system("clear");
@@ -1282,6 +1287,7 @@ void PerfromManageUsersMenueOption(enManageUsersMenueOptions ManageUsersMenueOpt
         GoBackToManageUsersMenue();
         break;
     }
+
     case enManageUsersMenueOptions::eUpdateUser:
     {
         system("clear");
@@ -1289,6 +1295,7 @@ void PerfromManageUsersMenueOption(enManageUsersMenueOptions ManageUsersMenueOpt
         GoBackToManageUsersMenue();
         break;
     }
+
     case enManageUsersMenueOptions::eFindUser:
     {
         system("clear");
@@ -1296,11 +1303,13 @@ void PerfromManageUsersMenueOption(enManageUsersMenueOptions ManageUsersMenueOpt
         GoBackToManageUsersMenue();
         break;
     }
+
     case enManageUsersMenueOptions::eMainMenue:
     {
         ShowMainMenue();
         break;
     }
+
     }
 }
 
@@ -1309,6 +1318,7 @@ short ReadManageUsersMenueOption()
     cout << "Choose what do you want to do? [1 to 6]? ";
     short Choice = 0;
     cin >> Choice;
+    
     return Choice;
 }
 
