@@ -798,6 +798,7 @@ bool DeleteUserByUsername(string Username, vector<stUser>& vUsers)
     if (FindUserByUsername(Username, vUsers, User))
     {
         PrintUserCard(User);
+        
         cout << "\n\nAre you sure you want delete this User? y/n ? ";
         cin >> Answer;
 
@@ -806,6 +807,7 @@ bool DeleteUserByUsername(string Username, vector<stUser>& vUsers)
             MarkUserForDeleteByUsername(Username, vUsers);
             SaveUsersDataToFile(UsersFileName, vUsers);
             vUsers = LoadUsersDataFromFile(UsersFileName);
+
             cout << "\n\nUser Deleted Successfully.";
 
             return true;
@@ -830,6 +832,7 @@ bool UpdateClientByAccountNumber(string AccountNumber, vector<sClient>& vClients
     if (FindClientByAccountNumber(AccountNumber, vClients, Client))
     {
         PrintClientCard(Client);
+
         cout << "\n\nAre you sure you want update this client? y/n ? ";
         cin >> Answer;
 
@@ -845,6 +848,7 @@ bool UpdateClientByAccountNumber(string AccountNumber, vector<sClient>& vClients
             }
 
             SaveCleintsDataToFile(ClientsFileName, vClients);
+
             cout << "\n\nClient Updated Successfully.";
 
             return true;
@@ -869,6 +873,7 @@ bool UpdateUserByUsername(string Username, vector<stUser>& vUsers)
     if (FindUserByUsername(Username, vUsers, User))
     {
         PrintUserCard(User);
+
         cout << "\n\nAre you sure you want update this User? y/n ? ";
         cin >> Answer;
 
@@ -884,6 +889,7 @@ bool UpdateUserByUsername(string Username, vector<stUser>& vUsers)
             }
 
             SaveUsersDataToFile(UsersFileName, vUsers);
+
             cout << "\n\nUser Updated Successfully.";
 
             return true;
@@ -915,6 +921,7 @@ bool DepositBalanceToClientByAccountNumber(string AccountNumber, double Amount, 
             {
                 C.AccountBalance += Amount;
                 SaveCleintsDataToFile(ClientsFileName, vClients);
+
                 cout << "\n\nDone Successfully. New balance is: " << C.AccountBalance;
 
                 return true;
@@ -929,6 +936,7 @@ bool DepositBalanceToClientByAccountNumber(string AccountNumber, double Amount, 
 string ReadClientAccountNumber()
 {
     string AccountNumber = "";
+
     cout << "\nPlease enter AccountNumber? ";
     cin >> AccountNumber;
 
@@ -939,6 +947,7 @@ string ReadClientAccountNumber()
 string ReadUserName()
 {
     string Username = "";
+
     cout << "\nPlease enter Username? ";
     cin >> Username;
 
@@ -964,6 +973,7 @@ void ShowDeleteUserScreen()
 
     vector <stUser> vUsers = LoadUsersDataFromFile(UsersFileName);
     string Username = ReadUserName();
+
     DeleteUserByUsername(Username, vUsers);
 }
 
@@ -983,7 +993,7 @@ void ShowDeleteClientScreen()
     if (!CheckAccessPermission(enMainMenuePermissions::pDeleteClient))
     {
         ShowAccessDeniedMessage();
-        
+
         return;
     }
 
