@@ -25,7 +25,6 @@ application uses text files to store client and user data.
 using namespace std;
 
 
-stUser CurrentUser;
 const string ClientsFileName = "Clients.txt";
 const string UsersFileName = "Users.txt";
 
@@ -103,6 +102,8 @@ struct sClient
     double AccountBalance;
     bool MarkForDelete = false;
 };
+
+stUser CurrentUser;
 
 // دالة تقسيم النصوص بناءً على فاصل
 vector<string> SplitString(string S1, string Delim)
@@ -648,7 +649,7 @@ vector<sClient> SaveCleintsDataToFile(string FileName, vector<sClient> vClients)
     MyFile.open(FileName, ios::out);
 
     string DataLine;
-    
+
     if (MyFile.is_open())
     {
         for (sClient C : vClients)
