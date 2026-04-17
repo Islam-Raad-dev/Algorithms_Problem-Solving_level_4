@@ -1223,13 +1223,7 @@ void PerfromTranactionsMenueOption(enTransactionsMenueOptions TransactionMenueOp
         ShowMainMenue();
         break;
     }
-
-    default:
-    {
-        cout << "\nInvalid Option, Please choose a valid option [1 to 4].";
-        PerfromTranactionsMenueOption((enTransactionsMenueOptions)ReadTransactionsMenueOption());
-        break;
-    }
+    
 }
 
 // عرض قائمة التحويلات المالية
