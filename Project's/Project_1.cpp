@@ -223,6 +223,7 @@ bool UserExistsByUsername(string Username, string FileName)
     {
         string Line;
         stUser User;
+        
         while (getline(MyFile, Line))
         {
             User = ConvertUserLinetoRecord(Line);
@@ -234,7 +235,7 @@ bool UserExistsByUsername(string Username, string FileName)
         }
         MyFile.close();
     }
-    
+
     return false;
 }
 
