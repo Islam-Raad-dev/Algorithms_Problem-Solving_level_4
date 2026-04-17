@@ -903,3 +903,463 @@ vector <stUser> vUsers = LoadUsersDataFromFile(UsersFileName);
 string Username = ReadUserName();
 DeleteUserByUsername(Username, vUsers);
 }
+
+void ShowUpdateUserScreen()
+{
+cout << "\n-----------------------------------\n";
+cout << "\tUpdate Users Screen";
+cout << "\n-----------------------------------\n";
+vector <stUser> vUsers = LoadUsersDataFromFile(UsersFileName);
+string Username = ReadUserName();
+UpdateUserByUsername(Username, vUsers);
+}
+void ShowDeleteClientScreen()
+{
+if
+(!CheckAccessPermission(enMainMenuePermissions::pDeleteClient))
+{
+ShowAccessDeniedMessage();
+return;
+}
+cout << "\n-----------------------------------\n";
+cout << "\tDelete Client Screen";
+cout << "\n-----------------------------------\n";
+vector <sClient> vClients =
+LoadCleintsDataFromFile(ClientsFileName);
+string AccountNumber = ReadClientAccountNumber();
+DeleteClientByAccountNumber(AccountNumber, vClients);
+}
+void ShowUpdateClientScreen()
+{
+if
+(!CheckAccessPermission(enMainMenuePermissions::pUpdateClients))
+{
+ShowAccessDeniedMessage();
+return;
+}
+cout << "\n-----------------------------------\n";
+cout << "\tUpdate Client Info Screen";
+cout << "\n-----------------------------------\n";
+ProgrammingAdvices.com
+© Copyright 2022
+Project 1 Bank Extension 2 Solution
+vector <sClient> vClients =
+LoadCleintsDataFromFile(ClientsFileName);
+string AccountNumber = ReadClientAccountNumber();
+UpdateClientByAccountNumber(AccountNumber, vClients);
+}
+void ShowAddNewClientsScreen()
+{
+if
+(!CheckAccessPermission(enMainMenuePermissions::pUpdateClients))
+{
+ShowAccessDeniedMessage();
+return;
+}
+cout << "\n-----------------------------------\n";
+cout << "\tAdd New Clients Screen";
+cout << "\n-----------------------------------\n";
+AddNewClients();
+}
+ProgrammingAdvices.com
+© Copyright 2022
+Project 1 Bank Extension 2 Solution
+void ShowFindClientScreen()
+{
+if
+(!CheckAccessPermission(enMainMenuePermissions::pFindClient))
+{
+ShowAccessDeniedMessage();
+return;
+}
+cout << "\n-----------------------------------\n";
+cout << "\tFind Client Screen";
+cout << "\n-----------------------------------\n";
+vector <sClient> vClients =
+LoadCleintsDataFromFile(ClientsFileName);
+sClient Client;
+string AccountNumber = ReadClientAccountNumber();
+if (FindClientByAccountNumber(AccountNumber, vClients,
+Client))
+PrintClientCard(Client);
+else
+cout << "\nClient with Account Number[" << AccountNumber
+<< "] is not found!";
+}
+void ShowFindUserScreen()
+{
+cout << "\n-----------------------------------\n";
+cout << "\tFind User Screen";
+cout << "\n-----------------------------------\n";
+vector <stUser> vUsers = LoadUsersDataFromFile(UsersFileName);
+stUser User;
+string Username = ReadUserName();
+if (FindUserByUsername(Username, vUsers, User))
+PrintUserCard(User);
+else
+cout << "\nUser with Username [" << Username << "] is not
+found!";
+}
+ProgrammingAdvices.com
+© Copyright 2022
+Project 1 Bank Extension 2 Solution
+void ShowEndScreen()
+{
+cout << "\n-----------------------------------\n";
+cout << "\tProgram Ends :-)";
+cout << "\n-----------------------------------\n";
+}
+void ShowDepositScreen()
+{
+cout << "\n-----------------------------------\n";
+cout << "\tDeposit Screen";
+cout << "\n-----------------------------------\n";
+sClient Client;
+vector <sClient> vClients =
+LoadCleintsDataFromFile(ClientsFileName);
+string AccountNumber = ReadClientAccountNumber();
+while (!FindClientByAccountNumber(AccountNumber, vClients,
+Client))
+{
+cout << "\nClient with [" << AccountNumber << "] does not
+exist.\n";
+AccountNumber = ReadClientAccountNumber();
+}
+PrintClientCard(Client);
+double Amount = 0;
+cout << "\nPlease enter deposit amount? ";
+cin >> Amount;
+DepositBalanceToClientByAccountNumber(AccountNumber, Amount,
+vClients);
+}
+ProgrammingAdvices.com
+© Copyright 2022
+Project 1 Bank Extension 2 Solution
+void ShowWithDrawScreen()
+{
+cout << "\n-----------------------------------\n";
+cout << "\tWithdraw Screen";
+cout << "\n-----------------------------------\n";
+sClient Client;
+vector <sClient> vClients =
+LoadCleintsDataFromFile(ClientsFileName);
+string AccountNumber = ReadClientAccountNumber();
+while (!FindClientByAccountNumber(AccountNumber, vClients,
+Client))
+{
+cout << "\nClient with [" << AccountNumber << "] does not
+exist.\n";
+AccountNumber = ReadClientAccountNumber();
+}
+PrintClientCard(Client);
+double Amount = 0;
+cout << "\nPlease enter withdraw amount? ";
+cin >> Amount;
+//Validate that the amount does not exceeds the balance
+while (Amount > Client.AccountBalance)
+{
+cout << "\nAmount Exceeds the balance, you can withdraw up
+to : " << Client.AccountBalance << endl;
+cout << "Please enter another amount? ";
+cin >> Amount;
+}
+DepositBalanceToClientByAccountNumber(AccountNumber, Amount *
+-1, vClients);
+}
+void ShowTotalBalancesScreen()
+{
+ShowTotalBalances();
+}
+ProgrammingAdvices.com
+© Copyright 2022
+Project 1 Bank Extension 2 Solution
+bool CheckAccessPermission(enMainMenuePermissions Permission)
+{
+if (CurrentUser.Permissions == enMainMenuePermissions::eAll)
+return true;
+if ((Permission & CurrentUser.Permissions) == Permission)
+return true;
+else
+return false;
+}
+void GoBackToMainMenue()
+{
+cout << "\n\nPress any key to go back to Main Menue...";
+system("pause>0");
+ShowMainMenue();
+}
+void GoBackToTransactionsMenue()
+{
+cout << "\n\nPress any key to go back to Transactions
+Menue...";
+system("pause>0");
+ShowTransactionsMenue();
+}
+void GoBackToManageUsersMenue()
+{
+cout << "\n\nPress any key to go back to Transactions
+Menue...";
+system("pause>0");
+ShowManageUsersMenue();
+}
+short ReadTransactionsMenueOption()
+{
+cout << "Choose what do you want to do? [1 to 4]? ";
+short Choice = 0;
+cin >> Choice;
+return Choice;
+}
+
+void PerfromTranactionsMenueOption(enTransactionsMenueOptions
+TransactionMenueOption)
+{
+switch (TransactionMenueOption)
+{
+case enTransactionsMenueOptions::eDeposit:
+{
+system("cls");
+ShowDepositScreen();
+GoBackToTransactionsMenue();
+break;
+}
+case enTransactionsMenueOptions::eWithdraw:
+{
+system("cls");
+ShowWithDrawScreen();
+GoBackToTransactionsMenue();
+break;
+}
+case enTransactionsMenueOptions::eShowTotalBalance:
+{
+system("cls");
+ShowTotalBalancesScreen();
+GoBackToTransactionsMenue();
+break;
+}
+case enTransactionsMenueOptions::eShowMainMenue:
+{
+ShowMainMenue();
+}
+}
+}
+ProgrammingAdvices.com
+© Copyright 2022
+Project 1 Bank Extension 2 Solution
+void ShowTransactionsMenue()
+{
+if
+(!CheckAccessPermission(enMainMenuePermissions::pTranactions))
+{
+ShowAccessDeniedMessage();
+GoBackToMainMenue();
+return;
+}
+system("cls");
+cout << "===========================================\n";
+cout << "\t\tTransactions Menue Screen\n";
+cout << "===========================================\n";
+cout << "\t[1] Deposit.\n";
+cout << "\t[2] Withdraw.\n";
+cout << "\t[3] Total Balances.\n";
+cout << "\t[4] Main Menue.\n";
+cout << "===========================================\n";
+PerfromTranactionsMenueOption((enTransactionsMenueOptions)ReadTran
+sactionsMenueOption());
+}
+short ReadMainMenueOption()
+{
+cout << "Choose what do you want to do? [1 to 8]? ";
+short Choice = 0;
+cin >> Choice;
+return Choice;
+}
+ProgrammingAdvices.com
+© Copyright 2022
+Project 1 Bank Extension 2 Solution
+void PerfromManageUsersMenueOption(enManageUsersMenueOptions
+ManageUsersMenueOption)
+{
+switch (ManageUsersMenueOption)
+{
+case enManageUsersMenueOptions::eListUsers:
+{
+system("cls");
+ShowListUsersScreen();
+GoBackToManageUsersMenue();
+break;
+}
+case enManageUsersMenueOptions::eAddNewUser:
+{
+system("cls");
+ShowAddNewUserScreen();
+GoBackToManageUsersMenue();
+break;
+}
+case enManageUsersMenueOptions::eDeleteUser:
+{
+system("cls");
+ShowDeleteUserScreen();
+GoBackToManageUsersMenue();
+break;
+}
+case enManageUsersMenueOptions::eUpdateUser:
+{
+system("cls");
+ShowUpdateUserScreen();
+GoBackToManageUsersMenue();
+break;
+}
+case enManageUsersMenueOptions::eFindUser:
+{
+system("cls");
+ShowFindUserScreen();
+GoBackToManageUsersMenue();
+break;
+}
+ProgrammingAdvices.com
+© Copyright 2022
+Project 1 Bank Extension 2 Solution
+case enManageUsersMenueOptions::eMainMenue:
+{
+ShowMainMenue();
+}
+}
+}
+short ReadManageUsersMenueOption()
+{
+cout << "Choose what do you want to do? [1 to 6]? ";
+short Choice = 0;
+cin >> Choice;
+return Choice;
+}
+void ShowManageUsersMenue()
+{
+if
+(!CheckAccessPermission(enMainMenuePermissions::pManageUsers))
+{
+ShowAccessDeniedMessage();
+GoBackToMainMenue();
+return;
+}
+system("cls");
+cout << "===========================================\n";
+cout << "\t\tManage Users Menue Screen\n";
+cout << "===========================================\n";
+cout << "\t[1] List Users.\n";
+cout << "\t[2] Add New User.\n";
+cout << "\t[3] Delete User.\n";
+cout << "\t[4] Update User.\n";
+cout << "\t[5] Find User.\n";
+cout << "\t[6] Main Menue.\n";
+cout << "===========================================\n";
+ProgrammingAdvices.com
+© Copyright 2022
+Project 1 Bank Extension 2 Solution
+PerfromManageUsersMenueOption((enManageUsersMenueOptions)ReadManag
+eUsersMenueOption());
+}
+void PerfromMainMenueOption(enMainMenueOptions MainMenueOption)
+{
+switch (MainMenueOption)
+{
+case enMainMenueOptions::eListClients:
+{
+system("cls");
+ShowAllClientsScreen();
+GoBackToMainMenue();
+break;
+}
+case enMainMenueOptions::eAddNewClient:
+system("cls");
+ShowAddNewClientsScreen();
+GoBackToMainMenue();
+break;
+case enMainMenueOptions::eDeleteClient:
+system("cls");
+ShowDeleteClientScreen();
+GoBackToMainMenue();
+break;
+case enMainMenueOptions::eUpdateClient:
+system("cls");
+ShowUpdateClientScreen();
+GoBackToMainMenue();
+break;
+case enMainMenueOptions::eFindClient:
+system("cls");
+ShowFindClientScreen();
+GoBackToMainMenue();
+break;
+case enMainMenueOptions::eShowTransactionsMenue:
+system("cls");
+ShowTransactionsMenue();
+break;
+ProgrammingAdvices.com
+© Copyright 2022
+Project 1 Bank Extension 2 Solution
+case enMainMenueOptions::eManageUsers:
+system("cls");
+ShowManageUsersMenue();
+break;
+case enMainMenueOptions::eExit:
+system("cls");
+// ShowEndScreen();
+Login();
+break;
+}
+}
+void ShowMainMenue()
+{
+system("cls");
+cout << "===========================================\n";
+cout << "\t\tMain Menue Screen\n";
+cout << "===========================================\n";
+cout << "\t[1] Show Client List.\n";
+cout << "\t[2] Add New Client.\n";
+cout << "\t[3] Delete Client.\n";
+cout << "\t[4] Update Client Info.\n";
+cout << "\t[5] Find Client.\n";
+cout << "\t[6] Transactions.\n";
+cout << "\t[7] Manage Users.\n";
+cout << "\t[8] Logout.\n";
+cout << "===========================================\n";
+PerfromMainMenueOption((enMainMenueOptions)ReadMainMenueOption());
+}
+bool LoadUserInfo(string Username, string Password)
+{
+if (FindUserByUsernameAndPassword(Username, Password,
+CurrentUser))
+return true;
+else
+return false;
+}
+ProgrammingAdvices.com
+© Copyright 2022
+Project 1 Bank Extension 2 Solution
+void Login()
+{
+bool LoginFaild = false;
+string Username, Password;
+do
+{
+system("cls");
+cout << "\n---------------------------------\n";
+cout << "\tLogin Screen";
+cout << "\n---------------------------------\n";
+if (LoginFaild)
+{
+cout << "Invlaid Username/Password!\n";
+}
+cout << "Enter Username? ";
+cin >> Username;
+cout << "Enter Password? ";
+cin >> Password;
+LoginFaild = !LoadUserInfo(Username, Password);
+} while (LoginFaild);
+ShowMainMenue();
+}
+int main()
+{
+Login();
+system("pause>0");
+return 0;
+}
