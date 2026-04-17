@@ -646,7 +646,7 @@ vector<sClient> SaveCleintsDataToFile(string FileName, vector<sClient> vClients)
     fstream MyFile;
 
     MyFile.open(FileName, ios::out);
-    
+
     string DataLine;
     if (MyFile.is_open())
     {
@@ -669,6 +669,7 @@ vector<sClient> SaveCleintsDataToFile(string FileName, vector<sClient> vClients)
 vector<stUser> SaveUsersDataToFile(string FileName, vector<stUser> vUsers)
 {
     fstream MyFile;
+
     MyFile.open(FileName, ios::out);
     string DataLine;
     if (MyFile.is_open())
@@ -681,8 +682,10 @@ vector<stUser> SaveUsersDataToFile(string FileName, vector<stUser> vUsers)
                 MyFile << DataLine << endl;
             }
         }
+
         MyFile.close();
     }
+    
     return vUsers;
 }
 
