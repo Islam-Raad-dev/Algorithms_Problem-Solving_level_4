@@ -1043,7 +1043,9 @@ void ShowFindClientScreen()
 
 
     vector <sClient> vClients = LoadCleintsDataFromFile(ClientsFileName);
+
     sClient Client;
+    
     string AccountNumber = ReadClientAccountNumber();
 
 
@@ -1061,7 +1063,9 @@ void ShowFindUserScreen()
     cout << "\n-----------------------------------\n";
 
     vector <stUser> vUsers = LoadUsersDataFromFile(UsersFileName);
+
     stUser User;
+
     string Username = ReadUserName();
 
     if (FindUserByUsername(Username, vUsers, User))
@@ -1085,6 +1089,7 @@ void ShowDepositScreen()
     cout << "\n-----------------------------------\n";
 
     sClient Client;
+
     vector <sClient> vClients = LoadCleintsDataFromFile(ClientsFileName);
     string AccountNumber = ReadClientAccountNumber();
 
@@ -1095,6 +1100,7 @@ void ShowDepositScreen()
     }
 
     PrintClientCard(Client);
+
     double Amount = 0;
 
     cout << "\nPlease enter deposit amount? ";
@@ -1110,6 +1116,7 @@ void ShowWithDrawScreen()
     cout << "\n-----------------------------------\n";
 
     sClient Client;
+
     vector <sClient> vClients = LoadCleintsDataFromFile(ClientsFileName);
     string AccountNumber = ReadClientAccountNumber();
 
@@ -1122,6 +1129,7 @@ void ShowWithDrawScreen()
     PrintClientCard(Client);
 
     double Amount = 0;
+
     cout << "\nPlease enter withdraw amount? ";
     cin >> Amount;
 
@@ -1147,6 +1155,7 @@ bool CheckAccessPermission(enMainMenuePermissions Permission)
         return true;
 
     else
+
         return false;
 }
 
@@ -1238,6 +1247,7 @@ void ShowTransactionsMenue()
     }
 
     system("clear");
+
     cout << "===========================================\n";
     cout << "\t\tTransactions Menue Screen\n";
     cout << "===========================================\n";
@@ -1264,6 +1274,7 @@ void PerfromManageUsersMenueOption(enManageUsersMenueOptions ManageUsersMenueOpt
 {
     switch (ManageUsersMenueOption)
     {
+
     case enManageUsersMenueOptions::eListUsers:
     {
         system("clear");
@@ -1333,6 +1344,7 @@ void ShowManageUsersMenue()
     }
 
     system("clear");
+
     cout << "===========================================\n";
     cout << "\t\tManage Users Menue Screen\n";
     cout << "===========================================\n";
@@ -1421,6 +1433,7 @@ void PerfromMainMenueOption(enMainMenueOptions MainMenueOption)
 void ShowMainMenue()
 {
     system("clear");
+
     cout << "===========================================\n";
     cout << "\t\tMain Menue Screen\n";
     cout << "===========================================\n";
@@ -1444,7 +1457,7 @@ bool LoadUserInfo(string Username, string Password)
         return true;
 
     else
-    
+
         return false;
 }
 
