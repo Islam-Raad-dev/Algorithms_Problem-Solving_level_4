@@ -1193,7 +1193,7 @@ short ReadTransactionsMenueOption()
 void PerfromTranactionsMenueOption(enTransactionsMenueOptions TransactionMenueOption)
 {
     switch (TransactionMenueOption)
-    {
+  {
     case enTransactionsMenueOptions::eDeposit:
     {
         system("clear");
@@ -1223,12 +1223,13 @@ void PerfromTranactionsMenueOption(enTransactionsMenueOptions TransactionMenueOp
         ShowMainMenue();
         break;
     }
-    
+  }
+
 }
 
 // عرض قائمة التحويلات المالية
 void ShowTransactionsMenue()
-{
+{ 
     if (!CheckAccessPermission(enMainMenuePermissions::pTranactions))
     {
         ShowAccessDeniedMessage();
