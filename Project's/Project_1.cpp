@@ -373,7 +373,7 @@ vector<stUser> LoadUsersDataFromFile(string FileName)
 
         MyFile.close();
     }
-    
+
     return vUsers;
 }
 
@@ -570,15 +570,16 @@ bool FindUserByUsername(string Username, vector<stUser> vUsers, stUser &User)
 }
 
 // التحقق من هوية المستخدم عند الدخول
-bool FindUserByUsernameAndPassword(string Username, string Password, stUser &User)
+bool FindUserByUsernameAndPassword(string Username, string Password, stUser& User)
 {
     vector<stUser> vUsers = LoadUsersDataFromFile(UsersFileName);
-
+    
     for (stUser U : vUsers)
     {
         if (U.UserName == Username && U.Password == Password)
         {
             User = U;
+
             return true;
         }
     }
