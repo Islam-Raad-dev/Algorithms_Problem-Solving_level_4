@@ -986,7 +986,7 @@ void ShowDeleteClientScreen()
         return;
     }
 
-    
+
     cout << "\n-----------------------------------\n";
     cout << "\tDelete Client Screen";
     cout << "\n-----------------------------------\n";
@@ -1004,9 +1004,12 @@ void ShowUpdateClientScreen()
         ShowAccessDeniedMessage();
         return;
     }
+    
     cout << "\n-----------------------------------\n";
     cout << "\tUpdate Client Info Screen";
     cout << "\n-----------------------------------\n";
+
+
     vector <sClient> vClients = LoadCleintsDataFromFile(ClientsFileName);
     string AccountNumber = ReadClientAccountNumber();
     UpdateClientByAccountNumber(AccountNumber, vClients);
