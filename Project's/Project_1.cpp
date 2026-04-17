@@ -67,7 +67,7 @@ struct sClientInfo
     bool MarkForDelete = false;
 };
 
-
+struct 
 vector<string> SplitString(string S1, string delim)
 {
     vector<string> vString;
@@ -309,6 +309,8 @@ sClientInfo ReadNewClient()
 
     return Client;
 }
+
+
 
 // --- Core Business Logic ---
 
