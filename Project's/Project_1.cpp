@@ -1511,11 +1511,10 @@ void Login()
         }
 
         cout << "Enter Username: ";
-        cin >> ws;
-        getline(cin, Username);
+        cin >> Username;
 
         cout << "Enter Password: ";
-        getline(cin, Password);
+        cin >> Password;
 
         LoginFaild = !FindUserByUsernameAndPassword(Trim(Username), Trim(Password), CurrentUser);
         
