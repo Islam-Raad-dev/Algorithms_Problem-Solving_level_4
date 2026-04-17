@@ -1004,7 +1004,7 @@ void ShowUpdateClientScreen()
         ShowAccessDeniedMessage();
         return;
     }
-    
+
     cout << "\n-----------------------------------\n";
     cout << "\tUpdate Client Info Screen";
     cout << "\n-----------------------------------\n";
@@ -1022,9 +1022,11 @@ void ShowAddNewClientsScreen()
         ShowAccessDeniedMessage();
         return;
     }
+
     cout << "\n-----------------------------------\n";
     cout << "\tAdd New Clients Screen";
     cout << "\n-----------------------------------\n";
+
     AddNewClients();
 }
 
@@ -1038,11 +1040,16 @@ void ShowFindClientScreen()
     cout << "\n-----------------------------------\n";
     cout << "\tFind Client Screen";
     cout << "\n-----------------------------------\n";
+
+
     vector <sClient> vClients = LoadCleintsDataFromFile(ClientsFileName);
     sClient Client;
     string AccountNumber = ReadClientAccountNumber();
+
+
     if (FindClientByAccountNumber(AccountNumber, vClients, Client))
         PrintClientCard(Client);
+        
     else
         cout << "\nClient with Account Number[" << AccountNumber << "] is not found!";
 }
