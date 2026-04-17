@@ -181,7 +181,7 @@ string ConvertUserRecordToLine(stUser User, string Seperator = "#//#")
     stClientRecord += User.UserName + Seperator;
     stClientRecord += User.Password + Seperator;
     stClientRecord += to_string(User.Permissions);
-    
+
     return stClientRecord;
 }
 
@@ -189,12 +189,15 @@ string ConvertUserRecordToLine(stUser User, string Seperator = "#//#")
 bool ClientExistsByAccountNumber(string AccountNumber, string FileName)
 {
     vector<sClient> vClients;
+
     fstream MyFile;
+
     MyFile.open(FileName, ios::in);
     if (MyFile.is_open())
     {
         string Line;
         sClient Client;
+
         while (getline(MyFile, Line))
         {
             Client = ConvertLinetoRecord(Line);
@@ -206,6 +209,7 @@ bool ClientExistsByAccountNumber(string AccountNumber, string FileName)
         }
         MyFile.close();
     }
+    
     return false;
 }
 
