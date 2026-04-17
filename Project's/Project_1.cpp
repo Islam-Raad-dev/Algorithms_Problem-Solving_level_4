@@ -115,17 +115,13 @@ vector<string> SplitString(string S1, string Delim)
     while ((pos = S1.find(Delim)) != std::string::npos)
     {
         sWord = S1.substr(0, pos);
-        if (sWord != "")
-        {
-            vString.push_back(sWord);
-        }
+
+        if (sWord != "") vString.push_back(sWord);
+
         S1.erase(0, pos + Delim.length());
     }
 
-    if (S1 != "")
-    {
-        vString.push_back(S1);
-    }
+    if (S1 != "") vString.push_back(S1);
 
     return vString;
 }
@@ -151,6 +147,7 @@ stUser ConvertUserLinetoRecord(string Line, string Seperator = "#//#")
         User.Password = Trim(vUserData[1]);
         User.Permissions = stoi(Trim(vUserData[2]));
     }
+
     return User;
 }
 
@@ -364,17 +361,19 @@ vector<stUser> LoadUsersDataFromFile(string FileName)
     fstream MyFile;
 
     MyFile.open(FileName, ios::in);
+
     if (MyFile.is_open())
     {
         string Line;
 
         while (getline(MyFile, Line))
         {
-            vUsers.push_back(ConvertUserLinetoRecord(Line));
+            if (Trim(Line) != "") vUsers.push_back(ConvertUserLinetoRecord(Line));
         }
+
         MyFile.close();
     }
-
+    
     return vUsers;
 }
 
