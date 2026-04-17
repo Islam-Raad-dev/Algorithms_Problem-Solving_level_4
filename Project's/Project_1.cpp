@@ -983,6 +983,7 @@ void ShowDeleteClientScreen()
     if (!CheckAccessPermission(enMainMenuePermissions::pDeleteClient))
     {
         ShowAccessDeniedMessage();
+        
         return;
     }
 
@@ -994,6 +995,7 @@ void ShowDeleteClientScreen()
 
     vector <sClient> vClients = LoadCleintsDataFromFile(ClientsFileName);
     string AccountNumber = ReadClientAccountNumber();
+
     DeleteClientByAccountNumber(AccountNumber, vClients);
 }
 
@@ -1002,6 +1004,7 @@ void ShowUpdateClientScreen()
     if (!CheckAccessPermission(enMainMenuePermissions::pUpdateClients))
     {
         ShowAccessDeniedMessage();
+
         return;
     }
 
@@ -1020,6 +1023,7 @@ void ShowAddNewClientsScreen()
     if (!CheckAccessPermission(enMainMenuePermissions::pAddNewClient))
     {
         ShowAccessDeniedMessage();
+
         return;
     }
 
@@ -1045,7 +1049,7 @@ void ShowFindClientScreen()
     vector <sClient> vClients = LoadCleintsDataFromFile(ClientsFileName);
 
     sClient Client;
-    
+
     string AccountNumber = ReadClientAccountNumber();
 
 
