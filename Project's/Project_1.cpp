@@ -621,7 +621,7 @@ bool MarkClientForDeleteByAccountNumber(string AccountNumber, vector<sClient> &v
             return true;
         }
     }
-    
+
     return false;
 }
 
@@ -636,6 +636,7 @@ bool MarkUserForDeleteByUsername(string Username, vector<stUser> &vUsers)
             return true;
         }
     }
+    
     return false;
 }
 
