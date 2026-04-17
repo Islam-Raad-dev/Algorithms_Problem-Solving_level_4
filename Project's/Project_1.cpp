@@ -1,6 +1,18 @@
 /*
 
+Project Name: Banking System Console Application
 
+Author: Islam Raad
+
+Date: 2026-04-17
+
+Description:
+
+This is a simple console application for managing a banking system. It allows
+users to perform various operations such as listing clients, adding new
+clients, deleting clients, updating client information, finding clients
+performing transactions (deposit and withdraw), and managing users. The
+application uses text files to store client and user data.
 
 */
 
