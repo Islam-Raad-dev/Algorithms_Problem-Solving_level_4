@@ -636,7 +636,7 @@ bool MarkUserForDeleteByUsername(string Username, vector<stUser> &vUsers)
             return true;
         }
     }
-    
+
     return false;
 }
 
@@ -644,7 +644,9 @@ bool MarkUserForDeleteByUsername(string Username, vector<stUser> &vUsers)
 vector<sClient> SaveCleintsDataToFile(string FileName, vector<sClient> vClients)
 {
     fstream MyFile;
+
     MyFile.open(FileName, ios::out);
+    
     string DataLine;
     if (MyFile.is_open())
     {
@@ -656,8 +658,10 @@ vector<sClient> SaveCleintsDataToFile(string FileName, vector<sClient> vClients)
                 MyFile << DataLine << endl;
             }
         }
+
         MyFile.close();
     }
+
     return vClients;
 }
 
