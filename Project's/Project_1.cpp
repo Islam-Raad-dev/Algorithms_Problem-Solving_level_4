@@ -318,7 +318,7 @@ int ReadPermissionsToSet()
     cin >> Answer;
     if (Answer == 'y' || Answer == 'Y') Permissions += enMainMenuePermissions::pManageUsers;
 
-    
+
     return Permissions;
 }
 
@@ -326,6 +326,8 @@ int ReadPermissionsToSet()
 stUser ReadNewUser()
 {
     stUser User;
+
+    
     cout << "Enter Username? ";
     getline(cin >> ws, User.UserName);
 
