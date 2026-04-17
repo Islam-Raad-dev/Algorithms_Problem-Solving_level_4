@@ -125,7 +125,7 @@ vector<string> SplitString(string S1, string Delim)
     {
         vString.push_back(S1);
     }
-    
+
     return vString;
 }
 
@@ -147,7 +147,9 @@ sClient ConvertLinetoRecord(string Line, string Seperator = "#//#")
 {
     sClient Client;
     vector<string> vClientData;
+
     vClientData = SplitString(Line, Seperator);
+    
     Client.AccountNumber = vClientData[0];
     Client.PinCode = vClientData[1];
     Client.Name = vClientData[2];
