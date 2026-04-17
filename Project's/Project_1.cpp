@@ -67,7 +67,12 @@ struct sClientInfo
     bool MarkForDelete = false;
 };
 
-struct 
+struct cUserInfo
+{
+    string UserName;
+    string Password;
+    enUserPermissions Permissions;
+};
 vector<string> SplitString(string S1, string delim)
 {
     vector<string> vString;
