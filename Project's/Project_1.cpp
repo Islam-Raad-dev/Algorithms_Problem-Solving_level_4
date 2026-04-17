@@ -284,32 +284,41 @@ int ReadPermissionsToSet()
     cout << "\nDo you want to give access to : \n ";
     cout << "\nShow Client List? y/n? ";
     cin >> Answer;
+
+
     if (Answer == 'y' || Answer == 'Y') Permissions += enMainMenuePermissions::pListClients;
+
 
     cout << "\nAdd New Client? y/n? ";
     cin >> Answer;
     if (Answer == 'y' || Answer == 'Y') Permissions += enMainMenuePermissions::pAddNewClient;
 
+
     cout << "\nDelete Client? y/n? ";
     cin >> Answer;
     if (Answer == 'y' || Answer == 'Y') Permissions += enMainMenuePermissions::pDeleteClient;
+
 
     cout << "\nUpdate Client? y/n? ";
     cin >> Answer;
     if (Answer == 'y' || Answer == 'Y') Permissions += enMainMenuePermissions::pUpdateClients;
 
+
     cout << "\nFind Client? y/n? ";
     cin >> Answer;
     if (Answer == 'y' || Answer == 'Y') Permissions += enMainMenuePermissions::pFindClient;
+
 
     cout << "\nTransactions? y/n? ";
     cin >> Answer;
     if (Answer == 'y' || Answer == 'Y') Permissions += enMainMenuePermissions::pTranactions;
 
+
     cout << "\nManage Users? y/n? ";
     cin >> Answer;
     if (Answer == 'y' || Answer == 'Y') Permissions += enMainMenuePermissions::pManageUsers;
 
+    
     return Permissions;
 }
 
