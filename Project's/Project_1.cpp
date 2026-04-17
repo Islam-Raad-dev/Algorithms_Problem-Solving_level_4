@@ -1,3 +1,9 @@
+/*
+
+
+
+*/
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -5,6 +11,12 @@
 #include <iomanip>
 
 using namespace std;
+
+
+stUser CurrentUser;
+const string ClientsFileName = "Clients.txt";
+const string UsersFileName = "Users.txt";
+
 
 // هيكل بيانات المستخدم
 struct stUser
@@ -61,10 +73,6 @@ enum enMainMenuePermissions
     pManageUsers = 64
 };
 
-const string ClientsFileName = "Clients.txt";
-const string UsersFileName = "Users.txt";
-
-stUser CurrentUser;
 
 // تعريفات أولية للدوال
 void ShowMainMenue();
