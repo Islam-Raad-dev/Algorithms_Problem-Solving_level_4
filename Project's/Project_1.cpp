@@ -321,8 +321,29 @@ sClientInfo ReadNewClient()
     return Client;
 }
 
+void AddNewUserScreen(){
+    system("clear");
+    cout << "\n-----------------------------------------------\n";
+    cout << "\tAdd New User";
+    cout << "\n-----------------------------------------------\n";
+}
+cUserInfo ReadNewUserInfo()
+{
+    AddNewUserScreen();
+    cUserInfo User;
+    char FullAccess = 'Y';
 
+    cout << "Enter User Name: ";
+    getline(cin >> ws, User.UserName);
+    cout << "Enter Password: ";
+    getline(cin, User.Password);
 
+    cout << "\nDo you want To Give This User Full Accese ? (Y/N):";
+        cin >> FullAccess;
+    while (toupper(FullAccess) == 'Y');
+    return User;
+
+}
 // --- Core Business Logic ---
 
 void AddNewClients()
