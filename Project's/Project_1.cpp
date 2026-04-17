@@ -779,7 +779,7 @@ bool DeleteClientByAccountNumber(string AccountNumber, vector<sClient>& vClients
         cout << "\nClient with Account Number (" << AccountNumber << ") is Not Found!";
         return false;
     }
-    
+
     return false;
 }
 
@@ -791,27 +791,33 @@ bool DeleteUserByUsername(string Username, vector<stUser>& vUsers)
         cout << "\n\nYou cannot Delete This User.";
         return false;
     }
+
     stUser User;
     char Answer = 'n';
+
     if (FindUserByUsername(Username, vUsers, User))
     {
         PrintUserCard(User);
         cout << "\n\nAre you sure you want delete this User? y/n ? ";
         cin >> Answer;
+
         if (Answer == 'y' || Answer == 'Y')
         {
             MarkUserForDeleteByUsername(Username, vUsers);
             SaveUsersDataToFile(UsersFileName, vUsers);
             vUsers = LoadUsersDataFromFile(UsersFileName);
             cout << "\n\nUser Deleted Successfully.";
+
             return true;
         }
     }
+
     else
     {
         cout << "\nUser with Username (" << Username << ") is Not Found!";
         return false;
     }
+    
     return false;
 }
 
