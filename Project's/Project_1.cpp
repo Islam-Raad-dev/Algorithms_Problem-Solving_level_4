@@ -340,6 +340,7 @@ cUserInfo ReadNewUserInfo()
 
     cout << "\nDo you want To Give This User Full Accese ? (Y/N):";
         cin >> FullAccess;
+        
     while (toupper(FullAccess) == 'Y');
     return User;
 
