@@ -648,6 +648,7 @@ vector<sClient> SaveCleintsDataToFile(string FileName, vector<sClient> vClients)
     MyFile.open(FileName, ios::out);
 
     string DataLine;
+    
     if (MyFile.is_open())
     {
         for (sClient C : vClients)
@@ -671,6 +672,7 @@ vector<stUser> SaveUsersDataToFile(string FileName, vector<stUser> vUsers)
     fstream MyFile;
 
     MyFile.open(FileName, ios::out);
+
     string DataLine;
     if (MyFile.is_open())
     {
@@ -732,6 +734,7 @@ void AddNewClients()
 
         cout << "\nClient Added Successfully, do you want to add more clients? Y/N? ";
         cin >> AddMore;
+
     } while (toupper(AddMore) == 'Y');
 }
 
@@ -759,6 +762,7 @@ bool DeleteClientByAccountNumber(string AccountNumber, vector<sClient>& vClients
     if (FindClientByAccountNumber(AccountNumber, vClients, Client))
     {
         PrintClientCard(Client);
+
         cout << "\n\nAre you sure you want delete this client? y/n ? ";
         cin >> Answer;
 
@@ -798,7 +802,7 @@ bool DeleteUserByUsername(string Username, vector<stUser>& vUsers)
     if (FindUserByUsername(Username, vUsers, User))
     {
         PrintUserCard(User);
-        
+
         cout << "\n\nAre you sure you want delete this User? y/n ? ";
         cin >> Answer;
 
