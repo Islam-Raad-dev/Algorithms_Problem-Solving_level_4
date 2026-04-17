@@ -1442,7 +1442,9 @@ bool LoadUserInfo(string Username, string Password)
 {
     if (FindUserByUsernameAndPassword(Username, Password, CurrentUser))
         return true;
+
     else
+    
         return false;
 }
 
@@ -1481,5 +1483,5 @@ int main()
     Login();
 
     return 0;
-    
+
 }
