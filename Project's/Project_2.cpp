@@ -290,8 +290,34 @@ void ShowQuickWithdrawalScreen()
 
 }
 
+double ReadDepositAmount()
+{
+    double Amount;
+
+    cout << "Enter An Amount To Deposit: ";
+    cin >> Amount;
+
+    while (Amount <= 0)
+    {
+        cout << "Invalid Amount\n";
+        cout << "Please Enter An Amount To Deposit: ";
+        cin >> Amount;
+    }
+
+    return Amount;
+}
+
 void PerfromDepositOption()
-{}
+{
+    double DepositBalance = ReadDepositAmount();
+
+    vector<sClient> vClients = LoadCleintsDataFromFile(ClientsFileName);
+
+    DepositBalanceToClientByAccountNumber(CurrentClient.AccountNumber, DepositBalance, vClients);
+
+    CurrentClient.AccountBalance += DepositBalance;
+}
+
 void ShowDepositScreen()
 {
     system("clear");
