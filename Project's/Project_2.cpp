@@ -207,14 +207,10 @@ void ShowQuickWithdrawalScreen()
     cout << "\tQuick Withdraw Screen";
     cout << "\n-----------------------------------\n";
 
-    cout << "\t[1] 20\n";
-    cout << "\t[2] 50\n";
-    cout << "\t[3] 100\n";
-    cout << "\t[4] 200\n";
-    cout << "\t[5] 400\n";
-    cout << "\t[6] 600\n";
-    cout << "\t[7] 800\n";
-    cout << "\t[8] 1000\n";
+    cout << "\t[1] 20\n \t[2] 50\n";
+    cout << "\t[3] 100\n \t[4] 200\n";
+    cout << "\t[5] 400\n \t[6] 600\n";
+    cout << "\t[7] 800\n \t[8] 1000\n";
     cout << "\t[9] Exit\n";
 
     PerfromQuickWithdrawalOption((enQuickWithdrawal)ReadQuickWithdrawalOption());
