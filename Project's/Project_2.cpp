@@ -213,7 +213,11 @@ void ShowQuickWithdrawalScreen()
     cout << "\t[7] 800\n \t[8] 1000\n";
     cout << "\t[9] Exit\n";
 
-    PerfromQuickWithdrawalOption((enQuickWithdrawal)ReadQuickWithdrawalOption());
+    cout << "------------------------------------\n";
+
+    cout << "Your Current Balance is: " << CurrentClient.AccountBalance << endl;
+
+    PerfromQuickWithdrawalOption(ReadQuickWithdrawalOption());
 
 }
 
