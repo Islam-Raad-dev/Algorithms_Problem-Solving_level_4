@@ -99,6 +99,20 @@ sClient ConvertLinetoRecord(string Line, string Seperator = "#//#")
 
     return Client;
 }
+
+string ConvertRecordToLine(sClient Client, string Seperator = "#//#")
+{
+    string stClientRecord = "";
+
+    stClientRecord += Client.AccountNumber + Seperator;
+    stClientRecord += Client.PinCode + Seperator;
+    stClientRecord += Client.Name + Seperator;
+    stClientRecord += Client.Phone + Seperator;
+    stClientRecord += to_string(Client.AccountBalance);
+
+    return stClientRecord;
+}
+
 vector<sClient> LoadCleintsDataFromFile(string FileName)
 {
     vector<sClient> vClients;
@@ -122,7 +136,7 @@ vector<sClient> LoadCleintsDataFromFile(string FileName)
 bool FindClientByAccountNumberAndPinCode(string AccountNumber, string PinCode, sClient &Client)
 {
     vector<sClient> vClients = LoadCleintsDataFromFile(ClientsFileName);
-    
+
     for (sClient C : vClients)
     {
         if (C.AccountNumber == AccountNumber && C.PinCode == PinCode)
