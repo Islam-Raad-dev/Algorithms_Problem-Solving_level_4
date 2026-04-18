@@ -12,6 +12,7 @@ Project 2: ATM System Console Application
 using namespace std;
 
 const string ClientsFileName = "Clients.txt";
+Login();
 
 struct sClient
 {
@@ -32,11 +33,11 @@ enum enMainMenue
     eLogout = 5
 };
 
-bool FindClientByAccountNumber(string AccountNumber, vector<sClient> vClients, sClient &Client)
+bool FindClientByAccountNumberAndPinCode(string AccountNumber, string PinCode, vector<sClient> vClients, sClient &Client)
 {
     for (sClient C : vClients)
     {
-        if (C.AccountNumber == AccountNumber)
+        if (C.AccountNumber == AccountNumber && C.PinCode == PinCode)
         {
             Client = C;
             return true;
@@ -71,6 +72,7 @@ enMainMenue PerfromMainMenueOption(enMainMenue MainMenueOption)
         
         break;
     case eLogout:
+         Login();
         break;
 
         default:
@@ -99,7 +101,7 @@ void ShowMainMenue()
 
 bool LoadUserInfo(short AccountNumber, short PinCode)
 {
-    if (FindUserByAccountNumberAndPinCode(AccountNumber, PinCode))
+    if (FindClientByAccountNumberAndPinCode(AccountNumber, PinCode))
         return true;
 
     else
