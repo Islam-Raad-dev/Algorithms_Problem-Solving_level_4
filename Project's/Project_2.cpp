@@ -14,6 +14,9 @@ using namespace std;
 const string ClientsFileName = "Clients.txt";
 
 void ShowMainMenue();
+void ShowQuickWithdrawalScreen();
+void ShowDepositScreen();
+void ShowNormalWithdrawalScreen();
 void GoBackToMainMenue();
 void Login();
 
@@ -147,7 +150,7 @@ void ShowDepositScreen()
 
 }
 
-void ShowWithDrawScreen()
+void ShowNormalWithdrawalScreen()
 {
     system("clear");
 
