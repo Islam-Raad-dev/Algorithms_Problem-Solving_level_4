@@ -121,7 +121,7 @@ vector<sClient> LoadCleintsDataFromFile(string FileName)
 
 bool FindClientByAccountNumberAndPinCode(string AccountNumber, string PinCode, sClient &Client)
 {
-    vector<sClient> vClients = LoadClientsDataFromFile(ClientsFileName);
+    vector<sClient> vClients = LoadCleintsDataFromFile(ClientsFileName);
     for (sClient C : vClients)
     {
         if (C.AccountNumber == AccountNumber && C.PinCode == PinCode)
