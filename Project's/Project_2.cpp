@@ -299,13 +299,19 @@ void ShowDepositScreen()
     cout << "\n-----------------------------------\n";
 
 }
+int ReadWithdrawAmount()
+{
+    double WithdrawAmount;
+
+    cout << "Please Enter Withdraw Amount: ";
+    cin >> WithdrawAmount;
+
+    return WithdrawAmount;
+}
 
 void PerfromNormalWithdrawalOption()
 {
-    double WithdrawBalance;
-
-    cout << "Please Enter Withdraw Balance: ";
-    cin >> WithdrawBalance;
+    int WithdrawBalance = ReadWithdrawAmount();
 
     if(WithdrawBalance > CurrentClient.AccountBalance)
     {
