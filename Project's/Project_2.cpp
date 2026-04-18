@@ -153,11 +153,53 @@ short ReadQuickWithdrawalOption()
 // Main Menue Functions 
 //---------------------------------------------
 
+short GetQuickWithdrawalOption(short QuickWithdrawalOption)
+{
+    switch (QuickWithdrawalOption)
+    {
+    case 1:
+        return 20;
+
+    case 2:
+        return 50;
+
+    case 3:
+        return 100;
+
+    case 4:
+        return 200;
+
+    case 5:
+        return 400;
+
+    case 6:
+        return 600;
+
+    case 7:
+        return 800;
+
+    case 8:
+        return 1000;
+
+    default:
+        return 0;
+    }
+}   
+
 void PerfromQuickWithdrawalOption(short ReadQuickWithdrawalOption)
 {
     if(ReadQuickWithdrawalOption == 9)
     {
-        ShowMainMenue();
+        return;
+    }
+
+    short WithdrawBalance = GetQuickWithdrawalOption(ReadQuickWithdrawalOption);
+
+    if(WithdrawBalance > CurrentClient.AccountBalance)
+    {
+        cout << "Sorry, You Don't Have Enough Balance.\n";
+        GoBackToMainMenue();
+        ShowQuickWithdrawalScreen();
         return;
     }
 }
