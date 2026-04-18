@@ -51,7 +51,7 @@ enum enQuickWithdrawal
     eQWExit = 9
 };
 
-bool FindClientByAccountNumberAndPinCode(string AccountNumber, string PinCode, vector<sClient> vClients)
+bool FindClientByAccountNumberAndPinCode(string AccountNumber, string PinCode, sClient &Client)
 {
     for (sClient C : vClients)
     {
@@ -165,7 +165,7 @@ void ShowTotalBalancesScreen()
     cout << "\tTotal Balances Screen";
     cout << "\n-----------------------------------\n";
 
-    cout << "Total Balances = " << ShowTotalBalane<< endl;
+    cout << "Total Balances = " << endl;
 
 }
 
