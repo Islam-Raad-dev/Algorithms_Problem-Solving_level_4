@@ -80,31 +80,31 @@ enQuickWithdrawal PerfromQuickWithdrawalOption(enQuickWithdrawal QuickWithdrawal
 {
     switch (QuickWithdrawalOption)
     {
-    case eQW20:
+    case enQuickWithdrawal::eQW20:
         break;
 
-    case eQW50:
+    case enQuickWithdrawal::eQW50:
         break;
 
-    case eQW100:
+    case enQuickWithdrawal::eQW100:
         break;
 
-    case eQW200:
+    case enQuickWithdrawal::eQW200:
         break;
 
-    case eQw400:
+    case enQuickWithdrawal::eQw400:
         break;
 
-    case eQW600:
+    case enQuickWithdrawal::eQW600:
         break;
 
-    case eQW800:
+    case enQuickWithdrawal::eQW800:
         break;
 
-    case eQW1000:
+    case enQuickWithdrawal::eQW1000:
         break;
 
-    case eQWExit:
+    case enQuickWithdrawal::eQWExit:
         break;
 
     default:    
