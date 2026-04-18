@@ -10,3 +10,5 @@ Project 2: ATM System Console Application
 #include <iomanip>
 
 using namespace std;
+
+const string ClientsFileName = "Clients.txt";
