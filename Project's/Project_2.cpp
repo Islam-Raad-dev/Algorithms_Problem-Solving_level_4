@@ -137,6 +137,8 @@ void ShowQuickWithdrawalScreen()
 
 void ShowDepositScreen()
 {
+    system("clear");
+    
     cout << "\n-----------------------------------\n";
     cout << "\tDeposit Screen";
     cout << "\n-----------------------------------\n";
@@ -145,6 +147,8 @@ void ShowDepositScreen()
 
 void ShowWithDrawScreen()
 {
+    system("clear");
+
     cout << "\n-----------------------------------\n";
     cout << "\tWithdraw Screen";
     cout << "\n-----------------------------------\n";
@@ -153,6 +157,8 @@ void ShowWithDrawScreen()
 
 void ShowTotalBalancesScreen()
 {
+    system("clear");
+
     cout << "\n-----------------------------------\n";
     cout << "\tTotal Balances Screen";
     cout << "\n-----------------------------------\n";
