@@ -305,7 +305,7 @@ void ShowNormalWithdrawalScreen()
     system("clear");
 
     cout << "\n-----------------------------------\n";
-    cout << "\tWithdraw Screen";
+    cout << "\tNormal Withdraw Screen";
     cout << "\n-----------------------------------\n";
 
 }
