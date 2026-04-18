@@ -710,7 +710,7 @@ void AddDataLineToFile(string FileName, string stDataLine)
     MyFile.open(FileName, ios::out | ios::app);
     if (MyFile.is_open())
     {
-        MyFile << stDataLine << endl;
+        MyFile << "\n" << stDataLine << endl;
         MyFile.close();
     }
 }
