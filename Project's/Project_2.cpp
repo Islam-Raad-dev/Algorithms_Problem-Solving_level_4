@@ -27,6 +27,8 @@ struct sClient
     bool MarkForDelete = false;
 };
 
+sClient CurrentClient;
+
 enum enMainMenue
 {
     eQuickWithdrawal = 1,
