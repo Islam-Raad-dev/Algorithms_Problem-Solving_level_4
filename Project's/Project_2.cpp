@@ -249,7 +249,7 @@ void ShowCheckBalancesScreen()
     cout << "\tCheck Balances Screen";
     cout << "\n-----------------------------------\n";
 
-    cout << "Total Balances = " << endl;
+    cout << "Total Balances = " << CurrentClient.AccountBalance << endl;
 
 }
 
@@ -296,7 +296,7 @@ enMainMenue PerfromMainMenueOption(enMainMenue MainMenueOption)
 
 
     case eCheckBalance:
-        ShowTotalBalancesScreen();
+        ShowCheckBalancesScreen();
         GoBackToMainMenue();
         break;
 
