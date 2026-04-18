@@ -211,6 +211,19 @@ short GetQuickWithdrawalOption(short QuickWithdrawalOption)
     }
 }   
 
+vector<sClient> DipositBalanceToClientByAccountNumber(string AccountNumber, double Balance, vector<sClient>& vClients)
+{
+    for (sClient& C : vClients)
+    {
+        if (C.AccountNumber == AccountNumber)
+        {
+            C.AccountBalance += Balance;
+            return vClients;
+        }
+    }
+
+    return vClients;
+}
 void PerfromQuickWithdrawalOption(short ReadQuickWithdrawalOption)
 {
     if(ReadQuickWithdrawalOption == 9)
@@ -234,9 +247,12 @@ void PerfromQuickWithdrawalOption(short ReadQuickWithdrawalOption)
     }
 
     vector<sClient> vClients = LoadCleintsDataFromFile(ClientsFileName);
+
     DipositBalanceToClientByAccountNumber(CurrentClient.AccountNumber, WithdrawBalance * -1, vClients);
+
     CurrentClient.AccountBalance -= WithdrawBalance;
-    SaveCleintsDataToFile(ClientsFileName, vClients);
+
+    
 }
 
 void ShowQuickWithdrawalScreen()
