@@ -33,6 +33,20 @@ enum enMainMenue
     eLogout = 5
 };
 
+enum enQuickWithdrawal
+{
+    eQW20 = 1,
+    eQW50 = 2,
+    eQW100 = 3,
+    eQW200 = 4,
+    eQw400 = 5,
+    eQW600 = 6,
+    eQW800 = 7,
+    eQW1000 = 8,
+    eQWOther = 9,
+    eQWExit = 10
+};
+
 bool FindClientByAccountNumberAndPinCode(string AccountNumber, string PinCode, vector<sClient> vClients, sClient &Client)
 {
     for (sClient C : vClients)
@@ -79,6 +93,8 @@ void ShowTotalBalancesScreen()
     cout << "\n-----------------------------------\n";
     cout << "\tTotal Balances Screen";
     cout << "\n-----------------------------------\n";
+
+    cout << "Total Balances = " << ShowTotalBalane<< endl;
 
 }
 
