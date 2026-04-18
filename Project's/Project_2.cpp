@@ -12,6 +12,9 @@ Project 2: ATM System Console Application
 using namespace std;
 
 const string ClientsFileName = "Clients.txt";
+
+void ShowMainMenue();
+void GoBackToMainMenue();
 void Login();
 
 struct sClient
@@ -68,6 +71,7 @@ short ReadQuickWithdrawalOption()
 
     return Choice;
 }
+
 //---------------------------------------------
 // Main Menue Functions 
 //---------------------------------------------
@@ -104,6 +108,15 @@ void ShowTotalBalancesScreen()
 
     cout << "Total Balances = " << ShowTotalBalane<< endl;
 
+}
+
+void GoBackToMainMenue()
+{
+    cout << "\n\nPress Enter to go back to Main Menue...";
+    cin.ignore();
+    cin.get();
+
+    ShowMainMenue();
 }
 
 //----------------------------------------------
