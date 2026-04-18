@@ -1480,9 +1480,9 @@ void ShowMainMenue()
 }
 
 // تحميل معلومات المستخدم الحالي
-bool LoadClientInfo(string AccountNumber, string PinCode)
+bool LoadUserInfo(string Username, string Password)
 {
-    if (FindClientByAccountNumberAndPinCode(AccountNumber, PinCode, CurrentClient))
+    if (FindUserByUsernameAndPassword(Username, Password, CurrentUser))
         return true;
 
     else
@@ -1516,7 +1516,7 @@ void Login()
         cout << "Enter Password: ";
         cin >> Password;
 
-        LoginFaild = !LoadClientInfo(Username, Password);
+        LoginFaild = !LoadUserInfo(Username, Password);
         
     } while (LoginFaild);
 
