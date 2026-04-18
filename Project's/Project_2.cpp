@@ -215,7 +215,7 @@ bool DepositBalanceToClientByAccountNumber(string AccountNumber, double Amount, 
 {
     char Answer = 'n';
 
-    cout << "\n\nAre you sure you want perfrom this transaction? y/n ? ";
+    cout << "\n\nAre You Sure You Want Perfrom This Transaction? y/n ? ";
     cin >> Answer;
 
     if (Answer == 'y' || Answer == 'Y')
@@ -236,6 +236,7 @@ bool DepositBalanceToClientByAccountNumber(string AccountNumber, double Amount, 
 
     return false;
 }
+
 void PerfromQuickWithdrawalOption(short ReadQuickWithdrawalOption)
 {
     if(ReadQuickWithdrawalOption == 9)// Exit
