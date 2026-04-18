@@ -241,12 +241,12 @@ void ShowNormalWithdrawalScreen()
 
 }
 
-void ShowTotalBalancesScreen()
+void ShowCheckBalancesScreen()
 {
     system("clear");
 
     cout << "\n-----------------------------------\n";
-    cout << "\tTotal Balances Screen";
+    cout << "\tCheck Balances Screen";
     cout << "\n-----------------------------------\n";
 
     cout << "Total Balances = " << endl;
