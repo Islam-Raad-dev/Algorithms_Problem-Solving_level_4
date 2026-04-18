@@ -198,7 +198,12 @@ void PerfromQuickWithdrawalOption(short ReadQuickWithdrawalOption)
     if(WithdrawBalance > CurrentClient.AccountBalance)
     {
         cout << "Sorry, You Don't Have Enough Balance.\n";
-        GoBackToMainMenue();
+
+        cout << "\n\nPress Enter to go back to Main Menue...";
+        cin.ignore();
+        cin.get();
+
+        
         ShowQuickWithdrawalScreen();
         return;
     }
