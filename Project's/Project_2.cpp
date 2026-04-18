@@ -76,12 +76,62 @@ short ReadQuickWithdrawalOption()
 // Main Menue Functions 
 //---------------------------------------------
 
+enQuickWithdrawal PerfromQuickWithdrawalOption(enQuickWithdrawal QuickWithdrawalOption)
+{
+    switch (QuickWithdrawalOption)
+    {
+    case eQW20:
+        break;
+
+    case eQW50:
+        break;
+
+    case eQW100:
+        break;
+
+    case eQW200:
+        break;
+
+    case eQw400:
+        break;
+
+    case eQW600:
+        break;
+
+    case eQW800:
+        break;
+
+    case eQW1000:
+        break;
+
+    case eQWExit:
+        break;
+
+    default:    
+        cout << "Invalid Option, Please Try Again.\n";
+        break;
+    }
+}
+
 void ShowQuickWithdrawalScreen()
 {
     system("clear");
+
     cout << "\n-----------------------------------\n";
     cout << "\tQuick Withdraw Screen";
     cout << "\n-----------------------------------\n";
+
+    cout << "\t[1] 20\n";
+    cout << "\t[2] 50\n";
+    cout << "\t[3] 100\n";
+    cout << "\t[4] 200\n";
+    cout << "\t[5] 400\n";
+    cout << "\t[6] 600\n";
+    cout << "\t[7] 800\n";
+    cout << "\t[8] 1000\n";
+    cout << "\t[9] Exit\n";
+
+    PerfromQuickWithdrawalOption((enQuickWithdrawal)ReadQuickWithdrawalOption());
 
 }
 
