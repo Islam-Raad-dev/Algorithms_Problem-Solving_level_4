@@ -226,7 +226,7 @@ vector<sClient> DipositBalanceToClientByAccountNumber(string AccountNumber, doub
 }
 void PerfromQuickWithdrawalOption(short ReadQuickWithdrawalOption)
 {
-    if(ReadQuickWithdrawalOption == 9)
+    if(ReadQuickWithdrawalOption == 9)// Exit
     {
         return;
     }
@@ -252,7 +252,7 @@ void PerfromQuickWithdrawalOption(short ReadQuickWithdrawalOption)
 
     CurrentClient.AccountBalance -= WithdrawBalance;
 
-    
+
 }
 
 void ShowQuickWithdrawalScreen()
