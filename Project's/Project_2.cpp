@@ -43,8 +43,7 @@ enum enQuickWithdrawal
     eQW600 = 6,
     eQW800 = 7,
     eQW1000 = 8,
-    eQWOther = 9,
-    eQWExit = 10
+    eQWExit = 9
 };
 
 bool FindClientByAccountNumberAndPinCode(string AccountNumber, string PinCode, vector<sClient> vClients, sClient &Client)
@@ -60,6 +59,15 @@ bool FindClientByAccountNumberAndPinCode(string AccountNumber, string PinCode, v
     return false;
 }
 
+short ReadQuickWithdrawalOption()
+{
+    short Choice;
+
+    cout << "Please Choose Quick Withdrawal Amount? [1 to 10]: ";
+    cin >> Choice;
+
+    return Choice;
+}
 //---------------------------------------------
 // Main Menue Functions 
 //---------------------------------------------
