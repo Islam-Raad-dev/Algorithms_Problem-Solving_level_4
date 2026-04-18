@@ -211,18 +211,30 @@ short GetQuickWithdrawalOption(short QuickWithdrawalOption)
     }
 }   
 
-vector<sClient> DipositBalanceToClientByAccountNumber(string AccountNumber, double Balance, vector<sClient>& vClients)
+bool DepositBalanceToClientByAccountNumber(string AccountNumber, double Amount, vector<sClient>& vClients)
 {
-    for (sClient& C : vClients)
+    char Answer = 'n';
+
+    cout << "\n\nAre you sure you want perfrom this transaction? y/n ? ";
+    cin >> Answer;
+
+    if (Answer == 'y' || Answer == 'Y')
     {
-        if (C.AccountNumber == AccountNumber)
+        for (sClient& C : vClients)
         {
-            C.AccountBalance += Balance;
-            return vClients;
+            if (C.AccountNumber == AccountNumber)
+            {
+                C.AccountBalance += Amount;
+                SaveCleintsDataToFile(ClientsFileName, vClients);
+
+                cout << "\n\nDone Successfully. New balance is: " << C.AccountBalance;
+
+                return true;
+            }
         }
     }
 
-    return vClients;
+    return false;
 }
 void PerfromQuickWithdrawalOption(short ReadQuickWithdrawalOption)
 {
