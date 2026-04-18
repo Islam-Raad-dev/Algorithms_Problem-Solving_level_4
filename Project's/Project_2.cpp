@@ -12,7 +12,7 @@ Project 2: ATM System Console Application
 using namespace std;
 
 const string ClientsFileName = "Clients.txt";
-Login();
+void Login();
 
 struct sClient
 {
