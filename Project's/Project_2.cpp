@@ -300,7 +300,7 @@ double ReadDepositAmount()
     while (Amount <= 0)
     {
         cout << "Invalid Amount\n";
-        cout << "Please Enter An Amount To Deposit: ";
+        cout << "Please Enter An Positive Amount To Deposit: ";
         cin >> Amount;
     }
 
