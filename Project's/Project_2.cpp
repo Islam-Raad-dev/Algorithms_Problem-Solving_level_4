@@ -333,6 +333,12 @@ void PerfromNormalWithdrawalOption()
         ShowNormalWithdrawalScreen();
         return;
     }
+
+    vector<sClient> vClients = LoadCleintsDataFromFile(ClientsFileName);
+
+    DepositBalanceToClientByAccountNumber(CurrentClient.AccountNumber, WithdrawBalance * -1, vClients);
+
+    CurrentClient.AccountBalance -= WithdrawBalance;
 }
 
 void ShowNormalWithdrawalScreen()
