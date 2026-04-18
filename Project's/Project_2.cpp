@@ -2,6 +2,18 @@
 
 Project 2: ATM System Console Application
 
+Author: Islam Raad
+
+Date: 2024-04-19
+
+Description:
+
+This project implements a simple ATM system console application in C++. The
+application allows users to perform various banking operations such as quick
+withdrawal, normal withdrawal, deposit, and checking balance. The user data is
+stored in a text file named "Clients.txt", and the application reads from and
+writes to this file to manage client information and transactions.
+
 */
 #include <iostream>
 #include <fstream>
@@ -453,6 +465,7 @@ enMainMenue PerfromMainMenueOption(enMainMenue MainMenueOption)
     
     }
 }
+
 void ShowMainMenue()
 {
     system("clear");
