@@ -136,6 +136,31 @@ bool FindClientByAccountNumberAndPinCode(string AccountNumber, string PinCode, s
     return false;
 }
 
+vector<sClient> SaveCleintsDataToFile(string FileName, vector<sClient> vClients)
+{
+    fstream MyFile;
+
+    MyFile.open(FileName, ios::out);
+
+    string DataLine;
+
+    if (MyFile.is_open())
+    {
+        for (sClient C : vClients)
+        {
+            if (C.MarkForDelete == false)
+            {
+                DataLine = ConvertRecordToLine(C);
+                MyFile << DataLine << endl;
+            }
+        }
+
+        MyFile.close();
+    }
+
+    return vClients;
+}
+
 short ReadQuickWithdrawalOption()
 {
     short Choice;
@@ -203,10 +228,15 @@ void PerfromQuickWithdrawalOption(short ReadQuickWithdrawalOption)
         cin.ignore();
         cin.get();
 
-        
+
         ShowQuickWithdrawalScreen();
         return;
     }
+
+    vector<sClient> vClients = LoadCleintsDataFromFile(ClientsFileName);
+    DipositBalanceToClientByAccountNumber(CurrentClient.AccountNumber, WithdrawBalance * -1, vClients);
+    CurrentClient.AccountBalance -= WithdrawBalance;
+    SaveCleintsDataToFile(ClientsFileName, vClients);
 }
 
 void ShowQuickWithdrawalScreen()
