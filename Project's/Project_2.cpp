@@ -41,18 +41,6 @@ enum enMainMenue
     eLogout = 5
 };
 
-enum enQuickWithdrawal
-{
-    eQW20 = 1,
-    eQW50 = 2,
-    eQW100 = 3,
-    eQW200 = 4,
-    eQw400 = 5,
-    eQW600 = 6,
-    eQW800 = 7,
-    eQW1000 = 8,
-    eQWExit = 9
-};
 
 vector<string> SplitString(string S1, string Delim)
 {
@@ -167,38 +155,10 @@ short ReadQuickWithdrawalOption()
 
 void PerfromQuickWithdrawalOption(short ReadQuickWithdrawalOption)
 {
-    switch (ReadQuickWithdrawalOption)
+    if(ReadQuickWithdrawalOption == 9)
     {
-    case enQuickWithdrawal::eQW20:
-        break;
-
-    case enQuickWithdrawal::eQW50:
-        break;
-
-    case enQuickWithdrawal::eQW100:
-        break;
-
-    case enQuickWithdrawal::eQW200:
-        break;
-
-    case enQuickWithdrawal::eQw400:
-        break;
-
-    case enQuickWithdrawal::eQW600:
-        break;
-
-    case enQuickWithdrawal::eQW800:
-        break;
-
-    case enQuickWithdrawal::eQW1000:
-        break;
-
-    case enQuickWithdrawal::eQWExit:
-        break;
-
-    default:    
-        cout << "Invalid Option, Please Try Again.\n";
-        break;
+        ShowMainMenue();
+        return;
     }
 }
 
