@@ -299,14 +299,22 @@ void ShowDepositScreen()
     cout << "\n-----------------------------------\n";
 
 }
+
 int ReadWithdrawAmount()
 {
-    double WithdrawAmount;
+   int Amount;
 
-    cout << "Please Enter Withdraw Amount: ";
-    cin >> WithdrawAmount;
+    cout << "Enter An Amount Multiple Of 5: ";
+    cin >> Amount;
 
-    return WithdrawAmount;
+    while (Amount % 5 != 0)
+    {
+        cout << "Invalid Amount\n";
+        cout << "Please Enter An Amount Multiple Of 5: ";
+        cin >> Amount;
+    }
+
+    return Amount;
 }
 
 void PerfromNormalWithdrawalOption()
