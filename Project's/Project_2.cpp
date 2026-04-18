@@ -290,6 +290,8 @@ void ShowQuickWithdrawalScreen()
 
 }
 
+void PerfromDepositOption()
+{}
 void ShowDepositScreen()
 {
     system("clear");
@@ -297,6 +299,8 @@ void ShowDepositScreen()
     cout << "\n-----------------------------------\n";
     cout << "\tDeposit Screen";
     cout << "\n-----------------------------------\n";
+
+    PerfromDepositOption();
 
 }
 
