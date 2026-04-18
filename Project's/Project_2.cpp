@@ -300,6 +300,27 @@ void ShowDepositScreen()
 
 }
 
+void PerfromNormalWithdrawalOption()
+{
+    double WithdrawBalance;
+
+    cout << "Please Enter Withdraw Balance: ";
+    cin >> WithdrawBalance;
+
+    if(WithdrawBalance > CurrentClient.AccountBalance)
+    {
+        cout << "Sorry, You Don't Have Enough Balance.\n";
+
+        cout << "\n\nPress Enter to go back to Main Menue...";
+        cin.ignore();
+        cin.get();
+
+
+        ShowNormalWithdrawalScreen();
+        return;
+    }
+}
+
 void ShowNormalWithdrawalScreen()
 {
     system("clear");
@@ -308,7 +329,7 @@ void ShowNormalWithdrawalScreen()
     cout << "\tNormal Withdraw Screen";
     cout << "\n-----------------------------------\n";
 
-    
+    PerfromNormalWithdrawalOption();
 
 }
 
