@@ -152,8 +152,11 @@ short ReadQuickWithdrawalOption()
 {
     short Choice;
 
-    cout << "Please Choose Quick Withdrawal Amount? [1 to 9]: ";
-    cin >> Choice;
+    while (Choice < 1 || Choice > 9)
+    {
+        cout << "Please Choose Quick Withdrawal Amount? [1 to 9]: ";
+        cin >> Choice;
+    }
 
     return Choice;
 }
@@ -162,9 +165,9 @@ short ReadQuickWithdrawalOption()
 // Main Menue Functions 
 //---------------------------------------------
 
-enQuickWithdrawal PerfromQuickWithdrawalOption(enQuickWithdrawal QuickWithdrawalOption)
+void PerfromQuickWithdrawalOption(short ReadQuickWithdrawalOption)
 {
-    switch (QuickWithdrawalOption)
+    switch (ReadQuickWithdrawalOption)
     {
     case enQuickWithdrawal::eQW20:
         break;
