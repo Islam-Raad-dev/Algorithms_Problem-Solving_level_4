@@ -78,6 +78,7 @@ short ReadQuickWithdrawalOption()
 
 void ShowQuickWithdrawalScreen()
 {
+    system("clear");
     cout << "\n-----------------------------------\n";
     cout << "\tQuick Withdraw Screen";
     cout << "\n-----------------------------------\n";
