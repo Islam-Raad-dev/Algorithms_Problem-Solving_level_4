@@ -46,6 +46,43 @@ bool FindClientByAccountNumberAndPinCode(string AccountNumber, string PinCode, v
     return false;
 }
 
+//---------------------------------------------
+// Main Menue Functions 
+//---------------------------------------------
+
+void ShowQuickWithdrawalScreen()
+{
+    cout << "\n-----------------------------------\n";
+    cout << "\tQuick Withdraw Screen";
+    cout << "\n-----------------------------------\n";
+
+}
+
+void ShowDepositScreen()
+{
+    cout << "\n-----------------------------------\n";
+    cout << "\tDeposit Screen";
+    cout << "\n-----------------------------------\n";
+
+}
+
+void ShowWithDrawScreen()
+{
+    cout << "\n-----------------------------------\n";
+    cout << "\tWithdraw Screen";
+    cout << "\n-----------------------------------\n";
+
+}
+
+void ShowTotalBalancesScreen()
+{
+    cout << "\n-----------------------------------\n";
+    cout << "\tTotal Balances Screen";
+    cout << "\n-----------------------------------\n";
+
+}
+
+//----------------------------------------------
 short ReadMainMenueOption()
 {
     short Choice;
@@ -59,24 +96,32 @@ enMainMenue PerfromMainMenueOption(enMainMenue MainMenueOption)
 {
     switch (MainMenueOption)
     {
+
     case eQuickWithdrawal:
-        
+        ShowQuickWithdrawalScreen();
         break;
+
+
     case eNormalWithdrawal:
-
+        ShowWithDrawScreen();
         break;
+
+
     case eDeposit:
+        ShowDepositScreen();
+        break;
 
-        break;
+
     case eCheckBalance:
-        
+        ShowTotalBalancesScreen();
         break;
+
     case eLogout:
          Login();
-        break;
+         break;
 
-        default:
-
+    default:
+    
         cout << "Invalid Option, Please Try Again.\n";
         break;
     
@@ -87,7 +132,7 @@ void ShowMainMenue()
     system("clear");
 
     cout << "===========================================\n";
-    cout << "\t\tATM Main Menue Screen\n";
+    cout << "\t\tATM Main Menue\n";
     cout << "===========================================\n";
     cout << "\t[1] Quick Withdrawal.\n";
     cout << "\t[2] Normal Withdrawal.\n";
@@ -99,7 +144,7 @@ void ShowMainMenue()
     PerfromMainMenueOption((enMainMenue)ReadMainMenueOption());
 }
 
-bool LoadUserInfo(short AccountNumber, short PinCode)
+bool LoadUserInfo(string AccountNumber, string PinCode)
 {
     if (FindClientByAccountNumberAndPinCode(AccountNumber, PinCode))
         return true;
@@ -113,7 +158,7 @@ bool LoadUserInfo(short AccountNumber, short PinCode)
 void Login()
 {
     bool LoginFaild = false;
-    short AccountNumber, PinCode;
+    string AccountNumber, PinCode;
 
     do
     {
