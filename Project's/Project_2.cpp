@@ -138,7 +138,7 @@ void ShowQuickWithdrawalScreen()
 void ShowDepositScreen()
 {
     system("clear");
-    
+
     cout << "\n-----------------------------------\n";
     cout << "\tDeposit Screen";
     cout << "\n-----------------------------------\n";
