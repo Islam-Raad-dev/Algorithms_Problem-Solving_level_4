@@ -136,21 +136,25 @@ enMainMenue PerfromMainMenueOption(enMainMenue MainMenueOption)
 
     case eQuickWithdrawal:
         ShowQuickWithdrawalScreen();
+        GoBackToMainMenue();
         break;
 
 
     case eNormalWithdrawal:
         ShowWithDrawScreen();
+        GoBackToMainMenue();
         break;
 
 
     case eDeposit:
         ShowDepositScreen();
+        GoBackToMainMenue();
         break;
 
 
     case eCheckBalance:
         ShowTotalBalancesScreen();
+        GoBackToMainMenue();
         break;
 
     case eLogout:
