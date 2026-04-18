@@ -203,7 +203,7 @@ enMainMenue PerfromMainMenueOption(enMainMenue MainMenueOption)
 
 
     case eNormalWithdrawal:
-        ShowWithDrawScreen();
+        ShowNormalWithdrawalScreen();
         GoBackToMainMenue();
         break;
 
