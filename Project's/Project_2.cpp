@@ -51,7 +51,7 @@ enum enQuickWithdrawal
     eQWExit = 9
 };
 
-bool FindClientByAccountNumberAndPinCode(string AccountNumber, string PinCode, vector<sClient> vClients, sClient &Client)
+bool FindClientByAccountNumberAndPinCode(string AccountNumber, string PinCode, vector<sClient> vClients)
 {
     for (sClient C : vClients)
     {
@@ -280,7 +280,7 @@ void Login()
         cout << "Enter Pin Code: ";
         cin >> PinCode;
 
-        LoginFaild = !LoadUserInfo(AccountNumber, PinCode);
+        LoginFaild = !LoadClientInfo(AccountNumber, PinCode);
         
     } while (LoginFaild);
 
