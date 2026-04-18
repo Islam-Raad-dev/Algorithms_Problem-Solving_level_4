@@ -260,7 +260,7 @@ void PerfromQuickWithdrawalOption(short ReadQuickWithdrawalOption)
 
     vector<sClient> vClients = LoadCleintsDataFromFile(ClientsFileName);
 
-    DipositBalanceToClientByAccountNumber(CurrentClient.AccountNumber, WithdrawBalance * -1, vClients);
+    DepositBalanceToClientByAccountNumber(CurrentClient.AccountNumber, WithdrawBalance * -1, vClients);
 
     CurrentClient.AccountBalance -= WithdrawBalance;
 
