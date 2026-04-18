@@ -242,7 +242,7 @@ void ShowMainMenue()
     PerfromMainMenueOption((enMainMenue)ReadMainMenueOption());
 }
 
-bool LoadUserInfo(string AccountNumber, string PinCode)
+bool LoadClientInfo(string AccountNumber, string PinCode)
 {
     if (FindClientByAccountNumberAndPinCode(AccountNumber, PinCode))
         return true;
