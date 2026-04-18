@@ -63,7 +63,7 @@ short ReadQuickWithdrawalOption()
 {
     short Choice;
 
-    cout << "Please Choose Quick Withdrawal Amount? [1 to 10]: ";
+    cout << "Please Choose Quick Withdrawal Amount? [1 to 9]: ";
     cin >> Choice;
 
     return Choice;
