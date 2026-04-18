@@ -308,6 +308,8 @@ void ShowNormalWithdrawalScreen()
     cout << "\tNormal Withdraw Screen";
     cout << "\n-----------------------------------\n";
 
+    
+
 }
 
 void ShowCheckBalancesScreen()
