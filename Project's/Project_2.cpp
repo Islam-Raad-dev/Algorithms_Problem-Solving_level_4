@@ -244,7 +244,7 @@ void ShowMainMenue()
 
 bool LoadClientInfo(string AccountNumber, string PinCode)
 {
-    if (FindClientByAccountNumberAndPinCode(AccountNumber, PinCode))
+    if (FindClientByAccountNumberAndPinCode(AccountNumber, PinCode, CurrentClient))
         return true;
 
     else
