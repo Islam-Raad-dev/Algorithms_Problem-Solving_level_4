@@ -43,7 +43,7 @@ struct stQuizz
     enOperationType OperationType; 
     short NumberOfQuestions; 
     short NumberOfRightAnswer = 0; 
-    short NumberOfWorngAnswer = 0;
+    short NumberOfWorngAnswer = 0; 
     bool isPass = true;
 };
 
