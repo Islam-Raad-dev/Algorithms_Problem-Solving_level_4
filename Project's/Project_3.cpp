@@ -21,7 +21,7 @@ enum enQuizzLevel {Easy = 1, Med = 2, Hard = 3, MixLevel = 4};
 
 // تعريف العمليات الرياضية
 enum enOperationType {Add = 1, Sub = 2, Mul = 3, Div = 4, MixOp = 5};  
-
+ 
 
 // هيكل للسوال الواحد
 struct stQuestions
