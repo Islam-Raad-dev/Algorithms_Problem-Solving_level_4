@@ -44,7 +44,7 @@ struct stQuizz
     short NumberOfQuestions; 
     short NumberOfRightAnswer = 0; 
     short NumberOfWorngAnswer = 0; 
-    bool isPass = true;
+    bool isPass = true; 
 };
 
 // ==========================================
