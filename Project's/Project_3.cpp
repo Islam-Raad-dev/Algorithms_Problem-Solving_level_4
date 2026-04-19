@@ -24,7 +24,7 @@ enum enOperationType {Add = 1, Sub = 2, Mul = 3, Div = 4, MixOp = 5};
  
 
 // هيكل للسوال الواحد
-struct stQuestions
+struct stQuestions 
 {
     enOperationType OperationType;
     enQuizzLevel QuizzLevel;
