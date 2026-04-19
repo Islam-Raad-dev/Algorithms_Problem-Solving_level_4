@@ -1,7 +1,7 @@
 /*
 
 Different In Days (Nagative Days)
-
+ 
 */
 #include <iostream>
 using namespace std;
