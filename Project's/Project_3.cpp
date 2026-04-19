@@ -86,7 +86,7 @@ int main()
 {
     srand((unsigned)time(NULL));
 
-    StartGame();
+    StartGame(); 
 
     return 0;
 }
