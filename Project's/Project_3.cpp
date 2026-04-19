@@ -57,7 +57,7 @@ int RandomNumber(int From, int To);
 short ReadQuestionNumber(); 
 enQuizzLevel ReadQuestionLevel(); 
 enOperationType ReadOperationType(); 
-enOperationType GetRandomOperationType();
+enOperationType GetRandomOperationType(); 
 int SimpleCalculator(int Number1, int Number2, enOperationType OpType);
 
 stQuestions GenerateQuestion(enQuizzLevel QuizzLevel, enOperationType OpType);
