@@ -38,7 +38,7 @@ struct stQuestions
 // هيكل للاختبار كامل
 struct stQuizz
 {
-    stQuestions QuestionsList[100];
+    stQuestions QuestionsList[100]; 
     enQuizzLevel QuestionsLevel;
     enOperationType OperationType;
     short NumberOfQuestions;
