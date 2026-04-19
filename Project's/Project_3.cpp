@@ -56,7 +56,7 @@ struct stQuizz
 int RandomNumber(int From, int To); 
 short ReadQuestionNumber(); 
 enQuizzLevel ReadQuestionLevel(); 
-enOperationType ReadOperationType();
+enOperationType ReadOperationType(); 
 enOperationType GetRandomOperationType();
 int SimpleCalculator(int Number1, int Number2, enOperationType OpType);
 
