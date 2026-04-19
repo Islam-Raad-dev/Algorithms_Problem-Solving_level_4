@@ -54,7 +54,7 @@ struct stQuizz
 // ==========================================
 
 int RandomNumber(int From, int To); 
-short ReadQuestionNumber();
+short ReadQuestionNumber(); 
 enQuizzLevel ReadQuestionLevel();
 enOperationType ReadOperationType();
 enOperationType GetRandomOperationType();
