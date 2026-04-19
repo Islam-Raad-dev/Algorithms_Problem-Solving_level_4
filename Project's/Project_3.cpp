@@ -39,7 +39,7 @@ struct stQuestions
 struct stQuizz
 {
     stQuestions QuestionsList[100]; 
-    enQuizzLevel QuestionsLevel;
+    enQuizzLevel QuestionsLevel; 
     enOperationType OperationType;
     short NumberOfQuestions;
     short NumberOfRightAnswer = 0;
