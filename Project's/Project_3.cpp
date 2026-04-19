@@ -16,7 +16,7 @@ using namespace std;
 // ==========================================
 
 // تعريف مستويات الصعوبة
-enum enQuizzLevel {Easy = 1, Med = 2, Hard = 3, MixLevel = 4};  
+enum enQuizzLevel {Easy = 1, Med = 2, Hard = 3, MixLevel = 4};   
 
 
 // تعريف العمليات الرياضية
