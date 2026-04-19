@@ -32,7 +32,7 @@ struct stQuestions
     int Number2 = 0;
     int CorrectAnswer = 0;
     int PlayerAnswer = 0;
-    bool AnswerResult = false;
+    bool AnswerResult = false; 
 };
 
 // هيكل للاختبار كامل
