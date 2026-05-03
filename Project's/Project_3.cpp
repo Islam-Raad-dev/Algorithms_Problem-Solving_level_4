@@ -7,8 +7,10 @@
      
 #include <cstdlib> // تحتوي على دوال النظام وتوليد الأرقام العشوائية
           
-#include <ctime> // تُستخدم للحصول على وقت النظام لضمان عشوائية الأرقام كل مرة
-      
+#include <ctime>// تُستخدم للحصول على وقت النظام لضمان عشوائية الأرقام كل مرة
+
+#include <windows.h>
+
 using namespace std;                  
                
 // ==========================================               
@@ -81,6 +83,9 @@ void DrawHeader(string Title);
 // Main Function
 
 // ==========================================
+
+#ifdef _WIN32
+#endif
 
 int main()
 {
@@ -382,8 +387,15 @@ void ShowFinalQuizzScreen(stQuizz Quizz)
 
 void ClearScreen()
 {
-    system("clear");
+#ifdef _WIN32
+     system("cls");
+#else
+     system("clear");
+     
+#endif
+     
     cout << "\033[0m";
+     
 }
 
 // تجمع كل خطوات اللعب في دورة واحدة (إدخال بيانات، توليد أسئلة، عرض النتائج).
